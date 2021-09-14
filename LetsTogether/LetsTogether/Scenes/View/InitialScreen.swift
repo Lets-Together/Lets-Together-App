@@ -21,10 +21,10 @@ class InitialScreen: UIView {
     }
 
     lazy var videoView: UIView = {
-        let mainView = UIView()
-        mainView.translatesAutoresizingMaskIntoConstraints = false
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
 
-        return mainView
+        return view
     }()
 
     lazy var titleLabel: UILabel = {
