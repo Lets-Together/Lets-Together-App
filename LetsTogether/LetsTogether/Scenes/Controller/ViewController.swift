@@ -6,21 +6,21 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class ViewController: UIViewController {
 
-    lazy var contentView: WorkoutScreen = {
-            let view = WorkoutScreen()
+    lazy var contentView: InitialScreen = {
+            let view = InitialScreen()
             return view
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     override func loadView() {
-            view = contentView
+        view = contentView
     }
-
 }
