@@ -63,6 +63,14 @@ class WorkoutScreen: UIView {
         return label
     }()
 
+    public func updateTimerLabel(strTime: String) {
+        currentTime.text = strTime
+    }
+    
+    public func updateScoreLabel(strScore: String) {
+        currentScores.text = strScore
+    }
+    
     func setConstraints() {
 
         self.addSubview(cameraView)
