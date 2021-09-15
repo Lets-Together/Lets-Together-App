@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27A50BD626F21E3000819383 /* WorkoutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BD526F21E3000819383 /* WorkoutScreenViewController.swift */; };
+		27A50BD826F21E4900819383 /* WorkoutScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */; };
 		7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59026EF716F00A8F125 /* AppDelegate.swift */; };
 		7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59226EF716F00A8F125 /* SceneDelegate.swift */; };
 		7C38A59526EF716F00A8F125 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59426EF716F00A8F125 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27A50BD526F21E3000819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewController.swift; sourceTree = "<group>"; };
+		27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutScreenViewModel.swift; path = LetsTogether/Scenes/Controller/WorkoutScreenViewModel.swift; sourceTree = SOURCE_ROOT; };
 		7C38A58D26EF716F00A8F125 /* LetsTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C38A59026EF716F00A8F125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C38A59226EF716F00A8F125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 		7C38A5CB26EF7A6600A8F125 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				7C38A59426EF716F00A8F125 /* ViewController.swift */,
+				27A50BD526F21E3000819383 /* WorkoutScreenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -368,7 +374,9 @@
 				7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */,
 				7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */,
 				7C38A59B26EF716F00A8F125 /* LetsTogether.xcdatamodeld in Sources */,
+				27A50BD626F21E3000819383 /* WorkoutScreenViewController.swift in Sources */,
 				7C63261326F033FE005AFA87 /* InitialScreen.swift in Sources */,
+				27A50BD826F21E4900819383 /* WorkoutScreenViewModel.swift in Sources */,
 				7C63261526F03E6A005AFA87 /* WorkoutScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
