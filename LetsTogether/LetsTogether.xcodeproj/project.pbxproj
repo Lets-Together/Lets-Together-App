@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		27A50BD626F21E3000819383 /* WorkoutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BD526F21E3000819383 /* WorkoutScreenViewController.swift */; };
 		27A50BD826F21E4900819383 /* WorkoutScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */; };
+		27A50BDB26F230B200819383 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BDA26F230B200819383 /* TimeHelper.swift */; };
 		7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59026EF716F00A8F125 /* AppDelegate.swift */; };
 		7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59226EF716F00A8F125 /* SceneDelegate.swift */; };
 		7C38A59526EF716F00A8F125 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59426EF716F00A8F125 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		27A50BD526F21E3000819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewController.swift; sourceTree = "<group>"; };
 		27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutScreenViewModel.swift; path = LetsTogether/Scenes/Controller/WorkoutScreenViewModel.swift; sourceTree = SOURCE_ROOT; };
+		27A50BDA26F230B200819383 /* TimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
 		7C38A58D26EF716F00A8F125 /* LetsTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C38A59026EF716F00A8F125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C38A59226EF716F00A8F125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27A50BD926F230A500819383 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				27A50BDA26F230B200819383 /* TimeHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		7C38A58426EF716F00A8F125 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 		7C38A58F26EF716F00A8F125 /* LetsTogether */ = {
 			isa = PBXGroup;
 			children = (
+				27A50BD926F230A500819383 /* Helpers */,
 				7C38A5D126EF7B1700A8F125 /* ML */,
 				7C38A5CF26EF7ABC00A8F125 /* Domains */,
 				7C38A5C926EF7A5500A8F125 /* Scenes */,
@@ -372,6 +383,7 @@
 			files = (
 				7C38A59526EF716F00A8F125 /* ViewController.swift in Sources */,
 				7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */,
+				27A50BDB26F230B200819383 /* TimeHelper.swift in Sources */,
 				7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */,
 				7C38A59B26EF716F00A8F125 /* LetsTogether.xcdatamodeld in Sources */,
 				27A50BD626F21E3000819383 /* WorkoutScreenViewController.swift in Sources */,

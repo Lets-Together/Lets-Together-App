@@ -6,3 +6,22 @@
 //
 
 import Foundation
+
+class WorkoutScreenViewModel {
+    
+    var timer: Timer = Timer()
+    var count: Int = 0
+    var timerCounting: Bool = true
+    var score: Int = 0
+    
+    func startTimer() {
+        timerCounting = true
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { t in
+            
+        }
+    }
+    
+    func secondsToMinutesAndSecond() {
+        
+    }
+}
