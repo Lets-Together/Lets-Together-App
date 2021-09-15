@@ -11,8 +11,8 @@ import AVKit
 
 class ViewController: UIViewController {
 
-    lazy var contentView: InitialScreen = {
-            let view = InitialScreen()
+    lazy var contentView: WorkoutScreen = {
+            let view = WorkoutScreen()
             return view
     }()
 

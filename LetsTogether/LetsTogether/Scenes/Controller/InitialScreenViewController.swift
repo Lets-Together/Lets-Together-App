@@ -22,7 +22,26 @@ class InitialScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
 
+    }
+
+    override func loadView() {
+        view = contentView
+    }
+
+    func setupUI() {
+        backgroundVideoConfig()
+        contentView.startButton.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+    }
+
+    @objc func buttonTapped(_ : UIButton) {
+        let controller = ViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.show(controller, sender: self)
+    }
+
+    func backgroundVideoConfig() {
         videoController.player = AVPlayer(url: URL(fileURLWithPath: videoPath))
 
         contentView.videoView.addSubview(videoController.view)
@@ -40,8 +59,10 @@ class InitialScreenViewController: UIViewController {
         videoController.player?.play()
     }
 
-    override func loadView() {
-        view = contentView
+    @objc func reachTheEndOfTheVideo(_ notification: Notification) {
+        videoController.player?.pause()
+        videoController.player?.seek(to: CMTime.zero)
+        videoController.player?.play()
     }
 
     func play() {
@@ -53,11 +74,4 @@ class InitialScreenViewController: UIViewController {
     func pause() {
         videoController.player?.pause()
     }
-
-    @objc func reachTheEndOfTheVideo(_ notification: Notification) {
-        videoController.player?.pause()
-        videoController.player?.seek(to: CMTime.zero)
-        videoController.player?.play()
-    }
-
 }
