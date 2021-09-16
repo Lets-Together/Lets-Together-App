@@ -13,9 +13,11 @@ class WorkoutScreenViewModel {
     var count: Int = 0
     var timerCounting: Bool = true
     var score: Int = 0
+    let workoutScreenViewController = WorkoutScreenViewController()
     
     func startTimer() {
         timerCounting = true
+        workoutScreenViewController.start()
     }
     
     func secondsToMinutesAndSecond() {

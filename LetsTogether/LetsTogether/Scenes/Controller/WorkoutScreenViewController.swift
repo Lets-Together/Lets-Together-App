@@ -17,14 +17,13 @@ class WorkoutScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        testChronos()
     }
 
     override func loadView() {
         view = contentView
     }
     
-    func testChronos() {
+    func start() {
         let timerHandler = TimeHelper()
         timerHandler.startSecondsTimer {
             let stringTime = timerHandler.stringTime()
