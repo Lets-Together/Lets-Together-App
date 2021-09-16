@@ -16,9 +16,6 @@ class WorkoutScreenViewModel {
     
     func startTimer() {
         timerCounting = true
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { t in
-            
-        }
     }
     
     func secondsToMinutesAndSecond() {
