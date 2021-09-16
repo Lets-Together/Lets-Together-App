@@ -12,7 +12,6 @@
 		7C38A59526EF716F00A8F125 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59426EF716F00A8F125 /* ViewController.swift */; };
 		7C38A59B26EF716F00A8F125 /* LetsTogether.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59926EF716F00A8F125 /* LetsTogether.xcdatamodeld */; };
 		7C38A59D26EF717000A8F125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C38A59C26EF717000A8F125 /* Assets.xcassets */; };
-		7C38A5A026EF717000A8F125 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C38A59E26EF717000A8F125 /* LaunchScreen.storyboard */; };
 		7C38A5AB26EF717100A8F125 /* LetsTogetherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A5AA26EF717100A8F125 /* LetsTogetherTests.swift */; };
 		7C38A5B626EF717100A8F125 /* LetsTogetherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A5B526EF717100A8F125 /* LetsTogetherUITests.swift */; };
 		7C63261326F033FE005AFA87 /* InitialScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C63261226F033FE005AFA87 /* InitialScreen.swift */; };
@@ -48,7 +47,6 @@
 		7C38A59426EF716F00A8F125 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7C38A59A26EF716F00A8F125 /* LetsTogether.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LetsTogether.xcdatamodel; sourceTree = "<group>"; };
 		7C38A59C26EF717000A8F125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7C38A59F26EF717000A8F125 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C38A5A126EF717000A8F125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C38A5A626EF717100A8F125 /* LetsTogetherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetsTogetherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C38A5AA26EF717100A8F125 /* LetsTogetherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsTogetherTests.swift; sourceTree = "<group>"; };
@@ -153,20 +151,10 @@
 			isa = PBXGroup;
 			children = (
 				7C38A5CE26EF7AAF00A8F125 /* Coordinator */,
-				7C38A5CB26EF7A6600A8F125 /* ViewModel */,
-				7C38A5CA26EF7A5E00A8F125 /* View */,
+				7C61742526F244BF00CE9D2E /* InitialScreen */,
+				7C61742626F244C900CE9D2E /* WorkoutScreen */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		7C38A5CA26EF7A5E00A8F125 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7C61742626F244C900CE9D2E /* WorkoutScreen */,
-				7C61742526F244BF00CE9D2E /* InitialScreen */,
-				7C38A59E26EF717000A8F125 /* LaunchScreen.storyboard */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		7C38A5CB26EF7A6600A8F125 /* ViewModel */ = {
@@ -221,8 +209,8 @@
 		7C61742526F244BF00CE9D2E /* InitialScreen */ = {
 			isa = PBXGroup;
 			children = (
-				7C81D4DB26F0EC5C00D8BF09 /* InitialScreenViewController.swift */,
-				7C63261226F033FE005AFA87 /* InitialScreen.swift */,
+				7C38A5CB26EF7A6600A8F125 /* ViewModel */,
+				7C935E7E26F39A3D00713B10 /* View */,
 			);
 			path = InitialScreen;
 			sourceTree = "<group>";
@@ -230,8 +218,8 @@
 		7C61742626F244C900CE9D2E /* WorkoutScreen */ = {
 			isa = PBXGroup;
 			children = (
-				7C63261426F03E6A005AFA87 /* WorkoutScreen.swift */,
-				7C38A59426EF716F00A8F125 /* ViewController.swift */,
+				7C935E8026F39A5100713B10 /* ViewModel */,
+				7C935E7F26F39A4900713B10 /* View */,
 			);
 			path = WorkoutScreen;
 			sourceTree = "<group>";
@@ -243,6 +231,31 @@
 				7C38A59926EF716F00A8F125 /* LetsTogether.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		7C935E7E26F39A3D00713B10 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7C81D4DB26F0EC5C00D8BF09 /* InitialScreenViewController.swift */,
+				7C63261226F033FE005AFA87 /* InitialScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7C935E7F26F39A4900713B10 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7C63261426F03E6A005AFA87 /* WorkoutScreen.swift */,
+				7C38A59426EF716F00A8F125 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7C935E8026F39A5100713B10 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,7 +362,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C38A5A026EF717000A8F125 /* LaunchScreen.storyboard in Resources */,
 				7C38A59D26EF717000A8F125 /* Assets.xcassets in Resources */,
 				7C81D4DA26F0E39F00D8BF09 /* test.MOV in Resources */,
 			);
@@ -439,17 +451,6 @@
 			targetProxy = 7C38A5B226EF717100A8F125 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		7C38A59E26EF717000A8F125 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7C38A59F26EF717000A8F125 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7C38A5B826EF717100A8F125 /* Debug */ = {
