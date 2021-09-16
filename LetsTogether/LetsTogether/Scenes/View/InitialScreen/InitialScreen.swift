@@ -119,25 +119,25 @@ class InitialScreen: UIView {
 
         self.dataView.addSubview(currentScoresLabel)
         NSLayoutConstraint.activate([
-            currentScoresLabel.leftAnchor.constraint(equalTo: self.dataView.leftAnchor, constant: 5),
+            currentScoresLabel.leftAnchor.constraint(equalTo: self.dataView.leftAnchor, constant: 8),
             currentScoresLabel.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 20)
         ])
 
         self.dataView.addSubview(currentScores)
         NSLayoutConstraint.activate([
-            currentScores.leftAnchor.constraint(equalTo: self.currentScoresLabel.rightAnchor, constant: 5),
+            currentScores.leftAnchor.constraint(equalTo: self.currentScoresLabel.rightAnchor, constant: 8),
             currentScores.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 20)
         ])
 
         self.dataView.addSubview(attemptsLabel)
         NSLayoutConstraint.activate([
-            attemptsLabel.leftAnchor.constraint(equalTo: self.dataView.leftAnchor, constant: 5),
+            attemptsLabel.leftAnchor.constraint(equalTo: self.dataView.leftAnchor, constant: 8),
             attemptsLabel.topAnchor.constraint(equalTo: self.currentScoresLabel.bottomAnchor, constant: 5)
         ])
 
         self.dataView.addSubview(attempts)
         NSLayoutConstraint.activate([
-            attempts.leftAnchor.constraint(equalTo: self.attemptsLabel.rightAnchor, constant: 2),
+            attempts.leftAnchor.constraint(equalTo: self.attemptsLabel.rightAnchor, constant: 8),
             attempts.topAnchor.constraint(equalTo: self.currentScoresLabel.bottomAnchor, constant: 5)
         ])
 

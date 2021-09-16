@@ -20,6 +20,8 @@
 		7C81D4DA26F0E39F00D8BF09 /* test.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 7C81D4D926F0E39F00D8BF09 /* test.MOV */; };
 		7C81D4DC26F0EC5C00D8BF09 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C81D4DB26F0EC5C00D8BF09 /* InitialScreenViewController.swift */; };
 		7C935E7326F3691700713B10 /* InitialScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C935E7226F3691700713B10 /* InitialScreenViewModel.swift */; };
+		7C935E7926F3727500713B10 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C935E7826F3727500713B10 /* CoreDataManager.swift */; };
+		7C935E7D26F3956100713B10 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C935E7C26F3956100713B10 /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		7C81D4D926F0E39F00D8BF09 /* test.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = test.MOV; sourceTree = "<group>"; };
 		7C81D4DB26F0EC5C00D8BF09 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
 		7C935E7226F3691700713B10 /* InitialScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenViewModel.swift; sourceTree = "<group>"; };
+		7C935E7826F3727500713B10 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		7C935E7C26F3956100713B10 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,7 @@
 		7C38A5CD26EF7AA000A8F125 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C935E7C26F3956100713B10 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,7 +195,7 @@
 		7C38A5CF26EF7ABC00A8F125 /* Domains */ = {
 			isa = PBXGroup;
 			children = (
-				7C38A59926EF716F00A8F125 /* LetsTogether.xcdatamodeld */,
+				7C935E7726F3726400713B10 /* CoreData */,
 				7C38A5D026EF7AE000A8F125 /* Resources */,
 				7C38A5CD26EF7AA000A8F125 /* Model */,
 			);
@@ -229,6 +234,15 @@
 				7C38A59426EF716F00A8F125 /* ViewController.swift */,
 			);
 			path = WorkoutScreen;
+			sourceTree = "<group>";
+		};
+		7C935E7726F3726400713B10 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7C935E7826F3727500713B10 /* CoreDataManager.swift */,
+				7C38A59926EF716F00A8F125 /* LetsTogether.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,7 +402,9 @@
 				7C38A59B26EF716F00A8F125 /* LetsTogether.xcdatamodeld in Sources */,
 				7C63261326F033FE005AFA87 /* InitialScreen.swift in Sources */,
 				7C935E7326F3691700713B10 /* InitialScreenViewModel.swift in Sources */,
+				7C935E7926F3727500713B10 /* CoreDataManager.swift in Sources */,
 				7C81D4DC26F0EC5C00D8BF09 /* InitialScreenViewController.swift in Sources */,
+				7C935E7D26F3956100713B10 /* UserData.swift in Sources */,
 				7C63261526F03E6A005AFA87 /* WorkoutScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

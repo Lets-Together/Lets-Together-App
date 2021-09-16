@@ -12,6 +12,8 @@ import AVKit
 
 class InitialScreenViewController: UIViewController {
 
+    let initialScreenViewModel = InitialScreenViewModel()
+
     let videoController = AVPlayerViewController()
     let videoPath = Bundle.main.path(forResource: "test", ofType: "MOV")!
 
@@ -23,7 +25,8 @@ class InitialScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-
+        contentView.attempts.text = String(describing: initialScreenViewModel.coreDataManager.getData()!.attempts)
+        contentView.currentScores.text = String(describing: initialScreenViewModel.coreDataManager.getData()!.currentScores)
     }
 
     override func loadView() {
