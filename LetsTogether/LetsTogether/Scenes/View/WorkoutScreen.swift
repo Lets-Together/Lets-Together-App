@@ -57,7 +57,7 @@ class WorkoutScreen: UIView {
     lazy var currentTime: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "0 0 : 0 0 : 0 0"
+        label.text = "00:00:00"
         label.font = UIFont.boldSystemFont(ofSize: 23)
 
         return label

@@ -16,14 +16,16 @@ class TimeHelper {
     func startSecondsTimer(escaping action: @escaping () -> Void) {
         secondsTimerAction = action
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
-        
+    }
+    
+    func pauseTimer() {
+        timer.invalidate()
     }
     
     @objc
     func fireTimer() {
         secondsCounter += 1
         secondsTimerAction?()
-        print("ALOHA")
     }
     
     func stringTime() -> String {
@@ -38,11 +40,11 @@ class TimeHelper {
     
     func secondsToTimeString(hours: Int, minutes: Int, seconds: Int) -> String {
         var timeString = ""
-        timeString += String(format: "0%2d", hours)
-        timeString += " : "
-        timeString += String(format: "0%2d", minutes)
-        timeString += " : "
-        timeString += String(format: "0%2d", seconds)
+        timeString += String(format: "%02d", hours)
+        timeString += ":"
+        timeString += String(format: "%02d", minutes)
+        timeString += ":"
+        timeString += String(format: "%02d", seconds)
         return timeString
     }
 }

@@ -7,20 +7,36 @@
 
 import Foundation
 
-class WorkoutScreenViewModel {
-    
-    var timer: Timer = Timer()
-    var count: Int = 0
+protocol WorkoutViewModelProtocol {
+    var timerCounting: Bool {get}
+    var score: Int {get}
+    func startTimer(action: @escaping (String) -> Void)
+    func pauseTimer()
+    func addPoints(amount: Int)
+}
+
+class WorkoutScreenViewModel: WorkoutViewModelProtocol {
+  
     var timerCounting: Bool = true
     var score: Int = 0
-    let workoutScreenViewController = WorkoutScreenViewController()
+    let timerHandler = TimeHelper()
     
-    func startTimer() {
+    func startTimer(action: @escaping (String) -> Void) {
         timerCounting = true
-        workoutScreenViewController.start()
+        timerHandler.startSecondsTimer {
+            let stringTime = self.timerHandler.stringTime()
+            self.addPoints(amount: 10)
+            action(stringTime)
+        }
     }
     
-    func secondsToMinutesAndSecond() {
-        
+    func pauseTimer() {
+        timerCounting = false
+        timerHandler.pauseTimer()
     }
+    
+    func addPoints(amount: Int) {
+        score += amount
+    }
+    
 }
