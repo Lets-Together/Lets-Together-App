@@ -28,7 +28,10 @@ class WorkoutVideoViewController: UIViewController {
         return request
     }()
     
-    private var cameraView: CameraPreview { view as! CameraPreview }
+    private var cameraView: CameraPreview {
+        guard let v = view as? CameraPreview else { return CameraPreview() }
+        return v
+    }
     
     override func loadView() {
         view = CameraPreview()
