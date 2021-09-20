@@ -11,6 +11,8 @@
 		27A50BD826F21E4900819383 /* WorkoutScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */; };
 		27A50BDB26F230B200819383 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BDA26F230B200819383 /* TimeHelper.swift */; };
 		27A50BDD26F3839800819383 /* WorkoutObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BDC26F3839800819383 /* WorkoutObservers.swift */; };
+		27A50BDF26F8BAE700819383 /* WorkoutVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BDE26F8BAE700819383 /* WorkoutVideoViewController.swift */; };
+		27A50BE126F8BC6800819383 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BE026F8BC6800819383 /* CameraPreview.swift */; };
 		7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59026EF716F00A8F125 /* AppDelegate.swift */; };
 		7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59226EF716F00A8F125 /* SceneDelegate.swift */; };
 		7C38A59526EF716F00A8F125 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59426EF716F00A8F125 /* ViewController.swift */; };
@@ -45,6 +47,8 @@
 		27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutScreenViewModel.swift; path = LetsTogether/Scenes/Controller/WorkoutScreenViewModel.swift; sourceTree = SOURCE_ROOT; };
 		27A50BDA26F230B200819383 /* TimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
 		27A50BDC26F3839800819383 /* WorkoutObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutObservers.swift; path = LetsTogether/Helpers/WorkoutObservers.swift; sourceTree = SOURCE_ROOT; };
+		27A50BDE26F8BAE700819383 /* WorkoutVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVideoViewController.swift; sourceTree = "<group>"; };
+		27A50BE026F8BC6800819383 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		7C38A58D26EF716F00A8F125 /* LetsTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C38A59026EF716F00A8F125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C38A59226EF716F00A8F125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				7C38A59E26EF717000A8F125 /* LaunchScreen.storyboard */,
 				7C63261226F033FE005AFA87 /* InitialScreen.swift */,
 				7C63261426F03E6A005AFA87 /* WorkoutScreen.swift */,
+				27A50BE026F8BC6800819383 /* CameraPreview.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			children = (
 				7C38A59426EF716F00A8F125 /* ViewController.swift */,
 				27A50BD526F21E3000819383 /* WorkoutScreenViewController.swift */,
+				27A50BDE26F8BAE700819383 /* WorkoutVideoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -392,6 +398,8 @@
 				27A50BD626F21E3000819383 /* WorkoutScreenViewController.swift in Sources */,
 				7C63261326F033FE005AFA87 /* InitialScreen.swift in Sources */,
 				27A50BD826F21E4900819383 /* WorkoutScreenViewModel.swift in Sources */,
+				27A50BDF26F8BAE700819383 /* WorkoutVideoViewController.swift in Sources */,
+				27A50BE126F8BC6800819383 /* CameraPreview.swift in Sources */,
 				7C63261526F03E6A005AFA87 /* WorkoutScreen.swift in Sources */,
 				27A50BDD26F3839800819383 /* WorkoutObservers.swift in Sources */,
 			);
@@ -562,7 +570,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y8HUNAB446;
+				DEVELOPMENT_TEAM = R39G5DLZJ3;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -581,7 +589,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y8HUNAB446;
+				DEVELOPMENT_TEAM = R39G5DLZJ3;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
