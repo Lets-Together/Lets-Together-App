@@ -20,13 +20,6 @@ class WorkoutScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    lazy var cameraView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-
-        return view
-    }()
-
     lazy var scoresLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -57,20 +50,31 @@ class WorkoutScreen: UIView {
     lazy var currentTime: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "00"
+        label.text = "00:00:00"
         label.font = UIFont.boldSystemFont(ofSize: 23)
 
         return label
     }()
+    
+    let cameraPreview = WorkoutVideoViewController()
 
+    public func updateTimerLabel(strTime: String) {
+        currentTime.text = strTime
+    }
+    
+    public func updateScoreLabel(strScore: String) {
+        currentScores.text = strScore
+    }
+    
     func setConstraints() {
 
-        self.addSubview(cameraView)
+        self.addSubview(cameraPreview.view)
+        cameraPreview.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cameraView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            cameraView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            cameraView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            cameraView.topAnchor.constraint(equalTo: self.topAnchor)
+            cameraPreview.view.leftAnchor.constraint(equalTo: self.leftAnchor),
+            cameraPreview.view.rightAnchor.constraint(equalTo: self.rightAnchor),
+            cameraPreview.view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            cameraPreview.view.topAnchor.constraint(equalTo: self.topAnchor)
         ])
 
         self.addSubview(scoresLabel)
