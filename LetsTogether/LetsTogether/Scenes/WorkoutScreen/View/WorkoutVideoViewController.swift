@@ -9,30 +9,46 @@ import UIKit
 import AVFoundation
 import Vision
 
+enum CameraError: Error {
+    case noFrontCameraDetected(String)
+    case inputCreation(String)
+    case videoAdd(String)
+    case videoData(String)
+}
+
 class WorkoutVideoViewController: UIViewController {
     
-    var count = 0
+    //Contador de movimentos
     var jumpsCount = 0
-    var modelInput = MLMultiArray()
+    //Armazenagem de coordenadas do corpo por frame
     var poses: [MLMultiArray] = []
-
+    //Captura do video
     private var cameraFeedSession: AVCaptureSession?
-    
+    //queue camera
     private let videoDataOutputQueue = DispatchQueue(
       label: "CameraFeedOutput",
       qos: .userInteractive
     )
-    
+    //Objeto que fará a deteccao do tipo de movimento
+    //todo: mover para outro arquivo
     private let bodyPoseRequest: VNDetectHumanBodyPoseRequest = {
         let request = VNDetectHumanBodyPoseRequest()
         return request
     }()
-    
+    //Objeto de Preview da Camera
     private var cameraView: CameraPreview {
         guard let v = view as? CameraPreview else { return CameraPreview() }
         return v
     }
     
+    //Closure que irá receber os pontos vistos e exibir na tela
+    // Todo: Mover para outro arquivo
+    var pointsProcessorHandler: (([CGPoint]) -> Void)?
+    //Closure que vai receber a quantidade atual de movimentos e mostrar na tela
+    //Todo: refazer de outra forma
+    var jumpsCountHandler: ((Int) -> Void)?
+    
+    // 1
     override func loadView() {
         view = CameraPreview()
     }
@@ -62,68 +78,54 @@ class WorkoutVideoViewController: UIViewController {
       super.viewWillDisappear(animated)
     }
     
+    // Configuracao da Captura
     func setupAVSession() throws {
-      // 1
-      guard let videoDevice = AVCaptureDevice.default(
-        .builtInWideAngleCamera,
-        for: .video,
-        position: .front)
-      else {
-//        throw AppError.captureSessionSetup(
-//          reason: "Could not find a front facing camera."
-//        )
-        print("Erro 1")
-        return
-      }
-
-      // 2
-      guard
-        let deviceInput = try? AVCaptureDeviceInput(device: videoDevice)
-      else {
-//        throw AppError.captureSessionSetup(
-//          reason: "Could not create video device input."
-//        )
-        print("Erro 2")
-        return
-      }
-
-      // 3
-      let session = AVCaptureSession()
-      session.beginConfiguration()
-      session.sessionPreset = AVCaptureSession.Preset.high
-
-      // 4
-      guard session.canAddInput(deviceInput) else {
-//        throw AppError.captureSessionSetup(
-//          reason: "Could not add video device input to the session"
-//        )
-        print("Erro 3")
-        return
-      }
-      session.addInput(deviceInput)
-
-      // 5
-      let dataOutput = AVCaptureVideoDataOutput()
-      if session.canAddOutput(dataOutput) {
-        session.addOutput(dataOutput)
-        dataOutput.alwaysDiscardsLateVideoFrames = true
-        dataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
-      } else {
-//        throw AppError.captureSessionSetup(
-//          reason: "Could not add video data output to the session"
-//        )
-        print("Erro 4")
-        return
-      }
-      
-      // 6
-      session.commitConfiguration()
-      cameraFeedSession = session
+        let videoDevice = try configureVideoDevice()
+        let deviceInput = try configureDeviceInput(device: videoDevice)
+        let session = try configureCaptureSession(deviceInput: deviceInput)
+        cameraFeedSession = session
     }
     
-    var pointsProcessorHandler: (([CGPoint]) -> Void)?
-    var jumpsCountHandler: ((Int) -> Void)?
+    func configureVideoDevice() throws -> AVCaptureDevice {
+        guard let videoDevice = AVCaptureDevice.default(
+          .builtInWideAngleCamera,
+          for: .video,
+          position: .front)
+        else {
+          throw CameraError.noFrontCameraDetected("Camera frontal não encontrada")
+        }
+        return videoDevice
+    }
     
+    func configureDeviceInput(device: AVCaptureDevice) throws -> AVCaptureDeviceInput {
+        guard let deviceInput = try? AVCaptureDeviceInput(device: device)
+        else {
+          throw CameraError.inputCreation("Could not create video device input.")
+        }
+        return deviceInput
+    }
+    
+    func configureCaptureSession(deviceInput: AVCaptureDeviceInput) throws -> AVCaptureSession {
+        let session = AVCaptureSession()
+        session.beginConfiguration()
+        session.sessionPreset = AVCaptureSession.Preset.high
+        guard session.canAddInput(deviceInput) else {
+          throw CameraError.videoAdd("Could not add video device input to the session")
+        }
+        session.addInput(deviceInput)
+        let dataOutput = AVCaptureVideoDataOutput()
+        if session.canAddOutput(dataOutput) {
+          session.addOutput(dataOutput)
+          dataOutput.alwaysDiscardsLateVideoFrames = true
+          dataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
+        } else {
+          throw CameraError.videoData("Could not add video data output to the session")
+        }
+        session.commitConfiguration()
+        return session
+    }
+    
+    // Funcao para processar os pontos do corpo detectados
     func processBodyPoints(_ bodyParts: [CGPoint]) {
         let convertedPoints = bodyParts.map {
             cameraView.previewLayer.layerPointConverted(fromCaptureDevicePoint: $0)
