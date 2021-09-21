@@ -49,7 +49,7 @@ class InitialScreen: UIView {
     lazy var currentScoresLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Current Scores:"
+        label.text = "Current Scores"
         label.font = UIFont.boldSystemFont(ofSize: 24)
 
         return label
@@ -67,7 +67,7 @@ class InitialScreen: UIView {
     lazy var attemptsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Attempts:"
+        label.text = "Attempts"
         label.font = UIFont.boldSystemFont(ofSize: 24)
 
         return label
@@ -104,14 +104,14 @@ class InitialScreen: UIView {
 
         self.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 18),
+            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 80)
         ])
 
         self.addSubview(dataView)
         NSLayoutConstraint.activate([
             dataView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            dataView.heightAnchor.constraint(equalToConstant: 100),
+            dataView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3),
             dataView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 40),
             dataView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -40),
             dataView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 80)
@@ -119,34 +119,34 @@ class InitialScreen: UIView {
 
         self.dataView.addSubview(currentScoresLabel)
         NSLayoutConstraint.activate([
-            currentScoresLabel.leftAnchor.constraint(equalTo: self.dataView.leftAnchor, constant: 8),
+            currentScoresLabel.centerXAnchor.constraint(equalTo: self.dataView.centerXAnchor, constant: 8),
             currentScoresLabel.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 20)
         ])
 
         self.dataView.addSubview(currentScores)
         NSLayoutConstraint.activate([
-            currentScores.leftAnchor.constraint(equalTo: self.currentScoresLabel.rightAnchor, constant: 8),
-            currentScores.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 20)
+            currentScores.centerXAnchor.constraint(equalTo: self.dataView.centerXAnchor, constant: 8),
+            currentScores.topAnchor.constraint(equalTo: self.currentScoresLabel.bottomAnchor, constant: 5)
         ])
 
         self.dataView.addSubview(attemptsLabel)
         NSLayoutConstraint.activate([
-            attemptsLabel.leftAnchor.constraint(equalTo: self.dataView.leftAnchor, constant: 8),
-            attemptsLabel.topAnchor.constraint(equalTo: self.currentScoresLabel.bottomAnchor, constant: 5)
+            attemptsLabel.centerXAnchor.constraint(equalTo: self.dataView.centerXAnchor, constant: 8),
+            attemptsLabel.topAnchor.constraint(equalTo: self.currentScores.bottomAnchor, constant: 15)
         ])
 
         self.dataView.addSubview(attempts)
         NSLayoutConstraint.activate([
-            attempts.leftAnchor.constraint(equalTo: self.attemptsLabel.rightAnchor, constant: 8),
-            attempts.topAnchor.constraint(equalTo: self.currentScoresLabel.bottomAnchor, constant: 5)
+            attempts.centerXAnchor.constraint(equalTo: self.dataView.centerXAnchor, constant: 8),
+            attempts.topAnchor.constraint(equalTo: self.attemptsLabel.bottomAnchor, constant: 5)
         ])
 
         self.addSubview(startButton)
         NSLayoutConstraint.activate([
             startButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -80),
-            startButton.heightAnchor.constraint(equalToConstant: 40),
-            startButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3)
+            startButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.06),
+            startButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6)
         ])
     }
 }

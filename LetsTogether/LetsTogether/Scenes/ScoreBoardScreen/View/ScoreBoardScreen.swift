@@ -29,11 +29,18 @@ class ScoreBoardScreen: UIView {
         return label
     }()
 
+    lazy var videoView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        return view
+    }()
+
     lazy var infoView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 15
-        view.backgroundColor = .systemGray
+        view.backgroundColor = .white
         view.alpha = 0.7
 
         return view
@@ -42,7 +49,7 @@ class ScoreBoardScreen: UIView {
     lazy var titleScoreLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Total Scores:"
+        label.text = "Total Scores"
         label.font = UIFont.boldSystemFont(ofSize: 24)
 
         return label
@@ -52,7 +59,7 @@ class ScoreBoardScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "1340"
-        label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.font = UIFont.boldSystemFont(ofSize: 55)
 
         return label
     }()
@@ -82,47 +89,55 @@ class ScoreBoardScreen: UIView {
 
     func setConstraints() {
 
+        self.addSubview(videoView)
+        NSLayoutConstraint.activate([
+            videoView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            videoView.rightAnchor.constraint(equalTo: self.rightAnchor),
+            videoView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            videoView.topAnchor.constraint(equalTo: self.topAnchor)
+        ])
+
         self.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 18),
+            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 80)
         ])
 
         self.addSubview(infoView)
         NSLayoutConstraint.activate([
             infoView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            infoView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2),
-            infoView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 40),
-            infoView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -40),
-            infoView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 80)
+            infoView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5),
+            infoView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+            infoView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
+            infoView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 20)
         ])
 
         self.infoView.addSubview(titleScoreLabel)
         NSLayoutConstraint.activate([
             titleScoreLabel.centerXAnchor.constraint(equalTo: self.infoView.centerXAnchor),
-            titleScoreLabel.topAnchor.constraint(equalTo: self.infoView.topAnchor, constant: 5)
+            titleScoreLabel.topAnchor.constraint(equalTo: self.infoView.topAnchor, constant: 15)
         ])
 
         self.infoView.addSubview(scoresObtained)
         NSLayoutConstraint.activate([
             scoresObtained.centerXAnchor.constraint(equalTo: self.infoView.centerXAnchor),
-            scoresObtained.topAnchor.constraint(equalTo: self.titleScoreLabel.bottomAnchor, constant: 15)
+            scoresObtained.topAnchor.constraint(equalTo: self.titleScoreLabel.bottomAnchor, constant: 40)
         ])
 
         self.addSubview(repeatButton)
         NSLayoutConstraint.activate([
             repeatButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             repeatButton.topAnchor.constraint(equalTo: self.infoView.bottomAnchor, constant: 20),
-            repeatButton.heightAnchor.constraint(equalToConstant: 40),
-            repeatButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3)
+            repeatButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.06),
+            repeatButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6)
         ])
 
         self.addSubview(exitButton)
         NSLayoutConstraint.activate([
             exitButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            exitButton.topAnchor.constraint(equalTo: self.repeatButton.bottomAnchor, constant: 6),
-            exitButton.heightAnchor.constraint(equalToConstant: 40),
-            exitButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3)
+            exitButton.topAnchor.constraint(equalTo: self.repeatButton.bottomAnchor, constant: 8),
+            exitButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.06),
+            exitButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6)
         ])
     }
 }
