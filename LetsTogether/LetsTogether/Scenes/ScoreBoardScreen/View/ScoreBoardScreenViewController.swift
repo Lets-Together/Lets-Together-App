@@ -23,10 +23,24 @@ class ScoreBoardScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundVideoConfig()
+        contentView.exitButton.addTarget(self, action: #selector(self.exitButtonTapped), for: .touchUpInside)
+        contentView.repeatButton.addTarget(self, action: #selector(self.repeatButtonTapped), for: .touchUpInside)
     }
 
     override func loadView() {
         view = contentView
+    }
+
+    @objc func exitButtonTapped(_ : UIButton) {
+        let controller = InitialScreenViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.show(controller, sender: self)
+    }
+
+    @objc func repeatButtonTapped(_ : UIButton) {
+        let controller = ViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.show(controller, sender: self)
     }
 
     func backgroundVideoConfig() {
