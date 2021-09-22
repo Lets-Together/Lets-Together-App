@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27A50BDB26F230B200819383 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BDA26F230B200819383 /* TimeHelper.swift */; };
+		27A50BDD26F3839800819383 /* WorkoutObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BDC26F3839800819383 /* WorkoutObservers.swift */; };
+		27A50BE426FA1CA900819383 /* WorkoutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */; };
+		27A50BE626FA1D2B00819383 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BE526FA1D2A00819383 /* CameraPreview.swift */; };
+		27A50BE826FA1F9E00819383 /* WorkoutVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BE726FA1F9E00819383 /* WorkoutVideoViewController.swift */; };
+		27A50BEA26FA1FB100819383 /* WorkoutScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */; };
 		7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59026EF716F00A8F125 /* AppDelegate.swift */; };
 		7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59226EF716F00A8F125 /* SceneDelegate.swift */; };
 		7C38A59526EF716F00A8F125 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59426EF716F00A8F125 /* ViewController.swift */; };
@@ -43,6 +49,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27A50BD526F21E3000819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewController.swift; sourceTree = "<group>"; };
+		27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutScreenViewModel.swift; path = LetsTogether/Scenes/Controller/WorkoutScreenViewModel.swift; sourceTree = SOURCE_ROOT; };
+		27A50BDA26F230B200819383 /* TimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
+		27A50BDC26F3839800819383 /* WorkoutObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutObservers.swift; path = LetsTogether/Helpers/WorkoutObservers.swift; sourceTree = SOURCE_ROOT; };
+		27A50BDE26F8BAE700819383 /* WorkoutVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVideoViewController.swift; sourceTree = "<group>"; };
+		27A50BE026F8BC6800819383 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewController.swift; sourceTree = "<group>"; };
+		27A50BE526FA1D2A00819383 /* CameraPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		27A50BE726FA1F9E00819383 /* WorkoutVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutVideoViewController.swift; sourceTree = "<group>"; };
+		27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewModel.swift; sourceTree = "<group>"; };
 		7C38A58D26EF716F00A8F125 /* LetsTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C38A59026EF716F00A8F125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C38A59226EF716F00A8F125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +108,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27A50BD926F230A500819383 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				27A50BDA26F230B200819383 /* TimeHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		27A50BE226FA1AFF00819383 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				27A50BD526F21E3000819383 /* WorkoutScreenViewController.swift */,
+				27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */,
+				27A50BDE26F8BAE700819383 /* WorkoutVideoViewController.swift */,
+				27A50BE026F8BC6800819383 /* CameraPreview.swift */,
+				27A50BDC26F3839800819383 /* WorkoutObservers.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		7C38A58426EF716F00A8F125 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +135,7 @@
 				7C38A5A926EF717100A8F125 /* LetsTogetherTests */,
 				7C38A5B426EF717100A8F125 /* LetsTogetherUITests */,
 				7C38A58E26EF716F00A8F125 /* Products */,
+				27A50BE226FA1AFF00819383 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +152,8 @@
 		7C38A58F26EF716F00A8F125 /* LetsTogether */ = {
 			isa = PBXGroup;
 			children = (
+				27A50BE526FA1D2A00819383 /* CameraPreview.swift */,
+				27A50BD926F230A500819383 /* Helpers */,
 				7C38A5D126EF7B1700A8F125 /* ML */,
 				7C38A5CF26EF7ABC00A8F125 /* Domains */,
 				7C38A5C926EF7A5500A8F125 /* Scenes */,
@@ -250,8 +289,10 @@
 		7C935E7F26F39A4900713B10 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */,
 				7C63261426F03E6A005AFA87 /* WorkoutScreen.swift */,
 				7C38A59426EF716F00A8F125 /* ViewController.swift */,
+				27A50BE726FA1F9E00819383 /* WorkoutVideoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -259,6 +300,7 @@
 		7C935E8026F39A5100713B10 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -440,7 +482,11 @@
 			files = (
 				7C38A59526EF716F00A8F125 /* ViewController.swift in Sources */,
 				7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */,
+				27A50BDB26F230B200819383 /* TimeHelper.swift in Sources */,
+				27A50BE826FA1F9E00819383 /* WorkoutVideoViewController.swift in Sources */,
+				27A50BE626FA1D2B00819383 /* CameraPreview.swift in Sources */,
 				7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */,
+				27A50BEA26FA1FB100819383 /* WorkoutScreenViewModel.swift in Sources */,
 				7C38A59B26EF716F00A8F125 /* LetsTogether.xcdatamodeld in Sources */,
 				7C63261326F033FE005AFA87 /* InitialScreen.swift in Sources */,
 				7C935E7326F3691700713B10 /* InitialScreenViewModel.swift in Sources */,
@@ -448,8 +494,10 @@
 				7C935E7926F3727500713B10 /* CoreDataManager.swift in Sources */,
 				7C81D4DC26F0EC5C00D8BF09 /* InitialScreenViewController.swift in Sources */,
 				7C935E7D26F3956100713B10 /* UserData.swift in Sources */,
+				27A50BE426FA1CA900819383 /* WorkoutScreenViewController.swift in Sources */,
 				7C63261526F03E6A005AFA87 /* WorkoutScreen.swift in Sources */,
 				7CFC688926F4DEFA00C24E45 /* ScoreBoardScreen.swift in Sources */,
+				27A50BDD26F3839800819383 /* WorkoutObservers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,7 +655,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y8HUNAB446;
+				DEVELOPMENT_TEAM = R39G5DLZJ3;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -626,7 +674,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y8HUNAB446;
+				DEVELOPMENT_TEAM = R39G5DLZJ3;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
