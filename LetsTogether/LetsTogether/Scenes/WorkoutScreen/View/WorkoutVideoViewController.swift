@@ -111,7 +111,7 @@ WorkoutVideoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         let bodyPosesHelper = BodyPoseHelper()
         let bodyPoints = bodyPosesHelper.handle(sampleBuffer: sampleBuffer, orientation: .up)
-        if(bodyPoints.1.shape == [1, 3, 18]){
+        if(bodyPoints.1.shape == [1, 3, 18]) {
             bodyPontuation.add(pose: bodyPoints.1)
         }
     }
