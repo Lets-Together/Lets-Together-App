@@ -20,6 +20,15 @@ class BodyPontuationHelper {
     }
     var movementName: String
     var movementPercetage: Double
+    let model: JumpingJacks_1 = {
+        do {
+            let modelConfig = MLModelConfiguration()
+            let classifier = try JumpingJacks_1(configuration: modelConfig)
+            return classifier
+        } catch {
+            fatalError("Model error")
+        }
+    }()
     
     init(movementName: String, percetage: Double) {
         self.movementName = movementName
@@ -32,9 +41,8 @@ class BodyPontuationHelper {
     
     func classifyPose() {
         let modelInput = MLMultiArray(concatenating: poses, axis: 0, dataType: .float)
-        let jumpRopeClassifier = JumpingJacks_1()
         do {
-            let prediction = try jumpRopeClassifier.prediction(poses: modelInput)
+            let prediction = try model.prediction(poses: modelInput)
             guard let jumpRopeProb = prediction.labelProbabilities[self.movementName] else { return }
             if jumpRopeProb >= self.movementPercetage {
                 count += 1
