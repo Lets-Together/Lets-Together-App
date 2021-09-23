@@ -30,6 +30,8 @@
 		7C935E7326F3691700713B10 /* InitialScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C935E7226F3691700713B10 /* InitialScreenViewModel.swift */; };
 		7C935E7926F3727500713B10 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C935E7826F3727500713B10 /* CoreDataManager.swift */; };
 		7C935E7D26F3956100713B10 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C935E7C26F3956100713B10 /* UserData.swift */; };
+		7CFC688926F4DEFA00C24E45 /* ScoreBoardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC688826F4DEFA00C24E45 /* ScoreBoardScreen.swift */; };
+		7CFC688B26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC688A26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		7C935E7226F3691700713B10 /* InitialScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenViewModel.swift; sourceTree = "<group>"; };
 		7C935E7826F3727500713B10 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7C935E7C26F3956100713B10 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		7CFC688826F4DEFA00C24E45 /* ScoreBoardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreen.swift; sourceTree = "<group>"; };
+		7CFC688A26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 			children = (
 				27A50BDA26F230B200819383 /* TimeHelper.swift */,
 				27A50BEB26FA973200819383 /* BodyPoseHelper.swift */,
+				27A50BDC26F3839800819383 /* WorkoutObservers.swift */,
 				27A50BED26FAA1BF00819383 /* BodyPontuationHelper.swift */,
 			);
 			path = Helpers;
@@ -127,7 +132,6 @@
 				27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */,
 				27A50BDE26F8BAE700819383 /* WorkoutVideoViewController.swift */,
 				27A50BE026F8BC6800819383 /* CameraPreview.swift */,
-				27A50BDC26F3839800819383 /* WorkoutObservers.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -197,6 +201,7 @@
 		7C38A5C926EF7A5500A8F125 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7CFC688526F4DE9B00C24E45 /* ScoreBoardScreen */,
 				7C38A5CE26EF7AAF00A8F125 /* Coordinator */,
 				7C61742526F244BF00CE9D2E /* InitialScreen */,
 				7C61742626F244C900CE9D2E /* WorkoutScreen */,
@@ -230,8 +235,8 @@
 		7C38A5CF26EF7ABC00A8F125 /* Domains */ = {
 			isa = PBXGroup;
 			children = (
-				7C935E7726F3726400713B10 /* CoreData */,
 				7C38A5D026EF7AE000A8F125 /* Resources */,
+				7C935E7726F3726400713B10 /* CoreData */,
 				7C38A5CD26EF7AA000A8F125 /* Model */,
 			);
 			path = Domains;
@@ -305,6 +310,31 @@
 			isa = PBXGroup;
 			children = (
 				27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7CFC688526F4DE9B00C24E45 /* ScoreBoardScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7CFC688726F4DEC100C24E45 /* ViewModel */,
+				7CFC688626F4DEBB00C24E45 /* View */,
+			);
+			path = ScoreBoardScreen;
+			sourceTree = "<group>";
+		};
+		7CFC688626F4DEBB00C24E45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CFC688826F4DEFA00C24E45 /* ScoreBoardScreen.swift */,
+				7CFC688A26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7CFC688726F4DEC100C24E45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -470,12 +500,14 @@
 				7C38A59B26EF716F00A8F125 /* LetsTogether.xcdatamodeld in Sources */,
 				7C63261326F033FE005AFA87 /* InitialScreen.swift in Sources */,
 				7C935E7326F3691700713B10 /* InitialScreenViewModel.swift in Sources */,
+				7CFC688B26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift in Sources */,
 				7C935E7926F3727500713B10 /* CoreDataManager.swift in Sources */,
 				27A50BF026FAA39600819383 /* JumpingJacks 1.mlmodel in Sources */,
 				7C81D4DC26F0EC5C00D8BF09 /* InitialScreenViewController.swift in Sources */,
 				7C935E7D26F3956100713B10 /* UserData.swift in Sources */,
 				27A50BE426FA1CA900819383 /* WorkoutScreenViewController.swift in Sources */,
 				7C63261526F03E6A005AFA87 /* WorkoutScreen.swift in Sources */,
+				7CFC688926F4DEFA00C24E45 /* ScoreBoardScreen.swift in Sources */,
 				27A50BEE26FAA1BF00819383 /* BodyPontuationHelper.swift in Sources */,
 				27A50BDD26F3839800819383 /* WorkoutObservers.swift in Sources */,
 			);
