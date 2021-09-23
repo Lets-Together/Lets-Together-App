@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F9E8DA926FBB2EE00E833FD /* InformationScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E8DA826FBB2EE00E833FD /* InformationScreenView.swift */; };
+		0F9E8DAB26FBB3DC00E833FD /* InformationScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E8DAA26FBB3DC00E833FD /* InformationScreenViewController.swift */; };
 		27A50BDB26F230B200819383 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BDA26F230B200819383 /* TimeHelper.swift */; };
 		27A50BDD26F3839800819383 /* WorkoutObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BDC26F3839800819383 /* WorkoutObservers.swift */; };
 		27A50BE426FA1CA900819383 /* WorkoutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F9E8DA826FBB2EE00E833FD /* InformationScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationScreenView.swift; sourceTree = "<group>"; };
+		0F9E8DAA26FBB3DC00E833FD /* InformationScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationScreenViewController.swift; sourceTree = "<group>"; };
 		27A50BD526F21E3000819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewController.swift; sourceTree = "<group>"; };
 		27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutScreenViewModel.swift; path = LetsTogether/Scenes/Controller/WorkoutScreenViewModel.swift; sourceTree = SOURCE_ROOT; };
 		27A50BDA26F230B200819383 /* TimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
@@ -114,6 +118,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F9E8DA526FB760600E833FD /* InformationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0F9E8DA726FB9CBC00E833FD /* View */,
+				0F9E8DA626FB761C00E833FD /* ViewModel */,
+			);
+			path = InformationScreen;
+			sourceTree = "<group>";
+		};
+		0F9E8DA626FB761C00E833FD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0F9E8DA726FB9CBC00E833FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F9E8DA826FBB2EE00E833FD /* InformationScreenView.swift */,
+				0F9E8DAA26FBB3DC00E833FD /* InformationScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		27A50BD926F230A500819383 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +230,7 @@
 		7C38A5C926EF7A5500A8F125 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0F9E8DA526FB760600E833FD /* InformationScreen */,
 				7CFC688526F4DE9B00C24E45 /* ScoreBoardScreen */,
 				7C38A5CE26EF7AAF00A8F125 /* Coordinator */,
 				7C61742526F244BF00CE9D2E /* InitialScreen */,
@@ -507,6 +537,8 @@
 				7C935E7D26F3956100713B10 /* UserData.swift in Sources */,
 				27A50BE426FA1CA900819383 /* WorkoutScreenViewController.swift in Sources */,
 				7C63261526F03E6A005AFA87 /* WorkoutScreen.swift in Sources */,
+				0F9E8DAB26FBB3DC00E833FD /* InformationScreenViewController.swift in Sources */,
+				0F9E8DA926FBB2EE00E833FD /* InformationScreenView.swift in Sources */,
 				7CFC688926F4DEFA00C24E45 /* ScoreBoardScreen.swift in Sources */,
 				27A50BEE26FAA1BF00819383 /* BodyPontuationHelper.swift in Sources */,
 				27A50BDD26F3839800819383 /* WorkoutObservers.swift in Sources */,
