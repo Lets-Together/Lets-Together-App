@@ -94,16 +94,16 @@ class InformationScreenView: UIView {
         self.addSubview(dataView)
         NSLayoutConstraint.activate([
             dataView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            dataView.heightAnchor.constraint(equalToConstant: 600),
+            dataView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7),
             dataView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
             dataView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
-            dataView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -168)
+            dataView.topAnchor.constraint(equalTo: self.topAnchor, constant: 60)
         ])
 
         self.addSubview(startButton)
         NSLayoutConstraint.activate([
             startButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -98),
+            startButton.topAnchor.constraint(equalTo: self.dataView.bottomAnchor, constant: 24),
             startButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.07),
             startButton.leftAnchor.constraint(equalTo: dataView.leftAnchor),
             startButton.rightAnchor.constraint(equalTo: dataView.rightAnchor)
@@ -115,18 +115,18 @@ class InformationScreenView: UIView {
             titleLabel.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 30)
         ])
 
-        self.dataView.addSubview(attemptsLabel)
-        NSLayoutConstraint.activate([
-            attemptsLabel.leftAnchor.constraint(equalTo: self.dataView.leftAnchor, constant: 8),
-            attemptsLabel.bottomAnchor.constraint(equalTo: self.dataView.bottomAnchor, constant: -40)
-        ])
-
         self.dataView.addSubview(leftImage)
         NSLayoutConstraint.activate([
             leftImage.leftAnchor.constraint(equalTo: self.dataView.leftAnchor,constant: 24),
             leftImage.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 84),
             leftImage.bottomAnchor.constraint(equalTo: dataView.bottomAnchor, constant: -120),
             leftImage.rightAnchor.constraint(equalTo: self.dataView.rightAnchor,constant: -201 )
+        ])
+
+        self.dataView.addSubview(attemptsLabel)
+        NSLayoutConstraint.activate([
+            attemptsLabel.leadingAnchor.constraint(equalTo: self.leftImage.leadingAnchor),
+            attemptsLabel.bottomAnchor.constraint(equalTo: self.dataView.bottomAnchor, constant: -40)
         ])
 
         self.dataView.addSubview(rightImage)
