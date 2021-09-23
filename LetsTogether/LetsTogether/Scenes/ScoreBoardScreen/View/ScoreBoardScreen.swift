@@ -23,8 +23,9 @@ class ScoreBoardScreen: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Lets Together"
+        label.text = "Keep Going!"
         label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.textColor = UIColor(red: 1.0, green: 0.53, blue: 0.53, alpha: 1.0)
 
         return label
     }()
@@ -49,8 +50,9 @@ class ScoreBoardScreen: UIView {
     lazy var titleScoreLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Total Scores"
+        label.text = "Your Score"
         label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.textColor = UIColor(red: 0.23, green: 0.05, blue: 0.05, alpha: 1.0)
 
         return label
     }()
@@ -60,6 +62,7 @@ class ScoreBoardScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "1340"
         label.font = UIFont.boldSystemFont(ofSize: 55)
+        label.textColor = UIColor(red: 0.23, green: 0.05, blue: 0.05, alpha: 1.0)
 
         return label
     }()
@@ -67,9 +70,9 @@ class ScoreBoardScreen: UIView {
     lazy var repeatButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemBlue
         button.setTitle("Repeat", for: .normal)
         button.layer.cornerRadius = 15
+        button.backgroundColor = UIColor(red: 1.0, green: 0.53, blue: 0.53, alpha: 1.0)
 
         return button
     }()
@@ -78,10 +81,8 @@ class ScoreBoardScreen: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .white
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.lightGray.cgColor
-        button.setTitleColor(.systemBlue, for: .normal)
         button.setTitle("Exit", for: .normal)
+        button.setTitleColor(UIColor(red: 1.0, green: 0.53, blue: 0.53, alpha: 1.0), for: .normal)
         button.layer.cornerRadius = 15
 
         return button
@@ -97,47 +98,49 @@ class ScoreBoardScreen: UIView {
             videoView.topAnchor.constraint(equalTo: self.topAnchor)
         ])
 
-        self.addSubview(titleLabel)
+        self.infoView.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 80)
+            titleLabel.centerXAnchor.constraint(equalTo: self.infoView.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: self.infoView.topAnchor, constant: 10)
         ])
 
         self.addSubview(infoView)
         NSLayoutConstraint.activate([
             infoView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            infoView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5),
+            infoView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7),
             infoView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
             infoView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
-            infoView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 20)
-        ])
-
-        self.infoView.addSubview(titleScoreLabel)
-        NSLayoutConstraint.activate([
-            titleScoreLabel.centerXAnchor.constraint(equalTo: self.infoView.centerXAnchor),
-            titleScoreLabel.topAnchor.constraint(equalTo: self.infoView.topAnchor, constant: 15)
+            infoView.topAnchor.constraint(equalTo: self.topAnchor, constant: 60)
         ])
 
         self.infoView.addSubview(scoresObtained)
         NSLayoutConstraint.activate([
             scoresObtained.centerXAnchor.constraint(equalTo: self.infoView.centerXAnchor),
-            scoresObtained.topAnchor.constraint(equalTo: self.titleScoreLabel.bottomAnchor, constant: 40)
+            scoresObtained.centerYAnchor.constraint(equalTo: self.infoView.centerYAnchor)
+        ])
+
+        self.infoView.addSubview(titleScoreLabel)
+        NSLayoutConstraint.activate([
+            titleScoreLabel.centerXAnchor.constraint(equalTo: self.infoView.centerXAnchor),
+            titleScoreLabel.bottomAnchor.constraint(equalTo: self.scoresObtained.topAnchor, constant: -30)
         ])
 
         self.addSubview(repeatButton)
         NSLayoutConstraint.activate([
             repeatButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             repeatButton.topAnchor.constraint(equalTo: self.infoView.bottomAnchor, constant: 20),
-            repeatButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.06),
-            repeatButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6)
+            repeatButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.07),
+            repeatButton.trailingAnchor.constraint(equalTo: self.infoView.trailingAnchor),
+            repeatButton.leadingAnchor.constraint(equalTo: self.infoView.leadingAnchor)
         ])
 
         self.addSubview(exitButton)
         NSLayoutConstraint.activate([
             exitButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             exitButton.topAnchor.constraint(equalTo: self.repeatButton.bottomAnchor, constant: 8),
-            exitButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.06),
-            exitButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6)
+            exitButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.07),
+            exitButton.trailingAnchor.constraint(equalTo: self.infoView.trailingAnchor),
+            exitButton.leadingAnchor.constraint(equalTo: self.infoView.leadingAnchor)
         ])
     }
 }
