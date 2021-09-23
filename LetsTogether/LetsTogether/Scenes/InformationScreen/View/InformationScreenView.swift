@@ -47,6 +47,7 @@ class InformationScreenView: UIView {
         view.layer.cornerRadius = 41
         view.backgroundColor = .white
         view.alpha = 0.7
+        view.isOpaque = false
 
         return view
     }()
@@ -74,7 +75,7 @@ class InformationScreenView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemBlue
         button.setTitle("Start Activity", for: .normal)
-        button.layer.cornerRadius = 15
+        button.layer.cornerRadius = 10
         button.backgroundColor = UIColor(red: 255/255, green: 107/255, blue: 106/255, alpha: 1)
 
         return button
@@ -90,21 +91,22 @@ class InformationScreenView: UIView {
             videoView.topAnchor.constraint(equalTo: self.topAnchor)
         ])
 
-        self.addSubview(startButton)
-        NSLayoutConstraint.activate([
-            startButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -80),
-            startButton.heightAnchor.constraint(equalToConstant: 40),
-            startButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9)
-        ])
-
         self.addSubview(dataView)
         NSLayoutConstraint.activate([
             dataView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             dataView.heightAnchor.constraint(equalToConstant: 600),
-            dataView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15),
-            dataView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15),
-            dataView.bottomAnchor.constraint(equalTo: self.startButton.topAnchor, constant: -40)
+            dataView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8),
+            dataView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
+            dataView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -168)
+        ])
+
+        self.addSubview(startButton)
+        NSLayoutConstraint.activate([
+            startButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -98),
+            startButton.heightAnchor.constraint(equalToConstant: 40),
+            startButton.leftAnchor.constraint(equalTo: dataView.leftAnchor),
+            startButton.rightAnchor.constraint(equalTo: dataView.rightAnchor)
         ])
 
         self.dataView.addSubview(titleLabel)
@@ -124,7 +126,7 @@ class InformationScreenView: UIView {
             leftImage.leftAnchor.constraint(equalTo: self.dataView.leftAnchor,constant: 24),
             leftImage.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 84),
             leftImage.bottomAnchor.constraint(equalTo: dataView.bottomAnchor, constant: -120),
-            leftImage.rightAnchor.constraint(equalTo: self.dataView.rightAnchor,constant: -201)
+            leftImage.rightAnchor.constraint(equalTo: self.dataView.rightAnchor,constant: -201 )
         ])
 
         self.dataView.addSubview(rightImage)
