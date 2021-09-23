@@ -95,8 +95,8 @@ class InformationScreenView: UIView {
         NSLayoutConstraint.activate([
             dataView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             dataView.heightAnchor.constraint(equalToConstant: 600),
-            dataView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8),
-            dataView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
+            dataView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+            dataView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
             dataView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -168)
         ])
 
@@ -104,7 +104,7 @@ class InformationScreenView: UIView {
         NSLayoutConstraint.activate([
             startButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -98),
-            startButton.heightAnchor.constraint(equalToConstant: 40),
+            startButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.07),
             startButton.leftAnchor.constraint(equalTo: dataView.leftAnchor),
             startButton.rightAnchor.constraint(equalTo: dataView.rightAnchor)
         ])
