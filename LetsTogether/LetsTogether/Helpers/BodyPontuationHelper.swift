@@ -20,6 +20,7 @@ class BodyPontuationHelper {
     }
     var movementName: String
     var movementPercetage: Double
+    let pontuationUpdate: (Int) -> Void
     let model: JumpingJacks_1 = {
         do {
             let modelConfig = MLModelConfiguration()
@@ -30,9 +31,10 @@ class BodyPontuationHelper {
         }
     }()
     
-    init(movementName: String, percetage: Double) {
+    init(movementName: String, percetage: Double, pontuationUpdate: @escaping (Int) -> Void) {
         self.movementName = movementName
         movementPercetage = percetage
+        self.pontuationUpdate = pontuationUpdate
     }
     
     func add(pose: MLMultiArray) {
@@ -45,7 +47,10 @@ class BodyPontuationHelper {
             let prediction = try model.prediction(poses: modelInput)
             guard let jumpRopeProb = prediction.labelProbabilities[self.movementName] else { return }
             if jumpRopeProb >= self.movementPercetage {
-                count += 1
+                count += 100
+                DispatchQueue.main.async {
+                    self.pontuationUpdate(self.count)
+                }
             }
             print("\(prediction.label) - \(prediction.labelProbabilities[prediction.label]!)")
         } catch {

@@ -56,8 +56,6 @@ class WorkoutScreen: UIView {
         return label
     }()
     
-    let cameraPreview = WorkoutVideoViewController()
-
     public func updateTimerLabel(strTime: String) {
         currentTime.text = strTime
     }
@@ -66,8 +64,15 @@ class WorkoutScreen: UIView {
         currentScores.text = strScore
     }
     
+    let cameraPreview = WorkoutVideoViewController()
+    
     func setConstraints() {
-
+        let bodyPontuation = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8) { points in
+            let pointsStr = String(points)
+            self.updateScoreLabel(strScore: pointsStr)
+        }
+        
+        cameraPreview.configure(bodyPontuation: bodyPontuation)
         self.addSubview(cameraPreview.view)
         cameraPreview.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
