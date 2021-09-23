@@ -39,7 +39,7 @@ class InitialScreenViewController: UIViewController {
     }
 
     @objc func buttonTapped(_ : UIButton) {
-        let controller = ViewController()
+        let controller = WorkoutScreenViewController(workoutViewModel: WorkoutScreenViewModel())
         controller.modalPresentationStyle = .fullScreen
         self.show(controller, sender: self)
     }
