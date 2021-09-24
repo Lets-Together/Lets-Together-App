@@ -19,6 +19,12 @@ class WorkoutVideoViewController: UIViewController {
     
     //Captura do video
     private var cameraFeedSession: AVCaptureSession?
+    var bodyPontuation: BodyPontuationHelper?
+    
+    func configure(bodyPontuation: BodyPontuationHelper) {
+        self.bodyPontuation = bodyPontuation
+    }
+    
     //queue camera
     private let videoDataOutputQueue = DispatchQueue(
         label: "CameraFeedOutput",
@@ -29,8 +35,6 @@ class WorkoutVideoViewController: UIViewController {
         guard let v = view as? CameraPreview else { return CameraPreview() }
         return v
     }
-    
-    let bodyPontuation = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.9)
     
     override func loadView() {
         view = CameraPreview()
@@ -112,7 +116,7 @@ WorkoutVideoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         let bodyPosesHelper = BodyPoseHelper()
         let bodyPoints = bodyPosesHelper.handle(sampleBuffer: sampleBuffer, orientation: .up)
         if(bodyPoints.1.shape == [1, 3, 18]) {
-            bodyPontuation.add(pose: bodyPoints.1)
+            bodyPontuation?.add(pose: bodyPoints.1)
         }
     }
 }
