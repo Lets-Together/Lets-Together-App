@@ -28,6 +28,7 @@ class WorkoutScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         start()
+        contentView.quitButton.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
     }
 
     override func loadView() {
@@ -38,6 +39,12 @@ class WorkoutScreenViewController: UIViewController {
         workoutViewModel.startTimer { timeString in
             self.contentView.updateTimerLabel(strTime: timeString)
         }
+    }
+
+    @objc func buttonTapped(_ : UIButton) {
+        let controller = ScoreBoardScreenViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.show(controller, sender: self)
     }
 
     func updatePoints(amount: Int) {
