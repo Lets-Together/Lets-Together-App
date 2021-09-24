@@ -18,6 +18,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        contentView.quitButton.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+    }
+
+    @objc func buttonTapped(_ : UIButton) {
+        let controller = ScoreBoardScreenViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.show(controller, sender: self)
     }
 
     override func loadView() {

@@ -55,6 +55,16 @@ class WorkoutScreen: UIView {
 
         return label
     }()
+
+    lazy var quitButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(red: 1.0, green: 0.53, blue: 0.53, alpha: 1.0)
+        button.setTitle("Quit", for: .normal)
+        button.layer.cornerRadius = 15
+
+        return button
+    }()
     
     public func updateTimerLabel(strTime: String) {
         currentTime.text = strTime
@@ -80,6 +90,13 @@ class WorkoutScreen: UIView {
             cameraPreview.view.rightAnchor.constraint(equalTo: self.rightAnchor),
             cameraPreview.view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             cameraPreview.view.topAnchor.constraint(equalTo: self.topAnchor)
+        ])
+
+        self.addSubview(quitButton)
+        NSLayoutConstraint.activate([
+            quitButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
+            quitButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 80),
+            quitButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2)
         ])
 
         self.addSubview(scoresLabel)
