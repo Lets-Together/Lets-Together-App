@@ -77,7 +77,7 @@ class WorkoutScreen: UIView {
     let cameraPreview = WorkoutVideoViewController()
     
     func setConstraints() {
-        let bodyPontuation = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8) { points in
+        let bodyPontuation = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.9) { points in
             let pointsStr = String(points)
             self.updateScoreLabel(strScore: pointsStr)
         }

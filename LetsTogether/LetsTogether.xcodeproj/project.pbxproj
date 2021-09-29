@@ -18,6 +18,7 @@
 		27A50BEC26FA973200819383 /* BodyPoseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BEB26FA973200819383 /* BodyPoseHelper.swift */; };
 		27A50BEE26FAA1BF00819383 /* BodyPontuationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BED26FAA1BF00819383 /* BodyPontuationHelper.swift */; };
 		27A50BF026FAA39600819383 /* JumpingJacks 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BEF26FAA39600819383 /* JumpingJacks 1.mlmodel */; };
+		7C23984527049ED50091FE1C /* ScoreBoardScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C23984427049ED50091FE1C /* ScoreBoardScreenViewModel.swift */; };
 		7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59026EF716F00A8F125 /* AppDelegate.swift */; };
 		7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59226EF716F00A8F125 /* SceneDelegate.swift */; };
 		7C38A59B26EF716F00A8F125 /* LetsTogether.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59926EF716F00A8F125 /* LetsTogether.xcdatamodeld */; };
@@ -68,6 +69,7 @@
 		27A50BEB26FA973200819383 /* BodyPoseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseHelper.swift; sourceTree = "<group>"; };
 		27A50BED26FAA1BF00819383 /* BodyPontuationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPontuationHelper.swift; sourceTree = "<group>"; };
 		27A50BEF26FAA39600819383 /* JumpingJacks 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "JumpingJacks 1.mlmodel"; sourceTree = "<group>"; };
+		7C23984427049ED50091FE1C /* ScoreBoardScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreenViewModel.swift; sourceTree = "<group>"; };
 		7C38A58D26EF716F00A8F125 /* LetsTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C38A59026EF716F00A8F125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C38A59226EF716F00A8F125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 		7CFC688726F4DEC100C24E45 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7C23984427049ED50091FE1C /* ScoreBoardScreenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				7C38A59B26EF716F00A8F125 /* LetsTogether.xcdatamodeld in Sources */,
 				7C63261326F033FE005AFA87 /* InitialScreen.swift in Sources */,
 				7C935E7326F3691700713B10 /* InitialScreenViewModel.swift in Sources */,
+				7C23984527049ED50091FE1C /* ScoreBoardScreenViewModel.swift in Sources */,
 				7CFC688B26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift in Sources */,
 				7C935E7926F3727500713B10 /* CoreDataManager.swift in Sources */,
 				27A50BF026FAA39600819383 /* JumpingJacks 1.mlmodel in Sources */,
