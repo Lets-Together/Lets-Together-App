@@ -18,6 +18,7 @@
 		27A50BEC26FA973200819383 /* BodyPoseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BEB26FA973200819383 /* BodyPoseHelper.swift */; };
 		27A50BEE26FAA1BF00819383 /* BodyPontuationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BED26FAA1BF00819383 /* BodyPontuationHelper.swift */; };
 		27A50BF026FAA39600819383 /* JumpingJacks 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BEF26FAA39600819383 /* JumpingJacks 1.mlmodel */; };
+		27B352BD2704897B000CAE0E /* TimeHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352BC2704897B000CAE0E /* TimeHelperTests.swift */; };
 		7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59026EF716F00A8F125 /* AppDelegate.swift */; };
 		7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59226EF716F00A8F125 /* SceneDelegate.swift */; };
 		7C38A59B26EF716F00A8F125 /* LetsTogether.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59926EF716F00A8F125 /* LetsTogether.xcdatamodeld */; };
@@ -61,13 +62,14 @@
 		27A50BDC26F3839800819383 /* WorkoutObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutObservers.swift; path = LetsTogether/Helpers/WorkoutObservers.swift; sourceTree = SOURCE_ROOT; };
 		27A50BDE26F8BAE700819383 /* WorkoutVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVideoViewController.swift; sourceTree = "<group>"; };
 		27A50BE026F8BC6800819383 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
-		27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewController.swift; sourceTree = "<group>"; };
+		27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutScreenViewController.swift; path = LetsTogether/Scenes/WorkoutScreen/ViewModel/WorkoutScreenViewController.swift; sourceTree = SOURCE_ROOT; };
 		27A50BE526FA1D2A00819383 /* CameraPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		27A50BE726FA1F9E00819383 /* WorkoutVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutVideoViewController.swift; sourceTree = "<group>"; };
 		27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewModel.swift; sourceTree = "<group>"; };
 		27A50BEB26FA973200819383 /* BodyPoseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseHelper.swift; sourceTree = "<group>"; };
 		27A50BED26FAA1BF00819383 /* BodyPontuationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPontuationHelper.swift; sourceTree = "<group>"; };
 		27A50BEF26FAA39600819383 /* JumpingJacks 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "JumpingJacks 1.mlmodel"; sourceTree = "<group>"; };
+		27B352BC2704897B000CAE0E /* TimeHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelperTests.swift; sourceTree = "<group>"; };
 		7C38A58D26EF716F00A8F125 /* LetsTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C38A59026EF716F00A8F125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C38A59226EF716F00A8F125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				7C38A5AA26EF717100A8F125 /* LetsTogetherTests.swift */,
 				7C38A5AC26EF717100A8F125 /* Info.plist */,
+				27B352BC2704897B000CAE0E /* TimeHelperTests.swift */,
 			);
 			path = LetsTogetherTests;
 			sourceTree = "<group>";
@@ -326,7 +329,7 @@
 		7C935E7F26F39A4900713B10 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */,
+				27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */,
 				7C63261426F03E6A005AFA87 /* WorkoutScreen.swift */,
 				27A50BE726FA1F9E00819383 /* WorkoutVideoViewController.swift */,
 			);
@@ -336,7 +339,7 @@
 		7C935E8026F39A5100713B10 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */,
+				27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B352BD2704897B000CAE0E /* TimeHelperTests.swift in Sources */,
 				7C38A5AB26EF717100A8F125 /* LetsTogetherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
