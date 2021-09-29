@@ -38,7 +38,7 @@ class ScoreBoardScreenViewController: UIViewController {
     }
 
     @objc func repeatButtonTapped(_ : UIButton) {
-        let controller = ViewController()
+        let controller = WorkoutScreenViewController(workoutViewModel: WorkoutScreenViewModel())
         controller.modalPresentationStyle = .fullScreen
         self.show(controller, sender: self)
     }

@@ -12,11 +12,6 @@ import AVKit
 
 class InformationScreenViewController: UIViewController {
 
-
-
-
-        let initialScreenViewModel = InitialScreenViewModel()
-
         let videoController = AVPlayerViewController()
         let videoPath = Bundle.main.path(forResource: "test", ofType: "MOV")!
 
@@ -40,7 +35,7 @@ class InformationScreenViewController: UIViewController {
         }
 
         @objc func buttonTapped(_ : UIButton) {
-            let controller = ViewController()
+            let controller = WorkoutScreenViewController(workoutViewModel: WorkoutScreenViewModel())
             controller.modalPresentationStyle = .fullScreen
             self.show(controller, sender: self)
         }
@@ -78,6 +73,4 @@ class InformationScreenViewController: UIViewController {
         func pause() {
             videoController.player?.pause()
         }
-
-
 }
