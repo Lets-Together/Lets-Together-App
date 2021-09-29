@@ -63,7 +63,7 @@
 		27A50BDC26F3839800819383 /* WorkoutObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutObservers.swift; path = LetsTogether/Helpers/WorkoutObservers.swift; sourceTree = SOURCE_ROOT; };
 		27A50BDE26F8BAE700819383 /* WorkoutVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVideoViewController.swift; sourceTree = "<group>"; };
 		27A50BE026F8BC6800819383 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
-		27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewController.swift; sourceTree = "<group>"; };
+		27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutScreenViewController.swift; path = LetsTogether/Scenes/WorkoutScreen/ViewModel/WorkoutScreenViewController.swift; sourceTree = SOURCE_ROOT; };
 		27A50BE526FA1D2A00819383 /* CameraPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		27A50BE726FA1F9E00819383 /* WorkoutVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutVideoViewController.swift; sourceTree = "<group>"; };
 		27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewModel.swift; sourceTree = "<group>"; };
@@ -331,7 +331,7 @@
 		7C935E7F26F39A4900713B10 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */,
+				27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */,
 				7C63261426F03E6A005AFA87 /* WorkoutScreen.swift */,
 				7C38A59426EF716F00A8F125 /* ViewController.swift */,
 				27A50BE726FA1F9E00819383 /* WorkoutVideoViewController.swift */,
@@ -342,7 +342,7 @@
 		7C935E8026F39A5100713B10 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */,
+				27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
