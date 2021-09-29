@@ -27,7 +27,6 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
         timerCounting = true
         timerHandler.startSecondsTimer {
             let stringTime = self.timerHandler.stringTime()
-            self.addPoints(amount: 10)
             action(stringTime)
         }
     }
