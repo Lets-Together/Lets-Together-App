@@ -30,15 +30,21 @@ class TimeHelper {
     
     func stringTime() -> String {
         let time = secondsToHourMinutesAndSeconds()
-        let timeString = secondsToTimeString(hours: time["hours"] ?? 0, minutes: time["minutes"] ?? 0, seconds: time["seconds"] ?? 0)
+        let timeString = secondsToTimeString(hours: time["hours"]!, minutes: time["minutes"]!, seconds: time["seconds"]!)
         return timeString
     }
     
     func secondsToHourMinutesAndSeconds() -> [String: Int] {
         var time = [String: Int]()
-        time["seconds"] = (secondsCounter%3600)%60
-        time["minutes"] = (secondsCounter%3600)/60
-        time["hours"] = secondsCounter/3600
+        if secondsCounter == 0 {
+            time["seconds"] = 0
+            time["minutes"] = 0
+            time["hours"] = 0
+        } else {
+            time["seconds"] = (secondsCounter%3600)%60
+            time["minutes"] = (secondsCounter%3600)/60
+            time["hours"] = secondsCounter/3600
+        }
         return time
     }
     
