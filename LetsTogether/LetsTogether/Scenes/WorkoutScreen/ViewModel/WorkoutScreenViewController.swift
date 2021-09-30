@@ -22,6 +22,9 @@ class WorkoutScreenViewController: UIViewController {
     
     lazy var contentView: WorkoutScreen = {
         let view = WorkoutScreen()
+        view.configure { points in
+            self.updatePoints(amount: points)
+        }
         return view
     }()
 
