@@ -64,10 +64,10 @@ class InformationScreenView: UIView {
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Doing jumping jacks you: works the whole body, improves motor coordination,                                                                                       contributes to heart health and burns calories. So do jumping jacks with us!"
+        label.text = "Doing jumping jacks you: works the whole body, improves motor coordination, contributes to heart health and burns calories. So do jumping jacks with us!"
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment = .center
-        label.numberOfLines = 4
+        label.numberOfLines = 5
         return label
     }()
 
@@ -103,7 +103,7 @@ class InformationScreenView: UIView {
         self.addSubview(startButton)
         NSLayoutConstraint.activate([
             startButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100),
+            startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50),
             startButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.07),
             startButton.leftAnchor.constraint(equalTo: dataView.leftAnchor),
             startButton.rightAnchor.constraint(equalTo: dataView.rightAnchor)
@@ -119,7 +119,7 @@ class InformationScreenView: UIView {
         NSLayoutConstraint.activate([
             leftImage.leftAnchor.constraint(equalTo: self.dataView.leftAnchor,constant: 24),
             leftImage.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 70),
-            leftImage.bottomAnchor.constraint(equalTo: dataView.bottomAnchor, constant: -100),
+            leftImage.heightAnchor.constraint(equalTo: dataView.heightAnchor, multiplier: 0.6),
             leftImage.rightAnchor.constraint(equalTo: self.dataView.rightAnchor,constant: -201 )
         ])
 
@@ -127,14 +127,14 @@ class InformationScreenView: UIView {
         NSLayoutConstraint.activate([
             descriptionLabel.leadingAnchor.constraint(equalTo: self.dataView.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: self.dataView.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: self.dataView.bottomAnchor, constant: -5)
+            descriptionLabel.topAnchor.constraint(equalTo: self.leftImage.bottomAnchor, constant: 5)
         ])
 
         self.dataView.addSubview(rightImage)
         NSLayoutConstraint.activate([
             rightImage.rightAnchor.constraint(equalTo: self.dataView.rightAnchor, constant: -24),
             rightImage.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 70),
-            rightImage.bottomAnchor.constraint(equalTo: dataView.bottomAnchor, constant: -100),
+            rightImage.heightAnchor.constraint(equalTo: dataView.heightAnchor, multiplier: 0.6),
             rightImage.leftAnchor.constraint(equalTo: self.dataView.leftAnchor,constant: 201)
         ])
     }

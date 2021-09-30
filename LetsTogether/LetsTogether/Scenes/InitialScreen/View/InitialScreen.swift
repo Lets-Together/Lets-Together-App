@@ -102,7 +102,7 @@ class InitialScreen: UIView {
         self.addSubview(startButton)
         NSLayoutConstraint.activate([
             startButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100),
+            startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50),
             startButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.07),
             startButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
             startButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20)
