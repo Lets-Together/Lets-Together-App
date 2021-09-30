@@ -61,12 +61,13 @@ class InformationScreenView: UIView {
         return label
     }()
 
-    lazy var attemptsLabel: UILabel = {
+    lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "⏰: No Time"
-        label.font = UIFont.boldSystemFont(ofSize: 22)
+        label.text = "Doing jumping jacks you: works the whole body, improves motor coordination,                                                                                       contributes to heart health and burns calories. So do jumping jacks with us!"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textAlignment = .center
+        label.numberOfLines = 4
         return label
     }()
 
@@ -82,7 +83,6 @@ class InformationScreenView: UIView {
     }()
 
     func setConstraints() {
-
         self.addSubview(videoView)
         NSLayoutConstraint.activate([
             videoView.leftAnchor.constraint(equalTo: self.leftAnchor),
@@ -103,7 +103,7 @@ class InformationScreenView: UIView {
         self.addSubview(startButton)
         NSLayoutConstraint.activate([
             startButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            startButton.topAnchor.constraint(equalTo: self.dataView.bottomAnchor, constant: 24),
+            startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100),
             startButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.07),
             startButton.leftAnchor.constraint(equalTo: dataView.leftAnchor),
             startButton.rightAnchor.constraint(equalTo: dataView.rightAnchor)
@@ -118,22 +118,23 @@ class InformationScreenView: UIView {
         self.dataView.addSubview(leftImage)
         NSLayoutConstraint.activate([
             leftImage.leftAnchor.constraint(equalTo: self.dataView.leftAnchor,constant: 24),
-            leftImage.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 84),
-            leftImage.bottomAnchor.constraint(equalTo: dataView.bottomAnchor, constant: -120),
+            leftImage.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 70),
+            leftImage.bottomAnchor.constraint(equalTo: dataView.bottomAnchor, constant: -100),
             leftImage.rightAnchor.constraint(equalTo: self.dataView.rightAnchor,constant: -201 )
         ])
 
-        self.dataView.addSubview(attemptsLabel)
+        self.dataView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            attemptsLabel.leadingAnchor.constraint(equalTo: self.leftImage.leadingAnchor),
-            attemptsLabel.bottomAnchor.constraint(equalTo: self.dataView.bottomAnchor, constant: -40)
+            descriptionLabel.leadingAnchor.constraint(equalTo: self.dataView.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: self.dataView.trailingAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: self.dataView.bottomAnchor, constant: -5)
         ])
 
         self.dataView.addSubview(rightImage)
         NSLayoutConstraint.activate([
             rightImage.rightAnchor.constraint(equalTo: self.dataView.rightAnchor, constant: -24),
-            rightImage.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 84),
-            rightImage.bottomAnchor.constraint(equalTo: dataView.bottomAnchor, constant: -120),
+            rightImage.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 70),
+            rightImage.bottomAnchor.constraint(equalTo: dataView.bottomAnchor, constant: -100),
             rightImage.leftAnchor.constraint(equalTo: self.dataView.leftAnchor,constant: 201)
         ])
     }
