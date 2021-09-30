@@ -10,6 +10,8 @@ import UIKit
 
 class WorkoutScreen: UIView {
 
+    var updatePoints: ((Int) -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -18,6 +20,10 @@ class WorkoutScreen: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(updatePointsClosure: @escaping ((Int) -> Void)) {
+        self.updatePoints = updatePointsClosure
     }
 
     lazy var scoresLabel: UILabel = {
@@ -79,6 +85,7 @@ class WorkoutScreen: UIView {
     func setConstraints() {
         let bodyPontuation = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8) { points in
             let pointsStr = String(points)
+            self.updatePoints?(points)
             self.updateScoreLabel(strScore: pointsStr)
         }
         
