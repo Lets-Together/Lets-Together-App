@@ -13,6 +13,7 @@ protocol WorkoutViewModelProtocol {
     func startTimer(action: @escaping (String) -> Void)
     func pauseTimer()
     func addPoints(amount: Int)
+    func savePoints(points: Int16)
 }
 
 class WorkoutScreenViewModel: WorkoutViewModelProtocol {
@@ -20,12 +21,12 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
     var timerCounting: Bool = true
     var score: Int = 0
     let timerHandler = TimeHelper()
+    var coreDataManager = CoreDataManager()
     
     func startTimer(action: @escaping (String) -> Void) {
         timerCounting = true
         timerHandler.startSecondsTimer {
             let stringTime = self.timerHandler.stringTime()
-            self.addPoints(amount: 10)
             action(stringTime)
         }
     }
@@ -37,6 +38,14 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
     
     func addPoints(amount: Int) {
         score += amount
+    }
+
+    func savePoints(points: Int16) {
+        if coreDataManager.getData() == nil {
+            coreDataManager.saveData(currentScores: points, attempts: 0)
+        } else {
+            coreDataManager.updateItem(dataId: coreDataManager.getData()!.objectID , currentScores: points, attempts: 0)
+        }
     }
     
 }

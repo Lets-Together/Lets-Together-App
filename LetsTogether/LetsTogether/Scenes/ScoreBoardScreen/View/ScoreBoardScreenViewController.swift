@@ -12,6 +12,8 @@ import AVKit
 
 class ScoreBoardScreenViewController: UIViewController {
 
+    let scoreBoardViewModel = ScoreBoardScreenViewModel()
+
     let videoController = AVPlayerViewController()
     let videoPath = Bundle.main.path(forResource: "test", ofType: "MOV")!
 
@@ -25,6 +27,7 @@ class ScoreBoardScreenViewController: UIViewController {
         backgroundVideoConfig()
         contentView.exitButton.addTarget(self, action: #selector(self.exitButtonTapped), for: .touchUpInside)
         contentView.repeatButton.addTarget(self, action: #selector(self.repeatButtonTapped), for: .touchUpInside)
+        contentView.scoresObtained.text = String(scoreBoardViewModel.coreDataManager.getData()!.currentScores)
     }
 
     override func loadView() {

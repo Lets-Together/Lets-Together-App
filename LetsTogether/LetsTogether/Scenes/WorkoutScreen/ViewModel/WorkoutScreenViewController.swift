@@ -42,9 +42,21 @@ class WorkoutScreenViewController: UIViewController {
     }
 
     @objc func buttonTapped(_ : UIButton) {
-        let controller = ScoreBoardScreenViewController()
-        controller.modalPresentationStyle = .fullScreen
-        self.show(controller, sender: self)
+        let alert = UIAlertController(title: "Alert", message: "Do you really want to stop your activity?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive, handler: { _ in
+            self.workoutViewModel.savePoints(points: Int16(self.workoutViewModel.score))
+            let controller = ScoreBoardScreenViewController()
+            controller.modalPresentationStyle = .fullScreen
+
+            self.show(controller, sender: self)
+        }))
+
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: { _ in
+            self.start()
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+        self.workoutViewModel.pauseTimer()
     }
 
     func updatePoints(amount: Int) {
