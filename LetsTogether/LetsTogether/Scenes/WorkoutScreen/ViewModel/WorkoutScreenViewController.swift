@@ -66,6 +66,6 @@ class WorkoutScreenViewController: UIViewController {
         workoutViewModel.addPoints(amount: amount)
         let currentScore = workoutViewModel.score
         let currentScoreStr = String(currentScore)
-        contentView.updateScoreLabel(strScore: currentScoreStr)
+        //contentView.updateScoreLabel(strScore: currentScoreStr)
     }
 }
