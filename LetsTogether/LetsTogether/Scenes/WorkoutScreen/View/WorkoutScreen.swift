@@ -84,9 +84,7 @@ class WorkoutScreen: UIView {
     
     func setConstraints() {
         let bodyPontuation = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.5) { points in
-            print("CHAMEI FUNCAO")
             let pointsStr = String(points)
-            print(points)
             self.updatePoints?(points)
             self.updateScoreLabel(strScore: pointsStr)
         }
