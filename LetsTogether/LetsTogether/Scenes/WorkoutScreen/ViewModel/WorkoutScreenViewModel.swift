@@ -37,7 +37,7 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
     }
     
     func addPoints(amount: Int) {
-        score += amount
+        score = amount
     }
 
     func savePoints(points: Int16) {
