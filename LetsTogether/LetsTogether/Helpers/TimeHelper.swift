@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TimeHelper {
+class TimeHelper: TimeHelperProtocol {
     
     var timer = Timer()
     var secondsCounter = 0

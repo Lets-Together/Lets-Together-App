@@ -8,7 +8,7 @@
 import Foundation
 import Vision
 
-class BodyPoseHelper {
+class BodyPoseHelper: BodyPoseHelperProtocol {
     
     private let bodyPoseRequest: VNDetectHumanBodyPoseRequest = {
         let request = VNDetectHumanBodyPoseRequest()

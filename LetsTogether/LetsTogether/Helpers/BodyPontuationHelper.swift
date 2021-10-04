@@ -8,7 +8,7 @@
 import Foundation
 import Vision
 
-class BodyPontuationHelper {
+class BodyPontuationHelper: BodyPontuationHelperProtocol {
     var pontuationCount: Int = 0 {
         didSet {
             print("Atualizei Pontos")

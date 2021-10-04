@@ -7,21 +7,13 @@
 
 import Foundation
 
-protocol WorkoutViewModelProtocol {
-    var timerCounting: Bool {get}
-    var score: Int {get}
-    func startTimer(action: @escaping (String) -> Void)
-    func pauseTimer()
-    func addPoints(amount: Int)
-    func savePoints(points: Int16)
-}
-
 class WorkoutScreenViewModel: WorkoutViewModelProtocol {
   
     var timerCounting: Bool = true
     var score: Int = 0
     let timerHandler = TimeHelper()
     var coreDataManager = CoreDataManager()
+    var delegate: WorkoutScreenViewModelDelegate?
     
     func startTimer(action: @escaping (String) -> Void) {
         timerCounting = true
