@@ -8,5 +8,7 @@
 import Foundation
 
 protocol TimeHelperProtocol {
-    
+    func startTimer(actionForEachTimeUnit: @escaping () -> Void)
+    func pauseTimer()
+    func stringTime() -> String
 }

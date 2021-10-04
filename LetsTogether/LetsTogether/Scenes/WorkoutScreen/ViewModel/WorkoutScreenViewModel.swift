@@ -11,21 +11,30 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
   
     var timerCounting: Bool = true
     var score: Int = 0
-    let timerHandler = TimeHelper()
     var coreDataManager = CoreDataManager()
     var delegate: WorkoutScreenViewModelDelegate?
     
+    let bodyPose: BodyPoseHelperProtocol
+    let bodyPontuation: BodyPontuationHelperProtocol
+    let timer: TimeHelperProtocol
+    
+    init(bodyPose: BodyPoseHelperProtocol, bodyPontuation: BodyPontuationHelperProtocol, timer: TimeHelperProtocol) {
+        self.bodyPose = bodyPose
+        self.bodyPontuation = bodyPontuation
+        self.timer = timer
+    }
+    
     func startTimer(action: @escaping (String) -> Void) {
         timerCounting = true
-        timerHandler.startSecondsTimer {
-            let stringTime = self.timerHandler.stringTime()
+        timer.startTimer {
+            let stringTime = self.timer.stringTime()
             action(stringTime)
         }
     }
     
     func pauseTimer() {
         timerCounting = false
-        timerHandler.pauseTimer()
+        timer.pauseTimer()
     }
     
     func addPoints(amount: Int) {
