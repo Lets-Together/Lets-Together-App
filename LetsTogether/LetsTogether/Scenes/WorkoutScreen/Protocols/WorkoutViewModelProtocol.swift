@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 protocol WorkoutViewModelProtocol {
     var timerCounting: Bool {get}
@@ -14,4 +15,5 @@ protocol WorkoutViewModelProtocol {
     func pauseTimer()
     func addPoints(amount: Int)
     func savePoints(points: Int16)
+    func handleSample(sampleBuffer: CMSampleBuffer)
 }

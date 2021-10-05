@@ -17,13 +17,10 @@ enum CameraError: Error {
 
 class WorkoutVideoViewController: UIViewController {
     
+    var handleSample: ((CMSampleBuffer) -> Void)?
+    
     //Captura do video
     private var cameraFeedSession: AVCaptureSession?
-    var bodyPontuation: BodyPontuationHelper?
-    
-    func configure(bodyPontuation: BodyPontuationHelper) {
-        self.bodyPontuation = bodyPontuation
-    }
     
     //queue camera
     private let videoDataOutputQueue = DispatchQueue(
@@ -112,11 +109,6 @@ extension
 WorkoutVideoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     func captureOutput( _ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
-        let bodyPosesHelper = BodyPoseHelper()
-        let bodyPoints = bodyPosesHelper.handle(sampleBuffer: sampleBuffer, orientation: .up)
-        if(bodyPoints.1.shape == [1, 3, 18]) {
-            bodyPontuation?.add(pose: bodyPoints.1)
-        }
+        handleSample?(sampleBuffer)
     }
 }

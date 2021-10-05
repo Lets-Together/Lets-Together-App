@@ -6,17 +6,24 @@
 //
 
 import Foundation
+import AVFoundation
 
 class WorkoutScreenViewModel: WorkoutViewModelProtocol {
+    
+    
+    var score: Int = 0
+    
+    func addPoints(amount: Int) {
+        score = amount
+    }
   
     var timerCounting: Bool = true
-    var score: Int = 0
     var coreDataManager = CoreDataManager()
     var delegate: WorkoutScreenViewModelDelegate?
     
-    let bodyPose: BodyPoseHelperProtocol
-    let bodyPontuation: BodyPontuationHelperProtocol
-    let timer: TimeHelperProtocol
+    private let bodyPose: BodyPoseHelperProtocol
+    private let bodyPontuation: BodyPontuationHelperProtocol
+    private let timer: TimeHelperProtocol
     
     init(bodyPose: BodyPoseHelperProtocol, bodyPontuation: BodyPontuationHelperProtocol, timer: TimeHelperProtocol) {
         self.bodyPose = bodyPose
@@ -37,8 +44,11 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
         timer.pauseTimer()
     }
     
-    func addPoints(amount: Int) {
-        score = amount
+    func handleSample(sampleBuffer: CMSampleBuffer) {
+        let bodyPoints = bodyPose.handle(sampleBuffer: sampleBuffer, orientation: .up)
+        if(bodyPoints.1.shape == [1, 3, 18]) {
+            bodyPontuation.add(pose: bodyPoints.1)
+        }
     }
 
     func savePoints(points: Int16) {

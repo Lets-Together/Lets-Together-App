@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import Vision
 
 protocol BodyPoseHelperProtocol {
-    
+    func handle( sampleBuffer: CMSampleBuffer, orientation: CGImagePropertyOrientation ) -> ([CGPoint], MLMultiArray)
 }

@@ -25,6 +25,8 @@ class WorkoutScreenViewController: UIViewController {
         view.configure { points in
             self.updatePoints(amount: points)
         }
+        let preview = addCameraPreview()
+        view.addCameraPreview(preview: preview)
         return view
     }()
 
@@ -42,6 +44,12 @@ class WorkoutScreenViewController: UIViewController {
         workoutViewModel.startTimer { timeString in
             self.contentView.updateTimerLabel(strTime: timeString)
         }
+    }
+    
+    func addCameraPreview() -> WorkoutVideoViewController {
+        let cameraPreview = WorkoutVideoViewController()
+        cameraPreview.handleSample = workoutViewModel.handleSample(sampleBuffer:)
+        return cameraPreview
     }
 
     @objc func buttonTapped(_ : UIButton) {

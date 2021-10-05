@@ -80,24 +80,24 @@ class WorkoutScreen: UIView {
         currentScores.text = strScore
     }
     
-    let cameraPreview = WorkoutVideoViewController()
+    func addCameraPreview(preview: WorkoutVideoViewController) {
+        self.addSubview(preview.view)
+        preview.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            preview.view.leftAnchor.constraint(equalTo: self.leftAnchor),
+            preview.view.rightAnchor.constraint(equalTo: self.rightAnchor),
+            preview.view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            preview.view.topAnchor.constraint(equalTo: self.topAnchor)
+        ])
+    }
+    
     
     func setConstraints() {
-        let bodyPontuation = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.5) { points in
-            let pointsStr = String(points)
-            self.updatePoints?(points)
-            self.updateScoreLabel(strScore: pointsStr)
-        }
-        
-        cameraPreview.configure(bodyPontuation: bodyPontuation)
-        self.addSubview(cameraPreview.view)
-        cameraPreview.view.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            cameraPreview.view.leftAnchor.constraint(equalTo: self.leftAnchor),
-            cameraPreview.view.rightAnchor.constraint(equalTo: self.rightAnchor),
-            cameraPreview.view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            cameraPreview.view.topAnchor.constraint(equalTo: self.topAnchor)
-        ])
+//        let bodyPontuation = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.5) { points in
+//            let pointsStr = String(points)
+//            self.updatePoints?(points)
+//            self.updateScoreLabel(strScore: pointsStr)
+//        }
 
         self.addSubview(quitButton)
         NSLayoutConstraint.activate([

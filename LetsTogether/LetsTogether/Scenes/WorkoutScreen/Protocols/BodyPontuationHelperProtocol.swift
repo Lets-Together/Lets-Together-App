@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import CoreML
 
 protocol BodyPontuationHelperProtocol {
-    
+    var pontuationUpdate: (Int) -> Void { get }
+    var currentPoints: Int { get }
+    func add(pose: MLMultiArray)
 }
