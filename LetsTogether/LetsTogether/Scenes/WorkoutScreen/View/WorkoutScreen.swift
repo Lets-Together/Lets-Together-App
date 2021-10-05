@@ -11,6 +11,7 @@ import UIKit
 class WorkoutScreen: UIView {
 
     var updatePoints: ((Int) -> Void)?
+    var videoViewController: WorkoutVideoViewController?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -80,7 +81,7 @@ class WorkoutScreen: UIView {
         currentScores.text = strScore
     }
     
-    func addCameraPreview(preview: WorkoutVideoViewController) {
+    private func addCameraPreview(preview: WorkoutVideoViewController) {
         self.addSubview(preview.view)
         preview.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -91,14 +92,11 @@ class WorkoutScreen: UIView {
         ])
     }
     
-    
-    func setConstraints() {
-//        let bodyPontuation = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.5) { points in
-//            let pointsStr = String(points)
-//            self.updatePoints?(points)
-//            self.updateScoreLabel(strScore: pointsStr)
-//        }
+    private func setConstraints() {
 
+        let wkvvc = WorkoutVideoViewController()
+        addCameraPreview(preview: wkvvc)
+        
         self.addSubview(quitButton)
         NSLayoutConstraint.activate([
             quitButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),

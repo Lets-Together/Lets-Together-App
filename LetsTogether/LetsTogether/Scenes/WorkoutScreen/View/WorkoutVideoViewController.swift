@@ -37,6 +37,22 @@ class WorkoutVideoViewController: UIViewController {
         view = CameraPreview()
     }
     
+    override func viewDidLoad() {
+//        super.viewDidAppear(animated)
+        do {
+            if cameraFeedSession == nil {
+                try setupAVSession()
+                cameraView.previewLayer.session = cameraFeedSession
+                cameraView.previewLayer.videoGravity = .resizeAspectFill
+            }
+            
+            // 4
+            cameraFeedSession?.startRunning()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         do {
@@ -58,14 +74,14 @@ class WorkoutVideoViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
-    func setupAVSession() throws {
+    private func setupAVSession() throws {
         let videoDevice = try configureVideoDevice()
         let deviceInput = try configureDeviceInput(device: videoDevice)
         let session = try configureCaptureSession(deviceInput: deviceInput)
         cameraFeedSession = session
     }
     
-    func configureVideoDevice() throws -> AVCaptureDevice {
+    private func configureVideoDevice() throws -> AVCaptureDevice {
         guard let videoDevice = AVCaptureDevice.default(
                 .builtInWideAngleCamera,
                 for: .video,
@@ -76,7 +92,7 @@ class WorkoutVideoViewController: UIViewController {
         return videoDevice
     }
     
-    func configureDeviceInput(device: AVCaptureDevice) throws -> AVCaptureDeviceInput {
+    private func configureDeviceInput(device: AVCaptureDevice) throws -> AVCaptureDeviceInput {
         guard let deviceInput = try? AVCaptureDeviceInput(device: device)
         else {
             throw CameraError.inputCreation("Could not create video device input.")
@@ -84,7 +100,7 @@ class WorkoutVideoViewController: UIViewController {
         return deviceInput
     }
     
-    func configureCaptureSession(deviceInput: AVCaptureDeviceInput) throws -> AVCaptureSession {
+    private func configureCaptureSession(deviceInput: AVCaptureDeviceInput) throws -> AVCaptureSession {
         let session = AVCaptureSession()
         session.beginConfiguration()
         session.sessionPreset = AVCaptureSession.Preset.high
@@ -110,5 +126,6 @@ WorkoutVideoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     func captureOutput( _ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         handleSample?(sampleBuffer)
+        print("Capturei")
     }
 }
