@@ -37,37 +37,21 @@ class WorkoutVideoViewController: UIViewController {
         view = CameraPreview()
     }
     
-    override func viewDidLoad() {
-//        super.viewDidAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        print("fsfsdfs")
+        super.viewDidAppear(animated)
         do {
             if cameraFeedSession == nil {
                 try setupAVSession()
                 cameraView.previewLayer.session = cameraFeedSession
                 cameraView.previewLayer.videoGravity = .resizeAspectFill
             }
-            
+
             // 4
             cameraFeedSession?.startRunning()
         } catch {
             print(error.localizedDescription)
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        print("fsfsdfs")
-//        super.viewDidAppear(animated)
-//        do {
-//            if cameraFeedSession == nil {
-//                try setupAVSession()
-//                cameraView.previewLayer.session = cameraFeedSession
-//                cameraView.previewLayer.videoGravity = .resizeAspectFill
-//            }
-//
-//            // 4
-//            cameraFeedSession?.startRunning()
-//        } catch {
-//            print(error.localizedDescription)
-//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

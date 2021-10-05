@@ -14,6 +14,7 @@ class WorkoutScreen: UIView {
     var updatePoints: ((Int) -> Void)?
     var videoViewController: WorkoutVideoViewController?
     var handleSample: ((CMSampleBuffer) -> Void)?
+    let cameraPreview = WorkoutVideoViewController()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -93,12 +94,11 @@ class WorkoutScreen: UIView {
             preview.view.topAnchor.constraint(equalTo: self.topAnchor)
         ])
     }
-    
-    private func setConstraints() {
 
-        let wkvvc = WorkoutVideoViewController()
-        wkvvc.handleSample = self.handleSample
-        addCameraPreview(preview: wkvvc)
+    private func setConstraints() {
+        
+        cameraPreview.handleSample = self.handleSample
+        addCameraPreview(preview: cameraPreview)
         
         self.addSubview(quitButton)
         NSLayoutConstraint.activate([
