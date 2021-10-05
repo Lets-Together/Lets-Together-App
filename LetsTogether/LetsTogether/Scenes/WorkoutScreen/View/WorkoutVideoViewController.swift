@@ -54,19 +54,20 @@ class WorkoutVideoViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        do {
-            if cameraFeedSession == nil {
-                try setupAVSession()
-                cameraView.previewLayer.session = cameraFeedSession
-                cameraView.previewLayer.videoGravity = .resizeAspectFill
-            }
-            
-            // 4
-            cameraFeedSession?.startRunning()
-        } catch {
-            print(error.localizedDescription)
-        }
+        print("fsfsdfs")
+//        super.viewDidAppear(animated)
+//        do {
+//            if cameraFeedSession == nil {
+//                try setupAVSession()
+//                cameraView.previewLayer.session = cameraFeedSession
+//                cameraView.previewLayer.videoGravity = .resizeAspectFill
+//            }
+//
+//            // 4
+//            cameraFeedSession?.startRunning()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -125,6 +126,7 @@ extension
 WorkoutVideoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     func captureOutput( _ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
         handleSample?(sampleBuffer)
         print("Capturei")
     }

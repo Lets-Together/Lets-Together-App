@@ -45,6 +45,7 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
     }
     
     func handleSample(sampleBuffer: CMSampleBuffer) {
+        print("ALOHA")
         let bodyPoints = bodyPose.handle(sampleBuffer: sampleBuffer, orientation: .up)
         if(bodyPoints.1.shape == [1, 3, 18]) {
             bodyPontuation.add(pose: bodyPoints.1)

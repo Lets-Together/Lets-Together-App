@@ -7,11 +7,13 @@
 
 import Foundation
 import UIKit
+import Vision
 
 class WorkoutScreen: UIView {
 
     var updatePoints: ((Int) -> Void)?
     var videoViewController: WorkoutVideoViewController?
+    var handleSample: ((CMSampleBuffer) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -95,6 +97,7 @@ class WorkoutScreen: UIView {
     private func setConstraints() {
 
         let wkvvc = WorkoutVideoViewController()
+        wkvvc.handleSample = self.handleSample
         addCameraPreview(preview: wkvvc)
         
         self.addSubview(quitButton)

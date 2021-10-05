@@ -25,6 +25,7 @@ class WorkoutScreenViewController: UIViewController {
         view.configure { points in
             self.updatePoints(amount: points)
         }
+        view.handleSample = workoutViewModel.handleSample
         return view
     }()
 
