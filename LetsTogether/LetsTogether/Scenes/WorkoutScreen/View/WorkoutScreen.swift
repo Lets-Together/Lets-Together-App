@@ -7,23 +7,27 @@
 
 import Foundation
 import UIKit
+import Vision
 
 class WorkoutScreen: UIView {
 
-    var updatePoints: ((Int) -> Void)?
-    
+    var videoViewController: WorkoutVideoViewController?
+    var handleSample: ((CMSampleBuffer) -> Void)?
+    let cameraPreview = WorkoutVideoViewController()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .blue
+    }
+
+    func configure(handleSample: @escaping ((CMSampleBuffer) -> Void)) {
+        self.handleSample = handleSample
         backgroundColor = .white
         setConstraints()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure(updatePointsClosure: @escaping ((Int) -> Void)) {
-        self.updatePoints = updatePointsClosure
     }
 
     lazy var scoresLabel: UILabel = {
@@ -80,25 +84,20 @@ class WorkoutScreen: UIView {
         currentScores.text = strScore
     }
     
-    let cameraPreview = WorkoutVideoViewController()
-    
-    func setConstraints() {
-        let bodyPontuation = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.5) { points in
-            let pointsStr = String(points)
-            self.updatePoints?(points)
-            self.updateScoreLabel(strScore: pointsStr)
-        }
-        
-        cameraPreview.configure(bodyPontuation: bodyPontuation)
-        self.addSubview(cameraPreview.view)
-        cameraPreview.view.translatesAutoresizingMaskIntoConstraints = false
+    private func addCameraPreview(preview: WorkoutVideoViewController) {
+        self.addSubview(preview.view)
+        preview.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cameraPreview.view.leftAnchor.constraint(equalTo: self.leftAnchor),
-            cameraPreview.view.rightAnchor.constraint(equalTo: self.rightAnchor),
-            cameraPreview.view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            cameraPreview.view.topAnchor.constraint(equalTo: self.topAnchor)
+            preview.view.leftAnchor.constraint(equalTo: self.leftAnchor),
+            preview.view.rightAnchor.constraint(equalTo: self.rightAnchor),
+            preview.view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            preview.view.topAnchor.constraint(equalTo: self.topAnchor)
         ])
+    }
 
+    private func setConstraints() {
+        cameraPreview.handleSample = self.handleSample
+        addCameraPreview(preview: cameraPreview)
         self.addSubview(quitButton)
         NSLayoutConstraint.activate([
             quitButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),

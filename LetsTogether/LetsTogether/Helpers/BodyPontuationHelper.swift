@@ -8,13 +8,11 @@
 import Foundation
 import Vision
 
-class BodyPontuationHelper {
-    var pontuationCount: Int = 0 {
-        didSet {
-            print("Atualizei Pontos")
-        }
-    }
-    var poses: [MLMultiArray] = [] {
+class BodyPontuationHelper: BodyPontuationHelperProtocol {
+    
+    private(set) var currentPoints: Int = 0
+    var pontuationUpdate: ((Int) -> Void)?
+    private var poses: [MLMultiArray] = [] {
         didSet {
             if(poses.count == 30) {
                 classifyPose()
@@ -22,10 +20,10 @@ class BodyPontuationHelper {
             }
         }
     }
-    var movementName: String
-    var movementPercetage: Double
-    let pontuationUpdate: (Int) -> Void
-    let model: JumpingJacks_1 = {
+    private(set) var movementName: String
+    private(set) var movementPercetage: Double
+    
+    private let model: JumpingJacks_1 = {
         do {
             let modelConfig = MLModelConfiguration()
             let classifier = try JumpingJacks_1(configuration: modelConfig)
@@ -35,26 +33,24 @@ class BodyPontuationHelper {
         }
     }()
     
-    init(movementName: String, percetage: Double, pontuationUpdate: @escaping (Int) -> Void) {
+    init(movementName: String, percetage: Double) {
         self.movementName = movementName
         movementPercetage = percetage
-        self.pontuationUpdate = pontuationUpdate
     }
     
     func add(pose: MLMultiArray) {
         poses.append(pose)
     }
     
-    func classifyPose() {
+    private func classifyPose() {
         let modelInput = MLMultiArray(concatenating: poses, axis: 0, dataType: .float)
         do {
             let prediction = try model.prediction(poses: modelInput)
             guard let jumpRopeProb = prediction.labelProbabilities[self.movementName] else { return }
             if jumpRopeProb >= self.movementPercetage {
-                pontuationCount += 100
-                print("CONTEI PONTOS")
+                currentPoints += 100
                 DispatchQueue.main.async {
-                    self.pontuationUpdate(self.pontuationCount)
+                    self.pontuationUpdate?(self.currentPoints)
                 }
             }
             print("\(prediction.label) - \(prediction.labelProbabilities[prediction.label]!)")

@@ -7,25 +7,19 @@
 
 import Foundation
 
-class TimeHelper {
+class TimeHelper: TimeHelperProtocol {
     
     var timer = Timer()
     var secondsCounter = 0
     private var secondsTimerAction: (() -> Void)?
-    
-    func startSecondsTimer(escaping action: @escaping () -> Void) {
-        secondsTimerAction = action
+
+    func startTimer(actionForEachTimeUnit: @escaping () -> Void) {
+        secondsTimerAction = actionForEachTimeUnit
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
     }
     
     func pauseTimer() {
         timer.invalidate()
-    }
-    
-    @objc
-    func fireTimer() {
-        secondsCounter += 1
-        secondsTimerAction?()
     }
     
     func stringTime() -> String {
@@ -34,7 +28,13 @@ class TimeHelper {
         return timeString
     }
     
-    func secondsToHourMinutesAndSeconds() -> [String: Int] {
+    @objc
+    private func fireTimer() {
+        secondsCounter += 1
+        secondsTimerAction?()
+    }
+    
+    private func secondsToHourMinutesAndSeconds() -> [String: Int] {
         var time = [String: Int]()
         if secondsCounter == 0 {
             time["seconds"] = 0
@@ -48,7 +48,7 @@ class TimeHelper {
         return time
     }
     
-    func secondsToTimeString(hours: Int, minutes: Int, seconds: Int) -> String {
+    private func secondsToTimeString(hours: Int, minutes: Int, seconds: Int) -> String {
         var timeString = ""
         timeString += String(format: "%02d", hours)
         timeString += ":"

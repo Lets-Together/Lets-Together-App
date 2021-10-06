@@ -10,7 +10,6 @@
 		0F9E8DA926FBB2EE00E833FD /* InformationScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E8DA826FBB2EE00E833FD /* InformationScreenView.swift */; };
 		0F9E8DAB26FBB3DC00E833FD /* InformationScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E8DAA26FBB3DC00E833FD /* InformationScreenViewController.swift */; };
 		27A50BDB26F230B200819383 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BDA26F230B200819383 /* TimeHelper.swift */; };
-		27A50BDD26F3839800819383 /* WorkoutObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BDC26F3839800819383 /* WorkoutObservers.swift */; };
 		27A50BE426FA1CA900819383 /* WorkoutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */; };
 		27A50BE626FA1D2B00819383 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BE526FA1D2A00819383 /* CameraPreview.swift */; };
 		27A50BE826FA1F9E00819383 /* WorkoutVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BE726FA1F9E00819383 /* WorkoutVideoViewController.swift */; };
@@ -20,6 +19,11 @@
 		27A50BF026FAA39600819383 /* JumpingJacks 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BEF26FAA39600819383 /* JumpingJacks 1.mlmodel */; };
 		27B352BD2704897B000CAE0E /* TimeHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352BC2704897B000CAE0E /* TimeHelperTests.swift */; };
 		27B352BF2705F1D9000CAE0E /* WorkoutScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352BE2705F1D9000CAE0E /* WorkoutScreenViewModelTests.swift */; };
+		27B352C2270B3CCE000CAE0E /* TimeHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352C1270B3CCE000CAE0E /* TimeHelperProtocol.swift */; };
+		27B352C4270B3CE5000CAE0E /* BodyPoseHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352C3270B3CE5000CAE0E /* BodyPoseHelperProtocol.swift */; };
+		27B352C6270B3CF8000CAE0E /* BodyPontuationHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352C5270B3CF8000CAE0E /* BodyPontuationHelperProtocol.swift */; };
+		27B352C8270B3D20000CAE0E /* WorkoutScreenViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352C7270B3D20000CAE0E /* WorkoutScreenViewModelDelegate.swift */; };
+		27B352CA270B3DD2000CAE0E /* WorkoutViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352C9270B3DD2000CAE0E /* WorkoutViewModelProtocol.swift */; };
 		7C23984527049ED50091FE1C /* ScoreBoardScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C23984427049ED50091FE1C /* ScoreBoardScreenViewModel.swift */; };
 		7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59026EF716F00A8F125 /* AppDelegate.swift */; };
 		7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59226EF716F00A8F125 /* SceneDelegate.swift */; };
@@ -61,7 +65,6 @@
 		27A50BD526F21E3000819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewController.swift; sourceTree = "<group>"; };
 		27A50BD726F21E4900819383 /* WorkoutScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutScreenViewModel.swift; path = LetsTogether/Scenes/Controller/WorkoutScreenViewModel.swift; sourceTree = SOURCE_ROOT; };
 		27A50BDA26F230B200819383 /* TimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
-		27A50BDC26F3839800819383 /* WorkoutObservers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutObservers.swift; path = LetsTogether/Helpers/WorkoutObservers.swift; sourceTree = SOURCE_ROOT; };
 		27A50BDE26F8BAE700819383 /* WorkoutVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVideoViewController.swift; sourceTree = "<group>"; };
 		27A50BE026F8BC6800819383 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		27A50BE326FA1CA800819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutScreenViewController.swift; path = LetsTogether/Scenes/WorkoutScreen/ViewModel/WorkoutScreenViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -73,6 +76,11 @@
 		27A50BEF26FAA39600819383 /* JumpingJacks 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "JumpingJacks 1.mlmodel"; sourceTree = "<group>"; };
 		27B352BC2704897B000CAE0E /* TimeHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelperTests.swift; sourceTree = "<group>"; };
 		27B352BE2705F1D9000CAE0E /* WorkoutScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewModelTests.swift; sourceTree = "<group>"; };
+		27B352C1270B3CCE000CAE0E /* TimeHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelperProtocol.swift; sourceTree = "<group>"; };
+		27B352C3270B3CE5000CAE0E /* BodyPoseHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseHelperProtocol.swift; sourceTree = "<group>"; };
+		27B352C5270B3CF8000CAE0E /* BodyPontuationHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPontuationHelperProtocol.swift; sourceTree = "<group>"; };
+		27B352C7270B3D20000CAE0E /* WorkoutScreenViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewModelDelegate.swift; sourceTree = "<group>"; };
+		27B352C9270B3DD2000CAE0E /* WorkoutViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModelProtocol.swift; sourceTree = "<group>"; };
 		7C23984427049ED50091FE1C /* ScoreBoardScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreenViewModel.swift; sourceTree = "<group>"; };
 		7C38A58D26EF716F00A8F125 /* LetsTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C38A59026EF716F00A8F125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,7 +160,6 @@
 			children = (
 				27A50BDA26F230B200819383 /* TimeHelper.swift */,
 				27A50BEB26FA973200819383 /* BodyPoseHelper.swift */,
-				27A50BDC26F3839800819383 /* WorkoutObservers.swift */,
 				27A50BED26FAA1BF00819383 /* BodyPontuationHelper.swift */,
 			);
 			path = Helpers;
@@ -167,6 +174,18 @@
 				27A50BE026F8BC6800819383 /* CameraPreview.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		27B352C0270B3CA0000CAE0E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				27B352C1270B3CCE000CAE0E /* TimeHelperProtocol.swift */,
+				27B352C3270B3CE5000CAE0E /* BodyPoseHelperProtocol.swift */,
+				27B352C5270B3CF8000CAE0E /* BodyPontuationHelperProtocol.swift */,
+				27B352C7270B3D20000CAE0E /* WorkoutScreenViewModelDelegate.swift */,
+				27B352C9270B3DD2000CAE0E /* WorkoutViewModelProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		7C38A58426EF716F00A8F125 = {
@@ -307,6 +326,7 @@
 		7C61742626F244C900CE9D2E /* WorkoutScreen */ = {
 			isa = PBXGroup;
 			children = (
+				27B352C0270B3CA0000CAE0E /* Protocols */,
 				7C935E8026F39A5100713B10 /* ViewModel */,
 				7C935E7F26F39A4900713B10 /* View */,
 			);
@@ -528,6 +548,7 @@
 				7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */,
 				27A50BEC26FA973200819383 /* BodyPoseHelper.swift in Sources */,
 				27A50BDB26F230B200819383 /* TimeHelper.swift in Sources */,
+				27B352C4270B3CE5000CAE0E /* BodyPoseHelperProtocol.swift in Sources */,
 				27A50BE826FA1F9E00819383 /* WorkoutVideoViewController.swift in Sources */,
 				27A50BE626FA1D2B00819383 /* CameraPreview.swift in Sources */,
 				7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */,
@@ -538,16 +559,19 @@
 				7C23984527049ED50091FE1C /* ScoreBoardScreenViewModel.swift in Sources */,
 				7CFC688B26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift in Sources */,
 				7C935E7926F3727500713B10 /* CoreDataManager.swift in Sources */,
+				27B352C6270B3CF8000CAE0E /* BodyPontuationHelperProtocol.swift in Sources */,
 				27A50BF026FAA39600819383 /* JumpingJacks 1.mlmodel in Sources */,
 				7C81D4DC26F0EC5C00D8BF09 /* InitialScreenViewController.swift in Sources */,
 				7C935E7D26F3956100713B10 /* UserData.swift in Sources */,
+				27B352CA270B3DD2000CAE0E /* WorkoutViewModelProtocol.swift in Sources */,
 				27A50BE426FA1CA900819383 /* WorkoutScreenViewController.swift in Sources */,
 				7C63261526F03E6A005AFA87 /* WorkoutScreen.swift in Sources */,
 				0F9E8DAB26FBB3DC00E833FD /* InformationScreenViewController.swift in Sources */,
 				0F9E8DA926FBB2EE00E833FD /* InformationScreenView.swift in Sources */,
+				27B352C8270B3D20000CAE0E /* WorkoutScreenViewModelDelegate.swift in Sources */,
+				27B352C2270B3CCE000CAE0E /* TimeHelperProtocol.swift in Sources */,
 				7CFC688926F4DEFA00C24E45 /* ScoreBoardScreen.swift in Sources */,
 				27A50BEE26FAA1BF00819383 /* BodyPontuationHelper.swift in Sources */,
-				27A50BDD26F3839800819383 /* WorkoutObservers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,7 +732,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3.7;
-				DEVELOPMENT_TEAM = Y8HUNAB446;
+				DEVELOPMENT_TEAM = R39G5DLZJ3;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -728,7 +752,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3.7;
-				DEVELOPMENT_TEAM = Y8HUNAB446;
+				DEVELOPMENT_TEAM = R39G5DLZJ3;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

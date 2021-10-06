@@ -17,13 +17,10 @@ enum CameraError: Error {
 
 class WorkoutVideoViewController: UIViewController {
     
+    var handleSample: ((CMSampleBuffer) -> Void)?
+    
     //Captura do video
     private var cameraFeedSession: AVCaptureSession?
-    var bodyPontuation: BodyPontuationHelper?
-    
-    func configure(bodyPontuation: BodyPontuationHelper) {
-        self.bodyPontuation = bodyPontuation
-    }
     
     //queue camera
     private let videoDataOutputQueue = DispatchQueue(
@@ -48,7 +45,7 @@ class WorkoutVideoViewController: UIViewController {
                 cameraView.previewLayer.session = cameraFeedSession
                 cameraView.previewLayer.videoGravity = .resizeAspectFill
             }
-            
+
             // 4
             cameraFeedSession?.startRunning()
         } catch {
@@ -61,14 +58,14 @@ class WorkoutVideoViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
-    func setupAVSession() throws {
+    private func setupAVSession() throws {
         let videoDevice = try configureVideoDevice()
         let deviceInput = try configureDeviceInput(device: videoDevice)
         let session = try configureCaptureSession(deviceInput: deviceInput)
         cameraFeedSession = session
     }
     
-    func configureVideoDevice() throws -> AVCaptureDevice {
+    private func configureVideoDevice() throws -> AVCaptureDevice {
         guard let videoDevice = AVCaptureDevice.default(
                 .builtInWideAngleCamera,
                 for: .video,
@@ -79,7 +76,7 @@ class WorkoutVideoViewController: UIViewController {
         return videoDevice
     }
     
-    func configureDeviceInput(device: AVCaptureDevice) throws -> AVCaptureDeviceInput {
+    private func configureDeviceInput(device: AVCaptureDevice) throws -> AVCaptureDeviceInput {
         guard let deviceInput = try? AVCaptureDeviceInput(device: device)
         else {
             throw CameraError.inputCreation("Could not create video device input.")
@@ -87,7 +84,7 @@ class WorkoutVideoViewController: UIViewController {
         return deviceInput
     }
     
-    func configureCaptureSession(deviceInput: AVCaptureDeviceInput) throws -> AVCaptureSession {
+    private func configureCaptureSession(deviceInput: AVCaptureDeviceInput) throws -> AVCaptureSession {
         let session = AVCaptureSession()
         session.beginConfiguration()
         session.sessionPreset = AVCaptureSession.Preset.high
@@ -112,11 +109,6 @@ extension
 WorkoutVideoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     func captureOutput( _ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
-        let bodyPosesHelper = BodyPoseHelper()
-        let bodyPoints = bodyPosesHelper.handle(sampleBuffer: sampleBuffer, orientation: .up)
-        if(bodyPoints.1.shape == [1, 3, 18]) {
-            bodyPontuation?.add(pose: bodyPoints.1)
-        }
+        handleSample?(sampleBuffer)
     }
 }

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class WorkoutScreenViewController: UIViewController {
+class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDelegate {
 
-    let workoutViewModel: WorkoutViewModelProtocol
+    var workoutViewModel: WorkoutViewModelProtocol
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -22,14 +22,13 @@ class WorkoutScreenViewController: UIViewController {
     
     lazy var contentView: WorkoutScreen = {
         let view = WorkoutScreen()
-        view.configure { points in
-            self.updatePoints(amount: points)
-        }
+        view.configure(handleSample: workoutViewModel.handleSample(sampleBuffer:))
         return view
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        workoutViewModel.delegate = self
         start()
         contentView.quitButton.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
     }
@@ -62,8 +61,17 @@ class WorkoutScreenViewController: UIViewController {
         self.workoutViewModel.pauseTimer()
     }
 
-    func updatePoints(amount: Int) {
-        workoutViewModel.addPoints(amount: amount)
-        let currentScore = workoutViewModel.score
+    func updatePoints(_ points: Int) {
+        if let v = self.view as? WorkoutScreen {
+            v.updateScoreLabel(strScore: String(points))
+        }
     }
+}
+
+extension WorkoutScreenViewController {
+
+    func pontuationUpdate(points: Int) {
+        updatePoints(points)
+    }
+    
 }

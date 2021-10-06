@@ -8,7 +8,7 @@
 import Foundation
 import Vision
 
-class BodyPoseHelper {
+class BodyPoseHelper: BodyPoseHelperProtocol {
     
     private let bodyPoseRequest: VNDetectHumanBodyPoseRequest = {
         let request = VNDetectHumanBodyPoseRequest()
@@ -28,7 +28,7 @@ class BodyPoseHelper {
         return (transformPointsToScreenPoints(bodyRecognizedPoints: bodyRecognizedPoints.0), bodyRecognizedPoints.1)
     }
     
-    func allRecognizedPoints(bodyResults: Array<VNHumanBodyPoseObservation>.SubSequence) -> ([VNRecognizedPoint], MLMultiArray) {
+    private func allRecognizedPoints(bodyResults: Array<VNHumanBodyPoseObservation>.SubSequence) -> ([VNRecognizedPoint], MLMultiArray) {
         var bodyRecognizedPoints: [VNRecognizedPoint] = []
         var pose1: MLMultiArray = MLMultiArray()
         do {
@@ -47,7 +47,7 @@ class BodyPoseHelper {
         return (bodyRecognizedPoints, pose1)
     }
     
-    func transformPointsToScreenPoints(bodyRecognizedPoints: [VNRecognizedPoint]) -> [CGPoint] {
+    private func transformPointsToScreenPoints(bodyRecognizedPoints: [VNRecognizedPoint]) -> [CGPoint] {
         return bodyRecognizedPoints.map {
             CGPoint(x: $0.location.x, y: 1 - $0.location.y)
         }
