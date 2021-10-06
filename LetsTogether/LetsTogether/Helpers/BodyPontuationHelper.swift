@@ -49,7 +49,6 @@ class BodyPontuationHelper: BodyPontuationHelperProtocol {
             guard let jumpRopeProb = prediction.labelProbabilities[self.movementName] else { return }
             if jumpRopeProb >= self.movementPercetage {
                 currentPoints += 100
-                print("CONTEI PONTOS")
                 DispatchQueue.main.async {
                     self.pontuationUpdate?(self.currentPoints)
                 }

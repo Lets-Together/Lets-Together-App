@@ -22,9 +22,7 @@ class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDeleg
     
     lazy var contentView: WorkoutScreen = {
         let view = WorkoutScreen()
-        view.configure(handleSample: workoutViewModel.handleSample(sampleBuffer:)) { points in
-            self.updatePoints(amount: points)
-        }
+        view.configure(handleSample: workoutViewModel.handleSample(sampleBuffer:))
         return view
     }()
 
@@ -63,15 +61,17 @@ class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDeleg
         self.workoutViewModel.pauseTimer()
     }
 
-    func updatePoints(amount: Int) {
-        let currentScore = workoutViewModel.score
+    func updatePoints(_ points: Int) {
+        if let v = self.view as? WorkoutScreen {
+            v.updateScoreLabel(strScore: String(points))
+        }
     }
 }
 
 extension WorkoutScreenViewController {
 
     func pontuationUpdate(points: Int) {
-        print("CHEGUEI NA VIEW CONTROLLER")
+        updatePoints(points)
     }
     
 }

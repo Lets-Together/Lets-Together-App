@@ -11,7 +11,6 @@ import Vision
 
 class WorkoutScreen: UIView {
 
-    var updatePoints: ((Int) -> Void)?
     var videoViewController: WorkoutVideoViewController?
     var handleSample: ((CMSampleBuffer) -> Void)?
     let cameraPreview = WorkoutVideoViewController()
@@ -21,8 +20,7 @@ class WorkoutScreen: UIView {
         backgroundColor = .blue
     }
 
-    func configure(handleSample: @escaping ((CMSampleBuffer) -> Void), updatePointsClosure: @escaping ((Int) -> Void)) {
-        self.updatePoints = updatePointsClosure
+    func configure(handleSample: @escaping ((CMSampleBuffer) -> Void)) {
         self.handleSample = handleSample
         backgroundColor = .white
         setConstraints()
@@ -98,10 +96,8 @@ class WorkoutScreen: UIView {
     }
 
     private func setConstraints() {
-        
         cameraPreview.handleSample = self.handleSample
         addCameraPreview(preview: cameraPreview)
-        
         self.addSubview(quitButton)
         NSLayoutConstraint.activate([
             quitButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
