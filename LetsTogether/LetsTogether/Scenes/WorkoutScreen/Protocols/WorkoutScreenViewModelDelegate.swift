@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol WorkoutScreenViewModelDelegate {
+protocol WorkoutScreenViewModelDelegate: AnyObject {
     func pontuationUpdate(points: Int)
 }

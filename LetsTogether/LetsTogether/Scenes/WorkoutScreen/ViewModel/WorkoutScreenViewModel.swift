@@ -18,7 +18,7 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
   
     var timerCounting: Bool = true
     var coreDataManager = CoreDataManager()
-    var delegate: WorkoutScreenViewModelDelegate?
+    weak var delegate: WorkoutScreenViewModelDelegate?
     
     private let bodyPose: BodyPoseHelperProtocol
     private var bodyPontuation: BodyPontuationHelperProtocol
