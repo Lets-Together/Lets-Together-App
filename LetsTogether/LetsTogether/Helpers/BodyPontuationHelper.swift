@@ -11,7 +11,7 @@ import Vision
 class BodyPontuationHelper: BodyPontuationHelperProtocol {
     
     private(set) var currentPoints: Int = 0
-    let pontuationUpdate: (Int) -> Void
+    var pontuationUpdate: ((Int) -> Void)?
     private var poses: [MLMultiArray] = [] {
         didSet {
             if(poses.count == 30) {
@@ -33,15 +33,13 @@ class BodyPontuationHelper: BodyPontuationHelperProtocol {
         }
     }()
     
-    init(movementName: String, percetage: Double, pontuationUpdate: @escaping (Int) -> Void) {
+    init(movementName: String, percetage: Double) {
         self.movementName = movementName
         movementPercetage = percetage
-        self.pontuationUpdate = pontuationUpdate
     }
     
     func add(pose: MLMultiArray) {
         poses.append(pose)
-        print(poses.count)
     }
     
     private func classifyPose() {
@@ -53,7 +51,7 @@ class BodyPontuationHelper: BodyPontuationHelperProtocol {
                 currentPoints += 100
                 print("CONTEI PONTOS")
                 DispatchQueue.main.async {
-                    self.pontuationUpdate(self.currentPoints)
+                    self.pontuationUpdate?(self.currentPoints)
                 }
             }
             print("\(prediction.label) - \(prediction.labelProbabilities[prediction.label]!)")

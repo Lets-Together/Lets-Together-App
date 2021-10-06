@@ -8,5 +8,5 @@
 import Foundation
 
 protocol WorkoutScreenViewModelDelegate {
-    
+    func pontuationUpdate(points: Int)
 }

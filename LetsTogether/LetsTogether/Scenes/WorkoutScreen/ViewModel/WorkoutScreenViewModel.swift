@@ -21,13 +21,17 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
     var delegate: WorkoutScreenViewModelDelegate?
     
     private let bodyPose: BodyPoseHelperProtocol
-    private let bodyPontuation: BodyPontuationHelperProtocol
+    private var bodyPontuation: BodyPontuationHelperProtocol
     private let timer: TimeHelperProtocol
     
     init(bodyPose: BodyPoseHelperProtocol, bodyPontuation: BodyPontuationHelperProtocol, timer: TimeHelperProtocol) {
         self.bodyPose = bodyPose
         self.bodyPontuation = bodyPontuation
         self.timer = timer
+        self.bodyPontuation.pontuationUpdate = { points in
+            self.score = points
+            self.delegate?.pontuationUpdate(points: points)
+        }
     }
     
     func startTimer(action: @escaping (String) -> Void) {

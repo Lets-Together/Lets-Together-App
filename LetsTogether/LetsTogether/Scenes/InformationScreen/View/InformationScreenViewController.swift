@@ -35,7 +35,7 @@ class InformationScreenViewController: UIViewController {
         }
 
         @objc func buttonTapped(_ : UIButton) {
-            let bodyPontuatiion = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8) { _ in }
+            let bodyPontuatiion = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8)
             let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion, timer: TimeHelper())
             let controller = WorkoutScreenViewController(workoutViewModel: wksViewModel)
             controller.modalPresentationStyle = .fullScreen
