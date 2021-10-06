@@ -22,10 +22,9 @@ class WorkoutScreenViewController: UIViewController {
     
     lazy var contentView: WorkoutScreen = {
         let view = WorkoutScreen()
-        view.configure { points in
+        view.configure(handleSample: workoutViewModel.handleSample(sampleBuffer:)) { points in
             self.updatePoints(amount: points)
         }
-        view.handleSample = workoutViewModel.handleSample
         return view
     }()
 

@@ -38,7 +38,6 @@ class WorkoutVideoViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("fsfsdfs")
         super.viewDidAppear(animated)
         do {
             if cameraFeedSession == nil {
@@ -110,8 +109,6 @@ extension
 WorkoutVideoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     func captureOutput( _ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
         handleSample?(sampleBuffer)
-        print("Capturei")
     }
 }

@@ -41,6 +41,7 @@ class BodyPontuationHelper: BodyPontuationHelperProtocol {
     
     func add(pose: MLMultiArray) {
         poses.append(pose)
+        print(poses.count)
     }
     
     private func classifyPose() {

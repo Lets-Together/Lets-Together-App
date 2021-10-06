@@ -15,19 +15,21 @@ class WorkoutScreen: UIView {
     var videoViewController: WorkoutVideoViewController?
     var handleSample: ((CMSampleBuffer) -> Void)?
     let cameraPreview = WorkoutVideoViewController()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .blue
+    }
+
+    func configure(handleSample: @escaping ((CMSampleBuffer) -> Void), updatePointsClosure: @escaping ((Int) -> Void)) {
+        self.updatePoints = updatePointsClosure
+        self.handleSample = handleSample
         backgroundColor = .white
         setConstraints()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configure(updatePointsClosure: @escaping ((Int) -> Void)) {
-        self.updatePoints = updatePointsClosure
     }
 
     lazy var scoresLabel: UILabel = {
