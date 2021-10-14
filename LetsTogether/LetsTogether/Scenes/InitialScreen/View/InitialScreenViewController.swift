@@ -24,6 +24,7 @@ class InitialScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.edgesForExtendedLayout = UIRectEdge()
         setupUI()
         contentView.attempts.text = String(describing: initialScreenViewModel.coreDataManager.getData()!.attempts)
         contentView.currentScores.text = String(describing: initialScreenViewModel.coreDataManager.getData()!.currentScores)

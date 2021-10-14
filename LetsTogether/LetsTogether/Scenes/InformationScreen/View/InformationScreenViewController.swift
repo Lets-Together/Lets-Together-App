@@ -22,6 +22,7 @@ class InformationScreenViewController: UIViewController {
 
         override func viewDidLoad() {
             super.viewDidLoad()
+            self.edgesForExtendedLayout = UIRectEdge()
             setupUI()
         }
 

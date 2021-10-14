@@ -38,6 +38,10 @@
 		7C935E7326F3691700713B10 /* InitialScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C935E7226F3691700713B10 /* InitialScreenViewModel.swift */; };
 		7C935E7926F3727500713B10 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C935E7826F3727500713B10 /* CoreDataManager.swift */; };
 		7C935E7D26F3956100713B10 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C935E7C26F3956100713B10 /* UserData.swift */; };
+		7C94244C270DE4B9005A923D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C94244B270DE4B9005A923D /* TabBarViewController.swift */; };
+		7CACED3E270F179500976216 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CACED3D270F179500976216 /* ExercisesView.swift */; };
+		7CACED40270F192200976216 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CACED3F270F192200976216 /* ExercisesViewController.swift */; };
+		7CE5C99127107E8200B2A194 /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5C99027107E8200B2A194 /* ExerciseCell.swift */; };
 		7CFC688926F4DEFA00C24E45 /* ScoreBoardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC688826F4DEFA00C24E45 /* ScoreBoardScreen.swift */; };
 		7CFC688B26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC688A26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift */; };
 /* End PBXBuildFile section */
@@ -101,6 +105,10 @@
 		7C935E7226F3691700713B10 /* InitialScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenViewModel.swift; sourceTree = "<group>"; };
 		7C935E7826F3727500713B10 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7C935E7C26F3956100713B10 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		7C94244B270DE4B9005A923D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		7CACED3D270F179500976216 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
+		7CACED3F270F192200976216 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
+		7CE5C99027107E8200B2A194 /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		7CFC688826F4DEFA00C24E45 /* ScoreBoardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreen.swift; sourceTree = "<group>"; };
 		7CFC688A26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -255,6 +263,8 @@
 		7C38A5C926EF7A5500A8F125 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7CACED3A270F170300976216 /* ExerciseScreen */,
+				7C94244D270DE65C005A923D /* TabBar */,
 				0F9E8DA526FB760600E833FD /* InformationScreen */,
 				7CFC688526F4DE9B00C24E45 /* ScoreBoardScreen */,
 				7C38A5CE26EF7AAF00A8F125 /* Coordinator */,
@@ -365,6 +375,40 @@
 			isa = PBXGroup;
 			children = (
 				27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7C94244D270DE65C005A923D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7C94244B270DE4B9005A923D /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		7CACED3A270F170300976216 /* ExerciseScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7CACED3C270F175F00976216 /* ViewModel */,
+				7CACED3B270F172B00976216 /* View */,
+			);
+			path = ExerciseScreen;
+			sourceTree = "<group>";
+		};
+		7CACED3B270F172B00976216 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CACED3D270F179500976216 /* ExercisesView.swift */,
+				7CACED3F270F192200976216 /* ExercisesViewController.swift */,
+				7CE5C99027107E8200B2A194 /* ExerciseCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7CACED3C270F175F00976216 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -547,8 +591,11 @@
 			files = (
 				7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */,
 				27A50BEC26FA973200819383 /* BodyPoseHelper.swift in Sources */,
+				7CACED3E270F179500976216 /* ExercisesView.swift in Sources */,
 				27A50BDB26F230B200819383 /* TimeHelper.swift in Sources */,
 				27B352C4270B3CE5000CAE0E /* BodyPoseHelperProtocol.swift in Sources */,
+				7CE5C99127107E8200B2A194 /* ExerciseCell.swift in Sources */,
+				7C94244C270DE4B9005A923D /* TabBarViewController.swift in Sources */,
 				27A50BE826FA1F9E00819383 /* WorkoutVideoViewController.swift in Sources */,
 				27A50BE626FA1D2B00819383 /* CameraPreview.swift in Sources */,
 				7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */,
@@ -557,6 +604,7 @@
 				7C63261326F033FE005AFA87 /* InitialScreen.swift in Sources */,
 				7C935E7326F3691700713B10 /* InitialScreenViewModel.swift in Sources */,
 				7C23984527049ED50091FE1C /* ScoreBoardScreenViewModel.swift in Sources */,
+				7CACED40270F192200976216 /* ExercisesViewController.swift in Sources */,
 				7CFC688B26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift in Sources */,
 				7C935E7926F3727500713B10 /* CoreDataManager.swift in Sources */,
 				27B352C6270B3CF8000CAE0E /* BodyPontuationHelperProtocol.swift in Sources */,
