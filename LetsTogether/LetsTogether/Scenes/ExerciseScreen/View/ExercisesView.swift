@@ -58,10 +58,6 @@ class ExercisesView: UIView {
         return navBar
     }()
 
-    @objc func test() {
-        print("sdfsdfsfsdf")
-    }
-
     lazy var colletionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 331, height: 180)
