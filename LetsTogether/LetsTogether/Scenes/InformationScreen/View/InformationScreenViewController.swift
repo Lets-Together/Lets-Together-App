@@ -8,72 +8,60 @@
 import Foundation
 import UIKit
 import AVFoundation
-import AVKit
 
 class InformationScreenViewController: UIViewController {
 
-        let videoController = AVPlayerViewController()
-        let videoPath = Bundle.main.path(forResource: "test", ofType: "MOV")!
+    lazy var contentView: InformationScreenView = {
+            let view = InformationScreenView()
+            return view
+    }()
 
-        lazy var contentView: InformationScreenView = {
-                let view = InformationScreenView()
-                return view
-        }()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.edgesForExtendedLayout = UIRectEdge()
+        setupUI()
+        contentView.scrollView.delegate = self
 
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            self.edgesForExtendedLayout = UIRectEdge()
-            setupUI()
-        }
+        var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        frame.origin.x = contentView.scrollView.frame.width * CGFloat(0)
+        frame.size = CGSize(width: contentView.scrollView.frame.width, height: contentView.scrollView.frame.height)
+        let view = UIView(frame: frame)
+        view.backgroundColor = .white
+        view.tintColor = .blue
+        let label = UILabel()
+        label.text = "sdfsdfdsf"
+        view.addSubview(label)
+        contentView.scrollView.addSubview(view)
 
-        override func loadView() {
-            view = contentView
-        }
+        frame.origin.x = contentView.scrollView.frame.width * CGFloat(1)
+        frame.size = CGSize(width: contentView.scrollView.frame.width, height: contentView.scrollView.frame.height)
+        let view1 = UIView(frame: frame)
+        view1.backgroundColor = .white
+        contentView.scrollView.addSubview(view1)
 
-        func setupUI() {
-            backgroundVideoConfig()
-            contentView.startButton.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
-        }
+//        scroll.contentSize = CGSize(width: scroll.frame.width * CGFloat(2), height: scroll.frame.height)
+        contentView.scrollView.contentSize = CGSize(width: 375, height: 800)
+    }
 
-        @objc func buttonTapped(_ : UIButton) {
-            let bodyPontuatiion = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8)
-            let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion, timer: TimeHelper())
-            let controller = WorkoutScreenViewController(workoutViewModel: wksViewModel)
-            controller.modalPresentationStyle = .fullScreen
-            self.show(controller, sender: self)
-        }
+    override func loadView() {
+        view = contentView
+    }
 
-        func backgroundVideoConfig() {
-            videoController.player = AVPlayer(url: URL(fileURLWithPath: videoPath))
+    func setupUI() {
+        contentView.startButton.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+    }
 
-            contentView.videoView.addSubview(videoController.view)
-            videoController.view.frame = contentView.videoView.frame
-            videoController.view.alpha = 0.8
+    @objc func buttonTapped(_ : UIButton) {
+        let bodyPontuatiion = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8)
+        let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion, timer: TimeHelper())
+        let controller = WorkoutScreenViewController(workoutViewModel: wksViewModel)
+        controller.modalPresentationStyle = .fullScreen
+        self.show(controller, sender: self)
+    }
+}
 
-            videoController.showsPlaybackControls = false
-            videoController.player?.isMuted = true
-            videoController.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            videoController.player?.seek(to: CMTime.zero)
-            NotificationCenter.default.addObserver(self, selector: #selector(reachTheEndOfTheVideo(_:)),
-                                                   name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                                                   object: self.videoController.player?.currentItem)
-
-            videoController.player?.play()
-        }
-
-        @objc func reachTheEndOfTheVideo(_ notification: Notification) {
-            videoController.player?.pause()
-            videoController.player?.seek(to: CMTime.zero)
-            videoController.player?.play()
-        }
-
-        func play() {
-            if videoController.player?.timeControlStatus != AVPlayer.TimeControlStatus.playing {
-                videoController.player?.play()
-            }
-        }
-
-        func pause() {
-            videoController.player?.pause()
-        }
+extension InformationScreenViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("dscdscsd")
+    }
 }

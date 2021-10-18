@@ -77,7 +77,9 @@ extension ExercisesViewController: UICollectionViewDataSource, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       print("User tapped on item \(indexPath.row)")
+        let controller = InformationScreenViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.show(controller, sender: self)
     }
 }
 
