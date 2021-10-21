@@ -33,8 +33,8 @@ class ExercisesView: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "LetsTogether"
-        label.font = UIFont.boldSystemFont(ofSize: 26)
+        label.font = UIFont.init(name: "Comfortaa-Bold", size: 28)
+        label.text = "Activities"
         label.textColor = UIColor.init(displayP3Red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
         label.textAlignment = .center
         return label
@@ -45,6 +45,8 @@ class ExercisesView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.init(displayP3Red: 255/255, green: 189/255, blue: 0/255, alpha: 1)
         button.setImage(UIImage(systemName: "globe"), for: .normal)
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
         button.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
         return button
     }()
@@ -96,7 +98,9 @@ class ExercisesView: UIView {
         self.titleView.addSubview(gameCenterButton)
         NSLayoutConstraint.activate([
             gameCenterButton.centerYAnchor.constraint(equalTo: self.titleLabel.centerYAnchor),
-            gameCenterButton.trailingAnchor.constraint(equalTo: self.titleView.trailingAnchor, constant: -25)
+            gameCenterButton.trailingAnchor.constraint(equalTo: self.titleView.trailingAnchor, constant: -25),
+            gameCenterButton.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.09),
+            gameCenterButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.09)
         ])
 
         self.addSubview(colletionView)

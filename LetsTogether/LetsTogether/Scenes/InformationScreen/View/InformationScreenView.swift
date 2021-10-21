@@ -34,10 +34,11 @@ class InformationScreenView: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.init(name: "Comfortaa-Bold", size: 28)
         label.text = "Exercise's Name"
-        label.font = UIFont.boldSystemFont(ofSize: 26)
         label.textColor = UIColor.init(displayP3Red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
         label.textAlignment = .center
+
         return label
     }()
 
@@ -46,7 +47,10 @@ class InformationScreenView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.init(displayP3Red: 255/255, green: 189/255, blue: 0/255, alpha: 1)
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
         button.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
+
         return button
     }()
 
@@ -55,6 +59,7 @@ class InformationScreenView: UIView {
         navBar.translatesAutoresizingMaskIntoConstraints = false
         let navItem = UINavigationItem()
         navBar.setItems([navItem], animated: false)
+
         return navBar
     }()
 
@@ -70,35 +75,59 @@ class InformationScreenView: UIView {
     }()
 
     lazy var scrollView: UIScrollView = {
-        let scroll = UIScrollView(frame: .zero)
+        let scroll = UIScrollView(frame: CGRect(x: 0, y: 300, width: 300, height: 400))
         scroll.isPagingEnabled = true
-        scroll.isScrollEnabled = true
-        scroll.backgroundColor = .black
+        scroll.showsHorizontalScrollIndicator = false
+        scroll.backgroundColor = .white
         scroll.translatesAutoresizingMaskIntoConstraints = false
-        scroll.showsHorizontalScrollIndicator = true
+        scroll.contentSize = CGSize(width: 600 , height: 350)
+        scroll.layer.cornerRadius = 16
 
-//        var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-//        frame.origin.x = scroll.frame.width * CGFloat(0)
-//        frame.size = CGSize(width: scroll.frame.width, height: scroll.frame.height)
-//        let view = UIView(frame: frame)
-//        view.backgroundColor = .black
-//        scroll.addSubview(view)
-//
-//        frame.origin.x = scroll.frame.width * CGFloat(1)
-//        frame.size = CGSize(width: scroll.frame.width, height: scroll.frame.height)
-//        let view1 = UIView(frame: frame)
-//        view1.backgroundColor = .white
-//        scroll.addSubview(view1)
-//
-////        scroll.contentSize = CGSize(width: scroll.frame.width * CGFloat(2), height: scroll.frame.height)
-//        scroll.contentSize = CGSize(width: 375, height: 800)
-//        
         return scroll
+    }()
+
+    lazy var slideOne: UIView = {
+        var frame = CGRect(x: 0, y: 0, width: 300, height: 350)
+        let slideOne = UIView(frame: frame)
+        slideOne.backgroundColor = .white
+
+        return slideOne
+    }()
+
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "crown.fill")
+        imageView.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.masksToBounds = true
+
+        return imageView
+    }()
+
+    lazy var textLabel: UILabel = {
+        let textLabel = UILabel()
+        textLabel.text = "Doing jumping jacks you: works the whole body, improves motor coordination, contributes to heart health and burns calories. So do jumping jacks with us!"
+        textLabel.numberOfLines = 5
+        textLabel.textAlignment = .left
+        textLabel.textColor = .black
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        return textLabel
+    }()
+
+    lazy var slideTwo: UIView = {
+        var frame = CGRect(x: 300, y: 0, width: 300, height: 350)
+        let slideTwo = UIView(frame: frame)
+        slideTwo.backgroundColor = .black
+
+        return slideTwo
     }()
 
     lazy var startButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.init(name: "Comfortaa-Bold", size: 24)
         button.backgroundColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
         button.setTitle("Start", for: .normal)
         button.layer.cornerRadius = 15
@@ -131,16 +160,38 @@ class InformationScreenView: UIView {
         self.titleView.addSubview(backButton)
         NSLayoutConstraint.activate([
             backButton.centerYAnchor.constraint(equalTo: self.titleLabel.centerYAnchor),
-            backButton.leadingAnchor.constraint(equalTo: self.titleView.leadingAnchor, constant: 25)
+            backButton.leadingAnchor.constraint(equalTo: self.titleView.leadingAnchor, constant: 25),
+            backButton.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.07),
+            backButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.05)
         ])
 
         self.addSubview(scrollView)
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.titleView.bottomAnchor, constant: 37),
-            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            scrollView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4)
+            scrollView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            scrollView.heightAnchor.constraint(equalToConstant: 350),
+            scrollView.widthAnchor.constraint(equalToConstant: 300)
         ])
+
+        self.scrollView.addSubview(slideOne)
+
+        self.slideOne.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: self.slideOne.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: self.slideOne.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: self.slideOne.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: self.slideOne.bottomAnchor, constant: -130)
+        ])
+
+        self.slideOne.addSubview(textLabel)
+        NSLayoutConstraint.activate([
+            textLabel.topAnchor.constraint(equalTo: self.imageView.bottomAnchor),
+            textLabel.leadingAnchor.constraint(equalTo: self.slideOne.leadingAnchor),
+            textLabel.trailingAnchor.constraint(equalTo: self.slideOne.trailingAnchor),
+            textLabel.bottomAnchor.constraint(equalTo: self.slideOne.bottomAnchor)
+        ])
+
+        self.scrollView.addSubview(slideTwo)
 
         self.addSubview(pageControl)
         NSLayoutConstraint.activate([

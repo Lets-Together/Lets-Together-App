@@ -44,7 +44,7 @@ class ExerciseCell: UICollectionViewCell {
     let exerciseNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 24)
+        label.font = UIFont.init(name: "Comfortaa-Regular", size: 24)
         label.text = "Exercise"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -53,7 +53,7 @@ class ExerciseCell: UICollectionViewCell {
     func addComponents() {
         self.addSubview(exerciseImageView)
         self.addSubview(descriptionView)
-        self.descriptionView.addSubview(exerciseNameLabel)
+        self.addSubview(exerciseNameLabel)
     }
 
     func setConstraints() {

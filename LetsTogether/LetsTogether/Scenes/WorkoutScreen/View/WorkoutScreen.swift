@@ -55,7 +55,7 @@ class WorkoutScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "00"
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 44)
+        label.font = UIFont.init(name: "Lato-Bold", size: 44)
 
         return label
     }()
@@ -63,9 +63,9 @@ class WorkoutScreen: UIView {
     lazy var currentTime: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "00:00"
+        label.text = "00:00:00"
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 44)
+        label.font = UIFont.init(name: "Lato-Bold", size: 44)
 
         return label
     }()
@@ -129,7 +129,7 @@ class WorkoutScreen: UIView {
             statusView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.15)
         ])
 
-        self.statusView.addSubview(scoresImage)
+        self.addSubview(scoresImage)
         NSLayoutConstraint.activate([
             scoresImage.leftAnchor.constraint(equalTo: self.statusView.leftAnchor, constant: 21),
             scoresImage.topAnchor.constraint(equalTo: self.statusView.topAnchor, constant: 11),
@@ -137,7 +137,7 @@ class WorkoutScreen: UIView {
             scoresImage.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1)
         ])
 
-        self.statusView.addSubview(timeImage)
+        self.addSubview(timeImage)
         NSLayoutConstraint.activate([
             timeImage.leftAnchor.constraint(equalTo: self.statusView.leftAnchor, constant: 21),
             timeImage.topAnchor.constraint(equalTo: self.scoresImage.bottomAnchor, constant: 10),
@@ -145,13 +145,13 @@ class WorkoutScreen: UIView {
             timeImage.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1)
         ])
 
-        self.statusView.addSubview(currentScores)
+        self.addSubview(currentScores)
         NSLayoutConstraint.activate([
             currentScores.leftAnchor.constraint(equalTo: self.scoresImage.rightAnchor, constant: 3),
             currentScores.centerYAnchor.constraint(equalTo: self.scoresImage.centerYAnchor)
         ])
 
-        self.statusView.addSubview(currentTime)
+        self.addSubview(currentTime)
         NSLayoutConstraint.activate([
             currentTime.leftAnchor.constraint(equalTo: self.timeImage.rightAnchor, constant: 3),
             currentTime.centerYAnchor.constraint(equalTo: self.timeImage.centerYAnchor)

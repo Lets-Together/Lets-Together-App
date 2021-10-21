@@ -12,35 +12,15 @@ import AVFoundation
 class InformationScreenViewController: UIViewController {
 
     lazy var contentView: InformationScreenView = {
-            let view = InformationScreenView()
-            return view
+        let view = InformationScreenView()
+        return view
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = UIRectEdge()
         setupUI()
-        contentView.scrollView.delegate = self
-
-        var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        frame.origin.x = contentView.scrollView.frame.width * CGFloat(0)
-        frame.size = CGSize(width: contentView.scrollView.frame.width, height: contentView.scrollView.frame.height)
-        let view = UIView(frame: frame)
-        view.backgroundColor = .white
-        view.tintColor = .blue
-        let label = UILabel()
-        label.text = "sdfsdfdsf"
-        view.addSubview(label)
-        contentView.scrollView.addSubview(view)
-
-        frame.origin.x = contentView.scrollView.frame.width * CGFloat(1)
-        frame.size = CGSize(width: contentView.scrollView.frame.width, height: contentView.scrollView.frame.height)
-        let view1 = UIView(frame: frame)
-        view1.backgroundColor = .white
-        contentView.scrollView.addSubview(view1)
-
-//        scroll.contentSize = CGSize(width: scroll.frame.width * CGFloat(2), height: scroll.frame.height)
-        contentView.scrollView.contentSize = CGSize(width: 375, height: 800)
+        self.contentView.scrollView.delegate = self
     }
 
     override func loadView() {
@@ -48,13 +28,20 @@ class InformationScreenViewController: UIViewController {
     }
 
     func setupUI() {
-        contentView.startButton.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+        contentView.startButton.addTarget(self, action: #selector(self.startButtonTapped), for: .touchUpInside)
+        contentView.backButton.addTarget(self, action: #selector(self.backButtonTapped), for: .touchUpInside)
     }
 
-    @objc func buttonTapped(_ : UIButton) {
+    @objc func startButtonTapped(_ : UIButton) {
         let bodyPontuatiion = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8)
         let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion, timer: TimeHelper())
         let controller = WorkoutScreenViewController(workoutViewModel: wksViewModel)
+        controller.modalPresentationStyle = .fullScreen
+        self.show(controller, sender: self)
+    }
+
+    @objc func backButtonTapped(_ : UIButton) {
+        let controller = ExercisesViewController()
         controller.modalPresentationStyle = .fullScreen
         self.show(controller, sender: self)
     }
@@ -62,6 +49,7 @@ class InformationScreenViewController: UIViewController {
 
 extension InformationScreenViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("dscdscsd")
+        let pageIndex = round(scrollView.contentOffset.x/300)
+        contentView.pageControl.currentPage = Int(pageIndex)
     }
 }
