@@ -45,6 +45,7 @@
 		7C94244C270DE4B9005A923D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C94244B270DE4B9005A923D /* TabBarViewController.swift */; };
 		7CACED3E270F179500976216 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CACED3D270F179500976216 /* ExercisesView.swift */; };
 		7CACED40270F192200976216 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CACED3F270F192200976216 /* ExercisesViewController.swift */; };
+		7CB1E5CA2721935500C9D8E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB1E5C92721935500C9D8E6 /* LaunchScreen.storyboard */; };
 		7CE5C99127107E8200B2A194 /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5C99027107E8200B2A194 /* ExerciseCell.swift */; };
 		7CFC688926F4DEFA00C24E45 /* ScoreBoardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC688826F4DEFA00C24E45 /* ScoreBoardScreen.swift */; };
 		7CFC688B26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC688A26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift */; };
@@ -116,6 +117,7 @@
 		7C94244B270DE4B9005A923D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		7CACED3D270F179500976216 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		7CACED3F270F192200976216 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
+		7CB1E5C92721935500C9D8E6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CE5C99027107E8200B2A194 /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		7CFC688826F4DEFA00C24E45 /* ScoreBoardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreen.swift; sourceTree = "<group>"; };
 		7CFC688A26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreenViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			children = (
 				7C38A59226EF716F00A8F125 /* SceneDelegate.swift */,
 				7C38A59026EF716F00A8F125 /* AppDelegate.swift */,
+				7CB1E5C92721935500C9D8E6 /* LaunchScreen.storyboard */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				7C88D713271EFDA10038B341 /* Lato-Bold.ttf in Resources */,
 				7C81D4DA26F0E39F00D8BF09 /* test.MOV in Resources */,
 				7C88D70F271EFD5C0038B341 /* Comfortaa-Bold.ttf in Resources */,
+				7CB1E5CA2721935500C9D8E6 /* LaunchScreen.storyboard in Resources */,
 				7C88D715271F029D0038B341 /* Comfortaa-Regular.ttf in Resources */,
 				7C88D712271EFDA10038B341 /* Lato-BoldItalic.ttf in Resources */,
 			);
@@ -803,13 +807,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.7;
-				DEVELOPMENT_TEAM = R39G5DLZJ3;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = Y8HUNAB446;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Jose-Sousa.LetsTogether";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -823,13 +828,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.7;
-				DEVELOPMENT_TEAM = R39G5DLZJ3;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = Y8HUNAB446;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Jose-Sousa.LetsTogether";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

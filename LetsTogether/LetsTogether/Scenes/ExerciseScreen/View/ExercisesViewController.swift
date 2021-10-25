@@ -25,42 +25,14 @@ class ExercisesViewController: UIViewController {
     }
 
     override func loadView() {
-        view = contentView
-        GKLocalPlayer.local.authenticateHandler = { viewController, error in
-            if let viewController = viewController {
-                self.present(viewController, animated: true, completion: nil)
-                return
-            }
-            if error != nil {
-                // Player could not be authenticated.
-                // Disable Game Center in the game.
-                return
-            }
-
-            // Player was successfully authenticated.
-            // Check if there are any player restrictions before starting the game.
-
-            if GKLocalPlayer.local.isUnderage {
-                // Hide explicit game content.
-            }
-
-            if GKLocalPlayer.local.isMultiplayerGamingRestricted {
-                // Disable multiplayer game features.
-            }
-
-            if GKLocalPlayer.local.isPersonalizedCommunicationRestricted {
-                // Disable in game communication UI.
-            }
-
-            // Perform any other configurations as needed (for example, access point).
-        }
+        self.view = self.contentView
     }
 
     @objc func showLeaderboard(_ : UIButton) {
-            let vc = GKGameCenterViewController(leaderboardID: "leaderboard.highscore.year", playerScope: .global, timeScope: .allTime)
-            vc.gameCenterDelegate = self
-            present(vc, animated: true, completion: nil)
-        }
+        let vc = GKGameCenterViewController(leaderboardID: "leaderboard.highscore.year", playerScope: .global, timeScope: .allTime)
+        vc.gameCenterDelegate = self
+        present(vc, animated: true, completion: nil)
+    }
 }
 
 extension ExercisesViewController: UICollectionViewDataSource, UICollectionViewDelegate {

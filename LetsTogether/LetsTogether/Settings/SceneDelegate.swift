@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GameKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,9 +19,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = ExercisesViewController()
+
+        let storyboard  = UIStoryboard(name: "LaunchScreen", bundle: nil)
+        let launchController = storyboard.instantiateViewController(withIdentifier: "launchViewController")
+
+        window?.rootViewController = launchController
 
         window?.makeKeyAndVisible()
+
+        GKLocalPlayer.local.authenticateHandler = { viewController, error in
+            if let viewController = viewController {
+                self.window?.rootViewController?.present(viewController, animated: true, completion: nil)
+                return
+            }
+            if error != nil {
+                // Player could not be authenticated.
+                // Disable Game Center in the game.
+                return
+            }
+            // Player was successfully authenticated.
+            // Check if there are any player restrictions before starting the game.
+            self.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            self.window?.rootViewController = ExercisesViewController()
+            if GKLocalPlayer.local.isUnderage {
+                // Hide explicit game content.
+            }
+
+            if GKLocalPlayer.local.isMultiplayerGamingRestricted {
+                // Disable multiplayer game features.
+            }
+
+            if GKLocalPlayer.local.isPersonalizedCommunicationRestricted {
+                // Disable in game communication UI.
+            }
+
+            // Perform any other configurations as needed (for example, access point).
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

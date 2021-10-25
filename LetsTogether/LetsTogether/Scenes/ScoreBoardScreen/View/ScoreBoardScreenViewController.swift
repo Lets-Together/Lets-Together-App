@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 import AVFoundation
-import AVKit
-
+import GameKit
 class ScoreBoardScreenViewController: UIViewController {
 
     let scoreBoardViewModel = ScoreBoardScreenViewModel()
@@ -24,6 +23,7 @@ class ScoreBoardScreenViewController: UIViewController {
         contentView.exitButton.addTarget(self, action: #selector(self.exitButtonTapped), for: .touchUpInside)
         contentView.restartButton.addTarget(self, action: #selector(self.repeatButtonTapped), for: .touchUpInside)
         contentView.scoresObtained.text = String(scoreBoardViewModel.coreDataManager.getData()!.currentScores)
+        contentView.gameCenterButton.addTarget(self, action: #selector(self.showLeaderboard), for: .touchUpInside)
     }
 
     override func loadView() {
@@ -33,8 +33,13 @@ class ScoreBoardScreenViewController: UIViewController {
     @objc func exitButtonTapped(_ : UIButton) {
         let controller = ExercisesViewController()
         controller.modalPresentationStyle = .fullScreen
-        
         self.show(controller, sender: self)
+    }
+
+    @objc func showLeaderboard(_ : UIButton) {
+        let vc = GKGameCenterViewController(leaderboardID: "leaderboard.highscore.year", playerScope: .global, timeScope: .allTime)
+        vc.gameCenterDelegate = self
+        present(vc, animated: true, completion: nil)
     }
 
     @objc func repeatButtonTapped(_ : UIButton) {
@@ -43,5 +48,11 @@ class ScoreBoardScreenViewController: UIViewController {
         let controller = WorkoutScreenViewController(workoutViewModel: wksViewModel)
         controller.modalPresentationStyle = .fullScreen
         self.show(controller, sender: self)
+    }
+}
+
+extension ScoreBoardScreenViewController: GKGameCenterControllerDelegate {
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
