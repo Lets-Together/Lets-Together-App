@@ -98,7 +98,7 @@ class InformationScreenView: UIView {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "crown.fill")
         imageView.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.masksToBounds = true
 
@@ -109,8 +109,9 @@ class InformationScreenView: UIView {
         let textLabel = UILabel()
         textLabel.text = "Doing jumping jacks you: works the whole body, improves motor coordination, contributes to heart health and burns calories. So do jumping jacks with us!"
         textLabel.numberOfLines = 5
-        textLabel.textAlignment = .left
-        textLabel.textColor = .black
+        textLabel.textAlignment = .center
+        textLabel.font = UIFont.init(name: "Comfortaa-Bold", size: 16)
+        textLabel.textColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
         textLabel.translatesAutoresizingMaskIntoConstraints = false
 
         return textLabel

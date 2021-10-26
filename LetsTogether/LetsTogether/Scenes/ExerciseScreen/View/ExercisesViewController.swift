@@ -11,6 +11,8 @@ import GameKit
 
 class ExercisesViewController: UIViewController {
 
+    let viewModel = ExerciseScreenViewModel()
+
     lazy var contentView: ExercisesView = {
         let view = ExercisesView()
         return view
@@ -37,7 +39,7 @@ class ExercisesViewController: UIViewController {
 
 extension ExercisesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -45,11 +47,14 @@ extension ExercisesViewController: UICollectionViewDataSource, UICollectionViewD
         guard let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as? ExerciseCell else {
             fatalError("DequeueReusableCell failed while casting")
         }
+
+        myCell.exerciseNameLabel.text = viewModel.exerciseCards[indexPath.row].name
+        myCell.exerciseImageView.image = UIImage(named: viewModel.exerciseCards[indexPath.row].image)
         return myCell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = InformationScreenViewController()
+        let controller = InformationScreenViewController(exercise: viewModel.exerciseCards[indexPath.row])
         controller.modalPresentationStyle = .fullScreen
         self.show(controller, sender: self)
     }

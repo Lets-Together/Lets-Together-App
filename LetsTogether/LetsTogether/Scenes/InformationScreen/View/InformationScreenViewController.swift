@@ -11,6 +11,8 @@ import AVFoundation
 
 class InformationScreenViewController: UIViewController {
 
+    let viewModel = InformationScreenViewModel()
+
     lazy var contentView: InformationScreenView = {
         let view = InformationScreenView()
         return view
@@ -27,9 +29,20 @@ class InformationScreenViewController: UIViewController {
         view = contentView
     }
 
+    init(exercise: Exercise) {
+        self.viewModel.exercise = exercise
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     func setupUI() {
         contentView.startButton.addTarget(self, action: #selector(self.startButtonTapped), for: .touchUpInside)
         contentView.backButton.addTarget(self, action: #selector(self.backButtonTapped), for: .touchUpInside)
+        contentView.titleLabel.text = viewModel.exercise?.name
+        contentView.imageView.image = UIImage(named: viewModel.exercise.image)
     }
 
     @objc func startButtonTapped(_ : UIButton) {
