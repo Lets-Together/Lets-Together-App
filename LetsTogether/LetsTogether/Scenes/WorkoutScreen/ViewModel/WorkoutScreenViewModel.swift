@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import GameKit
 
 class WorkoutScreenViewModel: WorkoutViewModelProtocol {
     
@@ -55,6 +56,13 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
     }
 
     func savePoints(points: Int16) {
+
+        GKLeaderboard.submitScore(Int(points),
+        context: 0,
+        player: GKLocalPlayer.local,
+        leaderboardIDs: ["leaderboard.highscore.year"],
+        completionHandler: {_ in})
+
         if coreDataManager.getData() == nil {
             coreDataManager.saveData(currentScores: points, attempts: 0)
         } else {
