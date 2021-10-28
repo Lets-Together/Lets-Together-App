@@ -12,7 +12,7 @@ class ExerciseScreenViewModel {
     var exerciseCards: [Exercise] = []
 
     var exercisesName = ["Jumping Jack", "Burpees", "Abdominal", "Agachamento", "Skater jumps laterais"]
-    var exercisesImage = ["cris", "cris", "icon", "cris", "icon"]
+    var exercisesImage = ["cris", "cris", "cris", "cris", "cris"]
 
     init() {
         self.populatesExercises()
