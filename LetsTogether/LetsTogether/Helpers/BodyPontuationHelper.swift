@@ -23,10 +23,10 @@ class BodyPontuationHelper: BodyPontuationHelperProtocol {
     private(set) var movementName: String
     private(set) var movementPercetage: Double
     
-    private let model: JumpingJacks_1 = {
+    private let model: JumpingJacks_3 = {
         do {
             let modelConfig = MLModelConfiguration()
-            let classifier = try JumpingJacks_1(configuration: modelConfig)
+            let classifier = try JumpingJacks_3(configuration: modelConfig)
             return classifier
         } catch {
             fatalError("Model error")

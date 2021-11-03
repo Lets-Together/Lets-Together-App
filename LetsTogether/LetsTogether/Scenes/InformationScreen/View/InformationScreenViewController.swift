@@ -8,71 +8,61 @@
 import Foundation
 import UIKit
 import AVFoundation
-import AVKit
 
 class InformationScreenViewController: UIViewController {
 
-        let videoController = AVPlayerViewController()
-        let videoPath = Bundle.main.path(forResource: "test", ofType: "MOV")!
+    let viewModel = InformationScreenViewModel()
 
-        lazy var contentView: InformationScreenView = {
-                let view = InformationScreenView()
-                return view
-        }()
+    lazy var contentView: InformationScreenView = {
+        let view = InformationScreenView()
+        return view
+    }()
 
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            setupUI()
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.edgesForExtendedLayout = UIRectEdge()
+        setupUI()
+        self.contentView.scrollView.delegate = self
+    }
 
-        override func loadView() {
-            view = contentView
-        }
+    override func loadView() {
+        view = contentView
+    }
 
-        func setupUI() {
-            backgroundVideoConfig()
-            contentView.startButton.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
-        }
+    init(exercise: Exercise) {
+        self.viewModel.exercise = exercise
+        super.init(nibName: nil, bundle: nil)
+    }
 
-        @objc func buttonTapped(_ : UIButton) {
-            let bodyPontuatiion = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8)
-            let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion, timer: TimeHelper())
-            let controller = WorkoutScreenViewController(workoutViewModel: wksViewModel)
-            controller.modalPresentationStyle = .fullScreen
-            self.show(controller, sender: self)
-        }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-        func backgroundVideoConfig() {
-            videoController.player = AVPlayer(url: URL(fileURLWithPath: videoPath))
+    func setupUI() {
+        contentView.startButton.addTarget(self, action: #selector(self.startButtonTapped), for: .touchUpInside)
+        contentView.backButton.addTarget(self, action: #selector(self.backButtonTapped), for: .touchUpInside)
+        contentView.titleLabel.text = viewModel.exercise?.name
+        contentView.imageView.image = UIImage(named: viewModel.exercise.image)
+    }
 
-            contentView.videoView.addSubview(videoController.view)
-            videoController.view.frame = contentView.videoView.frame
-            videoController.view.alpha = 0.8
+    @objc func startButtonTapped(_ : UIButton) {
+        let bodyPontuatiion = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8)
+        let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion, timer: TimeHelper())
+        let controller = WorkoutScreenViewController(workoutViewModel: wksViewModel)
+        controller.modalPresentationStyle = .fullScreen
+        self.show(controller, sender: self)
+    }
 
-            videoController.showsPlaybackControls = false
-            videoController.player?.isMuted = true
-            videoController.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            videoController.player?.seek(to: CMTime.zero)
-            NotificationCenter.default.addObserver(self, selector: #selector(reachTheEndOfTheVideo(_:)),
-                                                   name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                                                   object: self.videoController.player?.currentItem)
+    @objc func backButtonTapped(_ : UIButton) {
+        let controller = ExercisesViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.show(controller, sender: self)
+    }
+}
 
-            videoController.player?.play()
-        }
-
-        @objc func reachTheEndOfTheVideo(_ notification: Notification) {
-            videoController.player?.pause()
-            videoController.player?.seek(to: CMTime.zero)
-            videoController.player?.play()
-        }
-
-        func play() {
-            if videoController.player?.timeControlStatus != AVPlayer.TimeControlStatus.playing {
-                videoController.player?.play()
-            }
-        }
-
-        func pause() {
-            videoController.player?.pause()
-        }
+extension InformationScreenViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = round(scrollView.contentOffset.x/300)
+        contentView.pageControl.currentPage = Int(pageIndex)
+    }
 }

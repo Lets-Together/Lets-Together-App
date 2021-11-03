@@ -20,33 +20,12 @@ class InformationScreenView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    lazy var videoView: UIView = {
+    lazy var titleView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-
-        return view
-    }()
-
-    lazy var leftImage: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = UIImage(named: "SolidDownStickerStarJump")
-        return view
-    }()
-
-    lazy var rightImage: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = UIImage(named: "SolidUpStickerStarJump")
-        return view
-    }()
-
-    lazy var dataView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 41
-        view.backgroundColor = .white
-        view.alpha = 0.7
+        view.layer.cornerRadius = 24
+        view.backgroundColor = UIColor.init(displayP3Red: 255/255, green: 189/255, blue: 0/255, alpha: 1)
+        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         view.isOpaque = false
 
         return view
@@ -55,49 +34,170 @@ class InformationScreenView: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Maximum Star Jump"
-        label.font = UIFont.boldSystemFont(ofSize: 22)
+        label.font = UIFont.init(name: "Comfortaa-Bold", size: 28)
+        label.text = "Exercise's Name"
+        label.textColor = UIColor.init(displayP3Red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
         label.textAlignment = .center
+
         return label
     }()
 
-    lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Doing jumping jacks you: works the whole body, improves motor coordination, contributes to heart health and burns calories. So do jumping jacks with us!"
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textAlignment = .center
-        label.numberOfLines = 5
-        return label
+    lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.init(displayP3Red: 255/255, green: 189/255, blue: 0/255, alpha: 1)
+        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
+        button.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
+
+        return button
+    }()
+
+    lazy var navigationBar: UINavigationBar = {
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 400))
+        navBar.translatesAutoresizingMaskIntoConstraints = false
+        let navItem = UINavigationItem()
+        navBar.setItems([navItem], animated: false)
+
+        return navBar
+    }()
+
+    lazy var pageControl: UIPageControl = {
+        let control = UIPageControl(frame: .zero)
+        control.numberOfPages = 2
+        control.currentPage = 0
+        control.pageIndicatorTintColor = .lightGray
+        control.currentPageIndicatorTintColor = .black
+        control.translatesAutoresizingMaskIntoConstraints = false
+
+        return control
+    }()
+
+    lazy var scrollView: UIScrollView = {
+        let scroll = UIScrollView(frame: CGRect(x: 0, y: 300, width: 300, height: 400))
+        scroll.isPagingEnabled = true
+        scroll.showsHorizontalScrollIndicator = false
+        scroll.backgroundColor = .white
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.contentSize = CGSize(width: 600 , height: 350)
+        scroll.layer.cornerRadius = 16
+
+        return scroll
+    }()
+
+    lazy var slideOne: UIView = {
+        var frame = CGRect(x: 0, y: 0, width: 300, height: 350)
+        let slideOne = UIView(frame: frame)
+        slideOne.backgroundColor = .white
+
+        return slideOne
+    }()
+
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "crown.fill")
+        imageView.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.masksToBounds = true
+
+        return imageView
+    }()
+
+    lazy var textLabel: UILabel = {
+        let textLabel = UILabel()
+        textLabel.text = "Doing jumping jacks you: works the whole body, improves motor coordination, contributes to heart health and burns calories. So do jumping jacks with us!"
+        textLabel.numberOfLines = 5
+        textLabel.textAlignment = .center
+        textLabel.font = UIFont.init(name: "Comfortaa-Bold", size: 16)
+        textLabel.textColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        return textLabel
+    }()
+
+    lazy var slideTwo: UIView = {
+        var frame = CGRect(x: 300, y: 0, width: 300, height: 350)
+        let slideTwo = UIView(frame: frame)
+        slideTwo.backgroundColor = .black
+
+        return slideTwo
     }()
 
     lazy var startButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemBlue
-        button.setTitle("Start Activity", for: .normal)
-        button.layer.cornerRadius = 10
-        button.backgroundColor = UIColor(red: 255/255, green: 107/255, blue: 106/255, alpha: 1)
+        button.titleLabel?.font = UIFont.init(name: "Comfortaa-Bold", size: 24)
+        button.backgroundColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
+        button.setTitle("Start", for: .normal)
+        button.layer.cornerRadius = 15
 
         return button
     }()
 
     func setConstraints() {
-        self.addSubview(videoView)
+        self.addSubview(navigationBar)
         NSLayoutConstraint.activate([
-            videoView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            videoView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            videoView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            videoView.topAnchor.constraint(equalTo: self.topAnchor)
+            navigationBar.topAnchor.constraint(equalTo: self.topAnchor),
+            navigationBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            navigationBar.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
 
-        self.addSubview(dataView)
+        self.addSubview(titleView)
         NSLayoutConstraint.activate([
-            dataView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            dataView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7),
-            dataView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
-            dataView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
-            dataView.topAnchor.constraint(equalTo: self.topAnchor, constant: 60)
+            titleView.topAnchor.constraint(equalTo: self.navigationBar.bottomAnchor),
+            titleView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            titleView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            titleView.heightAnchor.constraint(equalToConstant: 63)
+        ])
+
+        self.titleView.addSubview(titleLabel)
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: self.titleView.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: self.titleView.topAnchor, constant: 5)
+        ])
+
+        self.titleView.addSubview(backButton)
+        NSLayoutConstraint.activate([
+            backButton.centerYAnchor.constraint(equalTo: self.titleLabel.centerYAnchor),
+            backButton.leadingAnchor.constraint(equalTo: self.titleView.leadingAnchor, constant: 25),
+            backButton.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.07),
+            backButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.05)
+        ])
+
+        self.addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: self.titleView.bottomAnchor, constant: 37),
+            scrollView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            scrollView.heightAnchor.constraint(equalToConstant: 350),
+            scrollView.widthAnchor.constraint(equalToConstant: 300)
+        ])
+
+        self.scrollView.addSubview(slideOne)
+
+        self.slideOne.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: self.slideOne.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: self.slideOne.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: self.slideOne.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: self.slideOne.bottomAnchor, constant: -130)
+        ])
+
+        self.slideOne.addSubview(textLabel)
+        NSLayoutConstraint.activate([
+            textLabel.topAnchor.constraint(equalTo: self.imageView.bottomAnchor),
+            textLabel.leadingAnchor.constraint(equalTo: self.slideOne.leadingAnchor),
+            textLabel.trailingAnchor.constraint(equalTo: self.slideOne.trailingAnchor),
+            textLabel.bottomAnchor.constraint(equalTo: self.slideOne.bottomAnchor)
+        ])
+
+        self.scrollView.addSubview(slideTwo)
+
+        self.addSubview(pageControl)
+        NSLayoutConstraint.activate([
+            pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            pageControl.topAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: 4)
         ])
 
         self.addSubview(startButton)
@@ -105,37 +205,8 @@ class InformationScreenView: UIView {
             startButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50),
             startButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.07),
-            startButton.leftAnchor.constraint(equalTo: dataView.leftAnchor),
-            startButton.rightAnchor.constraint(equalTo: dataView.rightAnchor)
-        ])
-
-        self.dataView.addSubview(titleLabel)
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: self.dataView.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 30)
-        ])
-
-        self.dataView.addSubview(leftImage)
-        NSLayoutConstraint.activate([
-            leftImage.leftAnchor.constraint(equalTo: self.dataView.leftAnchor,constant: 24),
-            leftImage.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 70),
-            leftImage.heightAnchor.constraint(equalTo: dataView.heightAnchor, multiplier: 0.6),
-            leftImage.rightAnchor.constraint(equalTo: self.dataView.rightAnchor,constant: -201 )
-        ])
-
-        self.dataView.addSubview(descriptionLabel)
-        NSLayoutConstraint.activate([
-            descriptionLabel.leadingAnchor.constraint(equalTo: self.dataView.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: self.dataView.trailingAnchor),
-            descriptionLabel.topAnchor.constraint(equalTo: self.leftImage.bottomAnchor, constant: 5)
-        ])
-
-        self.dataView.addSubview(rightImage)
-        NSLayoutConstraint.activate([
-            rightImage.rightAnchor.constraint(equalTo: self.dataView.rightAnchor, constant: -24),
-            rightImage.topAnchor.constraint(equalTo: self.dataView.topAnchor, constant: 70),
-            rightImage.heightAnchor.constraint(equalTo: dataView.heightAnchor, multiplier: 0.6),
-            rightImage.leftAnchor.constraint(equalTo: self.dataView.leftAnchor,constant: 201)
+            startButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
+            startButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20)
         ])
     }
 }
