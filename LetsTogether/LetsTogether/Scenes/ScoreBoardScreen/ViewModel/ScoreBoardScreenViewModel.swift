@@ -12,6 +12,7 @@ class ScoreBoardScreenViewModel {
 
     var userData = UserData()
     var coreDataManager = CoreDataManager()
+    var exercise = Exercise()
 
     init() {
 

@@ -49,7 +49,7 @@ extension ExercisesViewController: UICollectionViewDataSource, UICollectionViewD
         }
 
         myCell.exerciseNameLabel.text = viewModel.exerciseCards[indexPath.row].name
-        myCell.exerciseImageView.image = UIImage(named: viewModel.exerciseCards[indexPath.row].image)
+        myCell.exerciseImageView.image = UIImage(named: viewModel.exerciseCards[indexPath.row].image!)
         return myCell
     }
 

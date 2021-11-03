@@ -42,12 +42,12 @@ class InformationScreenViewController: UIViewController {
         contentView.startButton.addTarget(self, action: #selector(self.startButtonTapped), for: .touchUpInside)
         contentView.backButton.addTarget(self, action: #selector(self.backButtonTapped), for: .touchUpInside)
         contentView.titleLabel.text = viewModel.exercise?.name
-        contentView.imageView.image = UIImage(named: viewModel.exercise.image)
+        contentView.imageView.image = UIImage(named: viewModel.exercise.image!)
     }
 
     @objc func startButtonTapped(_ : UIButton) {
         let bodyPontuatiion = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8)
-        let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion, timer: TimeHelper())
+        let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion, timer: TimeHelper(timeToFinish: self.viewModel.exercise.time), exercise: viewModel.exercise)
         let controller = WorkoutScreenViewController(workoutViewModel: wksViewModel)
         controller.modalPresentationStyle = .fullScreen
         self.show(controller, sender: self)

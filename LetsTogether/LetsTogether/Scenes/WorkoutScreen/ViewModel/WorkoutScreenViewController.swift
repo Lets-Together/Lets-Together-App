@@ -47,7 +47,7 @@ class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDeleg
         let alert = UIAlertController(title: "End Training", message: "Are you sure you want to leave?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "End Training", style: UIAlertAction.Style.destructive, handler: { _ in
             self.workoutViewModel.savePoints(points: Int16(self.workoutViewModel.score))
-            let controller = ScoreBoardScreenViewController()
+            let controller = ScoreBoardScreenViewController(exercise: self.workoutViewModel.exercise)
             controller.modalPresentationStyle = .fullScreen
 
             self.show(controller, sender: self)
@@ -72,6 +72,10 @@ extension WorkoutScreenViewController {
 
     func pontuationUpdate(points: Int) {
         updatePoints(points)
+    }
+
+    func didFinishedTimer() {
+//        Alert
     }
     
 }

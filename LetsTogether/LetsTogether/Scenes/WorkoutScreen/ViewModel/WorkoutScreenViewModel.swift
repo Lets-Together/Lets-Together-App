@@ -18,6 +18,7 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
     }
   
     var timerCounting: Bool = true
+    var exercise = Exercise()
     var coreDataManager = CoreDataManager()
     weak var delegate: WorkoutScreenViewModelDelegate?
     
@@ -25,10 +26,11 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
     private var bodyPontuation: BodyPontuationHelperProtocol
     private let timer: TimeHelperProtocol
     
-    init(bodyPose: BodyPoseHelperProtocol, bodyPontuation: BodyPontuationHelperProtocol, timer: TimeHelperProtocol) {
+    init(bodyPose: BodyPoseHelperProtocol, bodyPontuation: BodyPontuationHelperProtocol, timer: TimeHelperProtocol, exercise: Exercise) {
         self.bodyPose = bodyPose
         self.bodyPontuation = bodyPontuation
         self.timer = timer
+        self.exercise = exercise
         self.bodyPontuation.pontuationUpdate = { points in
             self.score = points
             self.delegate?.pontuationUpdate(points: points)
@@ -68,6 +70,10 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
         } else {
             coreDataManager.updateItem(dataId: coreDataManager.getData()!.objectID , currentScores: points, attempts: 0)
         }
+    }
+
+    func finishedTimer() {
+        delegate?.didFinishedTimer()
     }
     
 }

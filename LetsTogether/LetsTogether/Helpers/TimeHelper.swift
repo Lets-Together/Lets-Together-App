@@ -11,7 +11,13 @@ class TimeHelper: TimeHelperProtocol {
     
     var timer = Timer()
     var secondsCounter = 0
+    var timeToFinish: Int?
     private var secondsTimerAction: (() -> Void)?
+    private var didFinishedTimerAction: (() -> Void)?
+
+    init(timeToFinish: Int?) {
+        self.timeToFinish = timeToFinish
+    }
 
     func startTimer(actionForEachTimeUnit: @escaping () -> Void) {
         secondsTimerAction = actionForEachTimeUnit
