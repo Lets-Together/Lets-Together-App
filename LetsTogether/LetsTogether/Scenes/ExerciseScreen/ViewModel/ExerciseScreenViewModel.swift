@@ -12,7 +12,7 @@ class ExerciseScreenViewModel {
     var exerciseCards: [Exercise] = []
 
     var exercisesName = ["Jumping Jack", "Jumping Jack - Time", "Squat",  "Squat- Time"]
-    var exercisesImage = ["cris", "cris", "cris", "cris"]
+    var exercisesImage = ["card1", "card1", "card1", "card1"]
     var leaderboards = ["leaderboard.jumpingjack", "leaderboard.jumpingjack.time", "leaderboard.squat", "leaderboard.squat.time" ]
     var times = [nil, 120, nil, 120]
     init() {

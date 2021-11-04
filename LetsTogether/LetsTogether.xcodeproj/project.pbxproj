@@ -16,7 +16,6 @@
 		27A50BEA26FA1FB100819383 /* WorkoutScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */; };
 		27A50BEC26FA973200819383 /* BodyPoseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BEB26FA973200819383 /* BodyPoseHelper.swift */; };
 		27A50BEE26FAA1BF00819383 /* BodyPontuationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BED26FAA1BF00819383 /* BodyPontuationHelper.swift */; };
-		27A50BF026FAA39600819383 /* JumpingJacks 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BEF26FAA39600819383 /* JumpingJacks 1.mlmodel */; };
 		27B352BD2704897B000CAE0E /* TimeHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352BC2704897B000CAE0E /* TimeHelperTests.swift */; };
 		27B352BF2705F1D9000CAE0E /* WorkoutScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352BE2705F1D9000CAE0E /* WorkoutScreenViewModelTests.swift */; };
 		27B352C2270B3CCE000CAE0E /* TimeHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352C1270B3CCE000CAE0E /* TimeHelperProtocol.swift */; };
@@ -31,7 +30,6 @@
 		7C38A59D26EF717000A8F125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C38A59C26EF717000A8F125 /* Assets.xcassets */; };
 		7C38A5AB26EF717100A8F125 /* LetsTogetherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A5AA26EF717100A8F125 /* LetsTogetherTests.swift */; };
 		7C38A5B626EF717100A8F125 /* LetsTogetherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A5B526EF717100A8F125 /* LetsTogetherUITests.swift */; };
-		7C581BD42728472700E60A62 /* JumpingJacks 3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7C581BD32728472700E60A62 /* JumpingJacks 3.mlmodel */; };
 		7C63261526F03E6A005AFA87 /* WorkoutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C63261426F03E6A005AFA87 /* WorkoutScreen.swift */; };
 		7C763BDE2728387200842BF3 /* InformationScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C763BDD2728387200842BF3 /* InformationScreenViewModel.swift */; };
 		7C88D70F271EFD5C0038B341 /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C88D70E271EFD5C0038B341 /* Comfortaa-Bold.ttf */; };
@@ -46,6 +44,7 @@
 		7CCB7FDB2728271E00B21944 /* ExerciseScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB7FDA2728271E00B21944 /* ExerciseScreenViewModel.swift */; };
 		7CCB7FDE2728290B00B21944 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB7FDD2728290A00B21944 /* Exercise.swift */; };
 		7CE5C99127107E8200B2A194 /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5C99027107E8200B2A194 /* ExerciseCell.swift */; };
+		7CF41DBF2734246600E9186F /* Jumping-Jacks 5.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CF41DBE2734246600E9186F /* Jumping-Jacks 5.mlmodel */; };
 		7CFC688926F4DEFA00C24E45 /* ScoreBoardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC688826F4DEFA00C24E45 /* ScoreBoardScreen.swift */; };
 		7CFC688B26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC688A26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift */; };
 /* End PBXBuildFile section */
@@ -81,7 +80,6 @@
 		27A50BE926FA1FB100819383 /* WorkoutScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewModel.swift; sourceTree = "<group>"; };
 		27A50BEB26FA973200819383 /* BodyPoseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseHelper.swift; sourceTree = "<group>"; };
 		27A50BED26FAA1BF00819383 /* BodyPontuationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPontuationHelper.swift; sourceTree = "<group>"; };
-		27A50BEF26FAA39600819383 /* JumpingJacks 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "JumpingJacks 1.mlmodel"; sourceTree = "<group>"; };
 		27B352BC2704897B000CAE0E /* TimeHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelperTests.swift; sourceTree = "<group>"; };
 		27B352BE2705F1D9000CAE0E /* WorkoutScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewModelTests.swift; sourceTree = "<group>"; };
 		27B352C1270B3CCE000CAE0E /* TimeHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelperProtocol.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 		7C38A5B126EF717100A8F125 /* LetsTogetherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetsTogetherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C38A5B526EF717100A8F125 /* LetsTogetherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsTogetherUITests.swift; sourceTree = "<group>"; };
 		7C38A5B726EF717100A8F125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C581BD32728472700E60A62 /* JumpingJacks 3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "JumpingJacks 3.mlmodel"; sourceTree = "<group>"; };
 		7C63261426F03E6A005AFA87 /* WorkoutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScreen.swift; sourceTree = "<group>"; };
 		7C763BDD2728387200842BF3 /* InformationScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InformationScreenViewModel.swift; path = LetsTogether/Scenes/ExerciseScreen/Model/InformationScreenViewModel.swift; sourceTree = SOURCE_ROOT; };
 		7C88D70E271EFD5C0038B341 /* Comfortaa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Bold.ttf"; sourceTree = "<group>"; };
@@ -117,6 +114,7 @@
 		7CCB7FDA2728271E00B21944 /* ExerciseScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseScreenViewModel.swift; sourceTree = "<group>"; };
 		7CCB7FDD2728290A00B21944 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		7CE5C99027107E8200B2A194 /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
+		7CF41DBE2734246600E9186F /* Jumping-Jacks 5.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Jumping-Jacks 5.mlmodel"; sourceTree = "<group>"; };
 		7CFC688826F4DEFA00C24E45 /* ScoreBoardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreen.swift; sourceTree = "<group>"; };
 		7CFC688A26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -320,8 +318,7 @@
 		7C38A5D126EF7B1700A8F125 /* ML */ = {
 			isa = PBXGroup;
 			children = (
-				7C581BD32728472700E60A62 /* JumpingJacks 3.mlmodel */,
-				27A50BEF26FAA39600819383 /* JumpingJacks 1.mlmodel */,
+				7CF41DBE2734246600E9186F /* Jumping-Jacks 5.mlmodel */,
 			);
 			path = ML;
 			sourceTree = "<group>";
@@ -596,10 +593,9 @@
 				7CACED40270F192200976216 /* ExercisesViewController.swift in Sources */,
 				7CFC688B26F4E5BF00C24E45 /* ScoreBoardScreenViewController.swift in Sources */,
 				7CCB7FDE2728290B00B21944 /* Exercise.swift in Sources */,
+				7CF41DBF2734246600E9186F /* Jumping-Jacks 5.mlmodel in Sources */,
 				7C935E7926F3727500713B10 /* CoreDataManager.swift in Sources */,
 				27B352C6270B3CF8000CAE0E /* BodyPontuationHelperProtocol.swift in Sources */,
-				27A50BF026FAA39600819383 /* JumpingJacks 1.mlmodel in Sources */,
-				7C581BD42728472700E60A62 /* JumpingJacks 3.mlmodel in Sources */,
 				7C935E7D26F3956100713B10 /* UserData.swift in Sources */,
 				27B352CA270B3DD2000CAE0E /* WorkoutViewModelProtocol.swift in Sources */,
 				27A50BE426FA1CA900819383 /* WorkoutScreenViewController.swift in Sources */,
