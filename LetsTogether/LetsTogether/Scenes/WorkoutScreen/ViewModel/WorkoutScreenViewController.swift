@@ -38,9 +38,11 @@ class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDeleg
     }
     
     func start() {
-        workoutViewModel.startTimer { timeString in
-            self.contentView.updateTimerLabel(strTime: timeString)
-        }
+        workoutViewModel.startTimer(
+            action: { timeString in self.contentView.updateTimerLabel(strTime: timeString)
+            },
+            didFinishedTimerAction: { self.didFinishedTimer()}
+            )
     }
 
     @objc func buttonTapped(_ : UIButton) {
@@ -75,7 +77,16 @@ extension WorkoutScreenViewController {
     }
 
     func didFinishedTimer() {
-//        Alert
+        let alert = UIAlertController(title: "Time Out", message: "The time has finished!", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.destructive, handler: { _ in
+            self.workoutViewModel.savePoints(points: Int16(self.workoutViewModel.score))
+            let controller = ScoreBoardScreenViewController(exercise: self.workoutViewModel.exercise)
+            controller.modalPresentationStyle = .fullScreen
+
+            self.show(controller, sender: self)
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+        self.workoutViewModel.pauseTimer()
     }
-    
 }

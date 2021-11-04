@@ -13,7 +13,7 @@ protocol WorkoutViewModelProtocol {
     var score: Int {get}
     var exercise: Exercise { get set }
     var delegate: WorkoutScreenViewModelDelegate? {get set}
-    func startTimer(action: @escaping (String) -> Void)
+    func startTimer(action: @escaping (String) -> Void, didFinishedTimerAction: @escaping () -> Void)
     func pauseTimer()
     func addPoints(amount: Int)
     func savePoints(points: Int16)

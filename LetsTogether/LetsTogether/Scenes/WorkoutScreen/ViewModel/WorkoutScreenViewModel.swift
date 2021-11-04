@@ -37,14 +37,19 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
         }
     }
     
-    func startTimer(action: @escaping (String) -> Void) {
+    func startTimer(action: @escaping (String) -> Void, didFinishedTimerAction:  @escaping () -> Void) {
         timerCounting = true
-        timer.startTimer {
-            let stringTime = self.timer.stringTime()
-            action(stringTime)
-        }
+        timer.startTimer(
+            actionForEachTimeUnit: {
+                let stringTime = self.timer.stringTime()
+                action(stringTime)
+            },
+            didFinishedTimerAction: {
+                didFinishedTimerAction()
+            }
+        )
     }
-    
+
     func pauseTimer() {
         timerCounting = false
         timer.pauseTimer()

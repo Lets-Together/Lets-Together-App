@@ -11,17 +11,23 @@ class TimeHelper: TimeHelperProtocol {
     
     var timer = Timer()
     var secondsCounter = 0
-    var timeToFinish: Int?
     private var secondsTimerAction: (() -> Void)?
     private var didFinishedTimerAction: (() -> Void)?
 
     init(timeToFinish: Int?) {
-        self.timeToFinish = timeToFinish
+        if timeToFinish != nil {
+            self.secondsCounter = timeToFinish!
+        }
     }
 
-    func startTimer(actionForEachTimeUnit: @escaping () -> Void) {
+    func startTimer(actionForEachTimeUnit: @escaping () -> Void, didFinishedTimerAction: @escaping () -> Void) {
         secondsTimerAction = actionForEachTimeUnit
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        self.didFinishedTimerAction = didFinishedTimerAction
+        if secondsCounter == 0 {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        } else {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(decrementTimer), userInfo: nil, repeats: true)
+        }
     }
     
     func pauseTimer() {
@@ -38,6 +44,15 @@ class TimeHelper: TimeHelperProtocol {
     private func fireTimer() {
         secondsCounter += 1
         secondsTimerAction?()
+    }
+
+    @objc
+    private func decrementTimer() {
+        secondsCounter -= 1
+        secondsTimerAction?()
+        if secondsCounter == 0 {
+            didFinishedTimerAction?()
+        }
     }
     
     private func secondsToHourMinutesAndSeconds() -> [String: Int] {
