@@ -31,6 +31,12 @@ class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDeleg
         workoutViewModel.delegate = self
         start()
         contentView.quitButton.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+        setIdleScreenTimer(to: true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        setIdleScreenTimer(to: false)
     }
 
     override func loadView() {
@@ -41,6 +47,10 @@ class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDeleg
         workoutViewModel.startTimer { timeString in
             self.contentView.updateTimerLabel(strTime: timeString)
         }
+    }
+    
+    func setIdleScreenTimer(to update: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = update
     }
 
     @objc func buttonTapped(_ : UIButton) {
