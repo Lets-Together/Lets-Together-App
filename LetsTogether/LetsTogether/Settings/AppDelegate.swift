@@ -8,11 +8,18 @@
 import UIKit
 import CoreData
 
+protocol CanRotate {}
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = .white
+        navigationBarAppearace.barTintColor = UIColor.init(displayP3Red: 255/255, green: 189/255, blue: 0/255, alpha: 1)
+        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationBarAppearace.isTranslucent = false
         return true
     }
 
@@ -29,7 +36,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if topViewController(in: window?.rootViewController) is CanRotate {
+            return .allButUpsideDown
+        } else {
+            return .portrait
+        }
+    }
 
+    private func topViewController(in rootViewController: UIViewController?) -> UIViewController? {
+        guard let rootViewController = rootViewController else {
+            return nil
+        }
+
+        if let tabBarController = rootViewController as? UITabBarController {
+            return topViewController(in: tabBarController.selectedViewController)
+        } else if let navigationController = rootViewController as? UINavigationController {
+            return topViewController(in: navigationController.visibleViewController)
+        } else if let presentedViewController = rootViewController.presentedViewController {
+            return topViewController(in: presentedViewController)
+        }
+        return rootViewController
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -40,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "LetsTogether")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -76,3 +106,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
