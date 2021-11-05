@@ -9,4 +9,5 @@ import Foundation
 
 protocol WorkoutScreenViewModelDelegate: AnyObject {
     func pontuationUpdate(points: Int)
+    func didFinishedTimer()
 }

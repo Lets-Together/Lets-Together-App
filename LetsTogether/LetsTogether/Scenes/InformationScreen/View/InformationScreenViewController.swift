@@ -14,19 +14,22 @@ class InformationScreenViewController: UIViewController {
     let viewModel = InformationScreenViewModel()
 
     lazy var contentView: InformationScreenView = {
-        let view = InformationScreenView()
+        let view = InformationScreenView(imageType: viewModel.exercise.labelML!)
         return view
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = UIRectEdge()
-        setupUI()
         self.contentView.scrollView.delegate = self
+        contentView.imageType = viewModel.exercise.labelML!
+        setupUI()
+
     }
 
     override func loadView() {
         view = contentView
+
     }
 
     init(exercise: Exercise) {
@@ -42,12 +45,12 @@ class InformationScreenViewController: UIViewController {
         contentView.startButton.addTarget(self, action: #selector(self.startButtonTapped), for: .touchUpInside)
         contentView.backButton.addTarget(self, action: #selector(self.backButtonTapped), for: .touchUpInside)
         contentView.titleLabel.text = viewModel.exercise?.name
-        contentView.imageView.image = UIImage(named: viewModel.exercise.image)
     }
 
     @objc func startButtonTapped(_ : UIButton) {
-        let bodyPontuatiion = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8)
-        let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion, timer: TimeHelper())
+        let bodyPontuatiion = BodyPontuationHelper(movementName: self.viewModel.exercise.labelML!, percetage: 0.8)
+        let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion,
+                                                  timer: TimeHelper(timeToFinish: self.viewModel.exercise.time), exercise: viewModel.exercise)
         let controller = WorkoutScreenViewController(workoutViewModel: wksViewModel)
         controller.modalPresentationStyle = .fullScreen
         self.show(controller, sender: self)

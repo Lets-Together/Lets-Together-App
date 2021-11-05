@@ -11,16 +11,18 @@ class ExerciseScreenViewModel {
 
     var exerciseCards: [Exercise] = []
 
-    var exercisesName = ["Jumping Jack", "Burpees", "Abdominal", "Agachamento", "Skater jumps laterais"]
-    var exercisesImage = ["cris", "cris", "icon", "cris", "icon"]
-
+    let exercisesName = ["Jumping Jack", "Squat", "Jumping Jack - Time", "Squat- Time"]
+    let exercisesImage = ["card1", "card2", "card1", "card2"]
+    let labelML = ["jumping-jack", "squats", "jumping-jack", "squats"]
+    let leaderboards = ["leaderboard.jumpingjack", "leaderboard.squat", "leaderboard.jumpingjack.time", "leaderboard.squat.time" ]
+    let times = [nil, nil, 120, 120]
     init() {
         self.populatesExercises()
     }
 
     func populatesExercises() {
         for index in exercisesName.indices {
-            let emptyExercise = Exercise(name: exercisesName[index], image: exercisesImage[index], description: "dsfsdfsdf", videoSource: "dsfsdfsdf")
+            let emptyExercise = Exercise(name: exercisesName[index], image: exercisesImage[index], leaderboard: leaderboards[index], time: times[index], labelML: labelML[index])
             self.exerciseCards.append(emptyExercise)
         }
     }

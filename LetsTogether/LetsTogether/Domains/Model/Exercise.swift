@@ -9,8 +9,11 @@ import Foundation
 import UIKit
 
 struct Exercise {
-    var name: String
-    var image: String
-    var description: String
-    var videoSource: String
+    var name: String?
+    var image: String?
+    var description: String?
+    var videoSource: String?
+    var leaderboard: String?
+    var time: Int?
+    var labelML: String?
 }

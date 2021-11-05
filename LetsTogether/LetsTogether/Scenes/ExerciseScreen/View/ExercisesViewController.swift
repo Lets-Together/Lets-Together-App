@@ -31,7 +31,7 @@ class ExercisesViewController: UIViewController {
     }
 
     @objc func showLeaderboard(_ : UIButton) {
-        let vc = GKGameCenterViewController(leaderboardID: "leaderboard.highscore.year", playerScope: .global, timeScope: .allTime)
+        let vc = GKGameCenterViewController(state: GKGameCenterViewControllerState.leaderboards)
         vc.gameCenterDelegate = self
         present(vc, animated: true, completion: nil)
     }
@@ -39,7 +39,7 @@ class ExercisesViewController: UIViewController {
 
 extension ExercisesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 4
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -49,7 +49,7 @@ extension ExercisesViewController: UICollectionViewDataSource, UICollectionViewD
         }
 
         myCell.exerciseNameLabel.text = viewModel.exerciseCards[indexPath.row].name
-        myCell.exerciseImageView.image = UIImage(named: viewModel.exerciseCards[indexPath.row].image)
+        myCell.exerciseImageView.image = UIImage(named: viewModel.exerciseCards[indexPath.row].image!)
         return myCell
     }
 

@@ -24,10 +24,10 @@ class BodyPontuationHelper: BodyPontuationHelperProtocol {
     private(set) var movementPercetage: Double
     private let successSound = SoundHelper(resourceName: "success", fileExtension: "mp3")
     
-    private let model: JumpingJacks_3 = {
+    private let model: Jumping_Jacks_5 = {
         do {
             let modelConfig = MLModelConfiguration()
-            let classifier = try JumpingJacks_3(configuration: modelConfig)
+            let classifier = try Jumping_Jacks_5(configuration: modelConfig)
             return classifier
         } catch {
             fatalError("Model error")

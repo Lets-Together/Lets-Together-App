@@ -133,7 +133,6 @@ class ScoreBoardScreen: UIView {
     }()
 
     func setConstraints() {
-
         self.addSubview(navigationBar)
         NSLayoutConstraint.activate([
             navigationBar.topAnchor.constraint(equalTo: self.topAnchor),
