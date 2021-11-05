@@ -8,6 +8,8 @@
 import UIKit
 import CoreData
 
+protocol CanRotate {}
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -34,7 +36,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if topViewController(in: window?.rootViewController) is CanRotate {
+            return .allButUpsideDown
+        } else {
+            return .portrait
+        }
+    }
 
+    private func topViewController(in rootViewController: UIViewController?) -> UIViewController? {
+        guard let rootViewController = rootViewController else {
+            return nil
+        }
+
+        if let tabBarController = rootViewController as? UITabBarController {
+            return topViewController(in: tabBarController.selectedViewController)
+        } else if let navigationController = rootViewController as? UINavigationController {
+            return topViewController(in: navigationController.visibleViewController)
+        } else if let presentedViewController = rootViewController.presentedViewController {
+            return topViewController(in: presentedViewController)
+        }
+        return rootViewController
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -81,3 +106,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+

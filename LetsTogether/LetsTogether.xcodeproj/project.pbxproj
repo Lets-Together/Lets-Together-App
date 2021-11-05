@@ -23,6 +23,9 @@
 		27B352C6270B3CF8000CAE0E /* BodyPontuationHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352C5270B3CF8000CAE0E /* BodyPontuationHelperProtocol.swift */; };
 		27B352C8270B3D20000CAE0E /* WorkoutScreenViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352C7270B3D20000CAE0E /* WorkoutScreenViewModelDelegate.swift */; };
 		27B352CA270B3DD2000CAE0E /* WorkoutViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B352C9270B3DD2000CAE0E /* WorkoutViewModelProtocol.swift */; };
+		27E1CA8E273549650053DB56 /* SoundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E1CA8D273549650053DB56 /* SoundHelper.swift */; };
+		27E1CA91273549870053DB56 /* SoundHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E1CA90273549870053DB56 /* SoundHelperProtocol.swift */; };
+		27E1CA9427354C880053DB56 /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27E1CA9327354C880053DB56 /* success.mp3 */; };
 		7C23984527049ED50091FE1C /* ScoreBoardScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C23984427049ED50091FE1C /* ScoreBoardScreenViewModel.swift */; };
 		7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59026EF716F00A8F125 /* AppDelegate.swift */; };
 		7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59226EF716F00A8F125 /* SceneDelegate.swift */; };
@@ -88,6 +91,9 @@
 		27B352C5270B3CF8000CAE0E /* BodyPontuationHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPontuationHelperProtocol.swift; sourceTree = "<group>"; };
 		27B352C7270B3D20000CAE0E /* WorkoutScreenViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewModelDelegate.swift; sourceTree = "<group>"; };
 		27B352C9270B3DD2000CAE0E /* WorkoutViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModelProtocol.swift; sourceTree = "<group>"; };
+		27E1CA8D273549650053DB56 /* SoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.swift; sourceTree = "<group>"; };
+		27E1CA90273549870053DB56 /* SoundHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelperProtocol.swift; sourceTree = "<group>"; };
+		27E1CA9327354C880053DB56 /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
 		7C23984427049ED50091FE1C /* ScoreBoardScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreenViewModel.swift; sourceTree = "<group>"; };
 		7C38A58D26EF716F00A8F125 /* LetsTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C38A59026EF716F00A8F125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 				27A50BDA26F230B200819383 /* TimeHelper.swift */,
 				27A50BEB26FA973200819383 /* BodyPoseHelper.swift */,
 				27A50BED26FAA1BF00819383 /* BodyPontuationHelper.swift */,
+				27E1CA8D273549650053DB56 /* SoundHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -206,6 +213,22 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		27E1CA8F273549760053DB56 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				27E1CA90273549870053DB56 /* SoundHelperProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		27E1CA9227354C6B0053DB56 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				27E1CA9327354C880053DB56 /* success.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		7C38A58426EF716F00A8F125 = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +253,7 @@
 		7C38A58F26EF716F00A8F125 /* LetsTogether */ = {
 			isa = PBXGroup;
 			children = (
+				27E1CA8F273549760053DB56 /* Protocols */,
 				27A50BE526FA1D2A00819383 /* CameraPreview.swift */,
 				27A50BD926F230A500819383 /* Helpers */,
 				7C38A5D126EF7B1700A8F125 /* ML */,
@@ -312,6 +336,7 @@
 		7C38A5D026EF7AE000A8F125 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				27E1CA9227354C6B0053DB56 /* Sounds */,
 				7C88D70D271EFD2F0038B341 /* Fonts */,
 				7C38A59C26EF717000A8F125 /* Assets.xcassets */,
 			);
@@ -533,6 +558,8 @@
 			files = (
 				7C38A59D26EF717000A8F125 /* Assets.xcassets in Resources */,
 				7C88D713271EFDA10038B341 /* Lato-Bold.ttf in Resources */,
+				27E1CA9427354C880053DB56 /* success.mp3 in Resources */,
+				7C81D4DA26F0E39F00D8BF09 /* test.MOV in Resources */,
 				7C88D70F271EFD5C0038B341 /* Comfortaa-Bold.ttf in Resources */,
 				7CB1E5CA2721935500C9D8E6 /* LaunchScreen.storyboard in Resources */,
 				7C88D715271F029D0038B341 /* Comfortaa-Regular.ttf in Resources */,
@@ -602,6 +629,8 @@
 				27B352C6270B3CF8000CAE0E /* BodyPontuationHelperProtocol.swift in Sources */,
 				7C935E7D26F3956100713B10 /* UserData.swift in Sources */,
 				27B352CA270B3DD2000CAE0E /* WorkoutViewModelProtocol.swift in Sources */,
+				27E1CA8E273549650053DB56 /* SoundHelper.swift in Sources */,
+				27E1CA91273549870053DB56 /* SoundHelperProtocol.swift in Sources */,
 				27A50BE426FA1CA900819383 /* WorkoutScreenViewController.swift in Sources */,
 				7C63261526F03E6A005AFA87 /* WorkoutScreen.swift in Sources */,
 				0F9E8DAB26FBB3DC00E833FD /* InformationScreenViewController.swift in Sources */,
@@ -774,6 +803,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = Y8HUNAB446;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -795,6 +825,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = Y8HUNAB446;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
