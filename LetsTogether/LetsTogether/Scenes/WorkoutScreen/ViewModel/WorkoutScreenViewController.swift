@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDelegate {
+class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDelegate, CanRotate {
 
     var workoutViewModel: WorkoutViewModelProtocol
     
@@ -32,6 +32,7 @@ class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDeleg
         start()
         contentView.quitButton.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
         setIdleScreenTimer(to: true)
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -39,6 +40,14 @@ class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDeleg
         setIdleScreenTimer(to: false)
     }
 
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return .portrait
+    }
+    
     override func loadView() {
         view = contentView
     }

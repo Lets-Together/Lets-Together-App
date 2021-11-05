@@ -55,7 +55,7 @@ class WorkoutScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "00"
         label.textColor = .white
-        label.font = UIFont.init(name: "Lato-Bold", size: 44)
+        label.font = UIFont.init(name: "Lato-Bold", size: 56)
 
         return label
     }()
@@ -65,7 +65,7 @@ class WorkoutScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "00:00:00"
         label.textColor = .white
-        label.font = UIFont.init(name: "Lato-Bold", size: 44)
+        label.font = UIFont.init(name: "Lato-Bold", size: 56)
 
         return label
     }()
@@ -117,43 +117,43 @@ class WorkoutScreen: UIView {
         NSLayoutConstraint.activate([
             quitButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
             quitButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 19),
-            quitButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
-            quitButton.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1)
+            quitButton.widthAnchor.constraint(equalToConstant: 40),
+            quitButton.heightAnchor.constraint(equalToConstant: 40)
         ])
 
         self.addSubview(statusView)
         NSLayoutConstraint.activate([
-            statusView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-            statusView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15),
-            statusView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
-            statusView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.15)
+            statusView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -15),
+            statusView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 15),
+            statusView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -15),
+            statusView.heightAnchor.constraint(equalToConstant: 140)
         ])
 
         self.addSubview(scoresImage)
         NSLayoutConstraint.activate([
             scoresImage.leftAnchor.constraint(equalTo: self.statusView.leftAnchor, constant: 21),
             scoresImage.topAnchor.constraint(equalTo: self.statusView.topAnchor, constant: 11),
-            scoresImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
-            scoresImage.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1)
+            scoresImage.widthAnchor.constraint(equalToConstant: 48),
+            scoresImage.heightAnchor.constraint(equalToConstant: 48)
         ])
 
         self.addSubview(timeImage)
         NSLayoutConstraint.activate([
             timeImage.leftAnchor.constraint(equalTo: self.statusView.leftAnchor, constant: 21),
-            timeImage.topAnchor.constraint(equalTo: self.scoresImage.bottomAnchor, constant: 10),
-            timeImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
-            timeImage.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1)
+            timeImage.topAnchor.constraint(equalTo: self.scoresImage.bottomAnchor, constant: 16),
+            timeImage.widthAnchor.constraint(equalToConstant: 48),
+            timeImage.heightAnchor.constraint(equalToConstant: 48)
         ])
 
         self.addSubview(currentScores)
         NSLayoutConstraint.activate([
-            currentScores.leftAnchor.constraint(equalTo: self.scoresImage.rightAnchor, constant: 3),
+            currentScores.leftAnchor.constraint(equalTo: self.scoresImage.rightAnchor, constant: 8),
             currentScores.centerYAnchor.constraint(equalTo: self.scoresImage.centerYAnchor)
         ])
 
         self.addSubview(currentTime)
         NSLayoutConstraint.activate([
-            currentTime.leftAnchor.constraint(equalTo: self.timeImage.rightAnchor, constant: 3),
+            currentTime.leftAnchor.constraint(equalTo: self.timeImage.rightAnchor, constant: 8),
             currentTime.centerYAnchor.constraint(equalTo: self.timeImage.centerYAnchor)
         ])
     }
