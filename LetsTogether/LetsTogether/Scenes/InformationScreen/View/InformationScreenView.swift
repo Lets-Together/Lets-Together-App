@@ -10,8 +10,12 @@ import UIKit
 import CoreMedia
 
 class InformationScreenView: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+
+    var imageType: String = "jumping-jack"
+
+    required init(imageType: String) {
+        super.init(frame: .zero)
+        self.imageType = imageType
         backgroundColor = .white
         setConstraints()
     }
@@ -65,7 +69,7 @@ class InformationScreenView: UIView {
 
     lazy var pageControl: UIPageControl = {
         let control = UIPageControl(frame: .zero)
-        control.numberOfPages = 2
+        control.numberOfPages = 3
         control.currentPage = 0
         control.pageIndicatorTintColor = .lightGray
         control.currentPageIndicatorTintColor = .black
@@ -80,49 +84,46 @@ class InformationScreenView: UIView {
         scroll.showsHorizontalScrollIndicator = false
         scroll.backgroundColor = .white
         scroll.translatesAutoresizingMaskIntoConstraints = false
-        scroll.contentSize = CGSize(width: 600 , height: 350)
+        scroll.contentSize = CGSize(width: 900 , height: 350)
         scroll.layer.cornerRadius = 16
 
         return scroll
     }()
 
-    lazy var slideOne: UIView = {
-        var frame = CGRect(x: 0, y: 0, width: 300, height: 350)
-        let slideOne = UIView(frame: frame)
-        slideOne.backgroundColor = .white
+    lazy var slideOne: SlideView = {
+        slideOne = SlideView(frame:  CGRect(x: 0, y: 0, width: 300, height: 350))
+        if imageType.elementsEqual("jumping-jack") {
+            slideOne.imageView.image = UIImage(named: imageType + "1")
+            slideOne.textLabel.text = "1. Bring your feet and arms to your body."
+        } else {
+            slideOne.textLabel.text = "1. Stand with feet parallel.\n\n2. Extend your arms."
+        }
 
         return slideOne
     }()
 
-    lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "crown.fill")
-        imageView.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.masksToBounds = true
-
-        return imageView
-    }()
-
-    lazy var textLabel: UILabel = {
-        let textLabel = UILabel()
-        textLabel.text = "Doing jumping jacks you: works the whole body, improves motor coordination, contributes to heart health and burns calories. So do jumping jacks with us!"
-        textLabel.numberOfLines = 5
-        textLabel.textAlignment = .center
-        textLabel.font = UIFont.init(name: "Comfortaa-Bold", size: 16)
-        textLabel.textColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        return textLabel
-    }()
-
-    lazy var slideTwo: UIView = {
-        var frame = CGRect(x: 300, y: 0, width: 300, height: 350)
-        let slideTwo = UIView(frame: frame)
-        slideTwo.backgroundColor = .black
+    lazy var slideTwo: SlideView = {
+        slideTwo = SlideView(frame:  CGRect(x: 300, y: 0, width: 300, height: 350))
+        if imageType.elementsEqual("jumping-jack") {
+            slideTwo.imageView.image = UIImage(named: imageType + "2")
+            slideTwo.textLabel.text = "2. Jump by opening your legs and raising your arms, giving a slight bend in the knee."
+        } else {
+            slideTwo.textLabel.text = "3. Bend your knees without taking your feet off the floor.\n\n4. Move down until your hips are just below your knees."
+        }
 
         return slideTwo
+    }()
+
+    lazy var slideThree: SlideView = {
+        slideThree = SlideView(frame:  CGRect(x: 600, y: 0, width: 300, height: 350))
+        if imageType.elementsEqual("jumping-jack") {
+            slideThree.imageView.image = UIImage(named: imageType + "3")
+            slideThree.textLabel.text = "3. Return to start position."
+        } else {
+            slideThree.textLabel.text = "5. Return to your home position.\n\n6. Keep your eyes straight ahead."
+        }
+
+        return slideThree
     }()
 
     lazy var startButton: UIButton = {
@@ -175,24 +176,8 @@ class InformationScreenView: UIView {
         ])
 
         self.scrollView.addSubview(slideOne)
-
-        self.slideOne.addSubview(imageView)
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: self.slideOne.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: self.slideOne.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: self.slideOne.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: self.slideOne.bottomAnchor, constant: -130)
-        ])
-
-        self.slideOne.addSubview(textLabel)
-        NSLayoutConstraint.activate([
-            textLabel.topAnchor.constraint(equalTo: self.imageView.bottomAnchor),
-            textLabel.leadingAnchor.constraint(equalTo: self.slideOne.leadingAnchor),
-            textLabel.trailingAnchor.constraint(equalTo: self.slideOne.trailingAnchor),
-            textLabel.bottomAnchor.constraint(equalTo: self.slideOne.bottomAnchor)
-        ])
-
         self.scrollView.addSubview(slideTwo)
+        self.scrollView.addSubview(slideThree)
 
         self.addSubview(pageControl)
         NSLayoutConstraint.activate([
