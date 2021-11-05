@@ -22,6 +22,7 @@ class BodyPontuationHelper: BodyPontuationHelperProtocol {
     }
     private(set) var movementName: String
     private(set) var movementPercetage: Double
+    private let successSound = SoundHelper(resourceName: "success", fileExtension: "mp3")
     
     private let model: JumpingJacks_3 = {
         do {
@@ -49,6 +50,7 @@ class BodyPontuationHelper: BodyPontuationHelperProtocol {
             guard let jumpRopeProb = prediction.labelProbabilities[self.movementName] else { return }
             if jumpRopeProb >= self.movementPercetage {
                 currentPoints += 100
+                performSound()
                 DispatchQueue.main.async {
                     self.pontuationUpdate?(self.currentPoints)
                 }
@@ -57,5 +59,9 @@ class BodyPontuationHelper: BodyPontuationHelperProtocol {
         } catch {
             print("erro")
         }
+    }
+    
+    private func performSound() {
+        successSound.play()
     }
 }
