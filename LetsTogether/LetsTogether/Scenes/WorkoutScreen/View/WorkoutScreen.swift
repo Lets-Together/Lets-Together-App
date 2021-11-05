@@ -14,48 +14,70 @@ class WorkoutScreen: UIView {
     var videoViewController: WorkoutVideoViewController?
     var handleSample: ((CMSampleBuffer) -> Void)?
     let cameraPreview = WorkoutVideoViewController()
+    var counter = 0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .blue
+        backgroundColor = .white
+    }
+
+    func delayTime() {
+        setCountdownConstraints()
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
+        //    self.workoutViewModel.pauseTimer()
+            self.counter += 1
+            self.countDownLabel.text = "\(5 - self.counter)"
+            if self.counter == 5 {
+                self.backgroundColor = .white
+               // self.controll
+                self.countDownLabel.removeFromSuperview()
+                self.setConstraints()
+            timer.invalidate()
+            }
+        })
     }
 
     func configure(handleSample: @escaping ((CMSampleBuffer) -> Void)) {
         self.handleSample = handleSample
-        backgroundColor = .white
-        setConstraints()
+        delayTime()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    lazy var scoresImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "crown.fill")
-        imageView.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.masksToBounds = true
-        return imageView
+    lazy var countDownLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "\(5 - counter)"
+        label.font = UIFont.boldSystemFont(ofSize: 43)
+
+        return label
     }()
 
-    lazy var timeImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "clock.fill")
-        imageView.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.masksToBounds = true
-        return imageView
+    lazy var scoresLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Scores:"
+        label.font = UIFont.boldSystemFont(ofSize: 23)
+
+        return label
+    }()
+
+    lazy var timeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Time:"
+        label.font = UIFont.boldSystemFont(ofSize: 23)
+
+        return label
     }()
 
     lazy var currentScores: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "00"
-        label.textColor = .white
-        label.font = UIFont.init(name: "Lato-Bold", size: 44)
+        label.font = UIFont.boldSystemFont(ofSize: 23)
 
         return label
     }()
@@ -64,40 +86,29 @@ class WorkoutScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "00:00:00"
-        label.textColor = .white
-        label.font = UIFont.init(name: "Lato-Bold", size: 44)
+        label.font = UIFont.boldSystemFont(ofSize: 23)
 
         return label
     }()
 
     lazy var quitButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "x.circle.fill"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
-        button.contentVerticalAlignment = .fill
-        button.contentHorizontalAlignment = .fill
+        button.backgroundColor = UIColor(red: 1.0, green: 0.53, blue: 0.53, alpha: 1.0)
+        button.setTitle("Quit", for: .normal)
+        button.layer.cornerRadius = 15
+
         return button
     }()
 
-    lazy var statusView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 18
-        view.backgroundColor = UIColor.init(displayP3Red: 255/255, green: 189/255, blue: 0/255, alpha: 1)
-        view.alpha = 0.77
-
-        return view
-    }()
-    
     public func updateTimerLabel(strTime: String) {
         currentTime.text = strTime
     }
-    
+
     public func updateScoreLabel(strScore: String) {
         currentScores.text = strScore
     }
-    
+
     private func addCameraPreview(preview: WorkoutVideoViewController) {
         self.addSubview(preview.view)
         preview.view.translatesAutoresizingMaskIntoConstraints = false
@@ -112,49 +123,44 @@ class WorkoutScreen: UIView {
     private func setConstraints() {
         cameraPreview.handleSample = self.handleSample
         addCameraPreview(preview: cameraPreview)
-
         self.addSubview(quitButton)
         NSLayoutConstraint.activate([
             quitButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
-            quitButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 19),
-            quitButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
-            quitButton.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1)
+            quitButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 80),
+            quitButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2)
         ])
 
-        self.addSubview(statusView)
+        self.addSubview(scoresLabel)
         NSLayoutConstraint.activate([
-            statusView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-            statusView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15),
-            statusView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
-            statusView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.15)
+            scoresLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 18),
+            scoresLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 80)
         ])
 
-        self.addSubview(scoresImage)
+        self.addSubview(timeLabel)
         NSLayoutConstraint.activate([
-            scoresImage.leftAnchor.constraint(equalTo: self.statusView.leftAnchor, constant: 21),
-            scoresImage.topAnchor.constraint(equalTo: self.statusView.topAnchor, constant: 11),
-            scoresImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
-            scoresImage.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1)
-        ])
-
-        self.addSubview(timeImage)
-        NSLayoutConstraint.activate([
-            timeImage.leftAnchor.constraint(equalTo: self.statusView.leftAnchor, constant: 21),
-            timeImage.topAnchor.constraint(equalTo: self.scoresImage.bottomAnchor, constant: 10),
-            timeImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
-            timeImage.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1)
+            timeLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 18),
+            timeLabel.topAnchor.constraint(equalTo: self.scoresLabel.bottomAnchor, constant: 3)
         ])
 
         self.addSubview(currentScores)
         NSLayoutConstraint.activate([
-            currentScores.leftAnchor.constraint(equalTo: self.scoresImage.rightAnchor, constant: 3),
-            currentScores.centerYAnchor.constraint(equalTo: self.scoresImage.centerYAnchor)
+            currentScores.leftAnchor.constraint(equalTo: self.scoresLabel.rightAnchor, constant: 3),
+            currentScores.centerYAnchor.constraint(equalTo: self.scoresLabel.centerYAnchor)
         ])
 
         self.addSubview(currentTime)
         NSLayoutConstraint.activate([
-            currentTime.leftAnchor.constraint(equalTo: self.timeImage.rightAnchor, constant: 3),
-            currentTime.centerYAnchor.constraint(equalTo: self.timeImage.centerYAnchor)
+            currentTime.leftAnchor.constraint(equalTo: self.timeLabel.rightAnchor, constant: 3),
+            currentTime.centerYAnchor.constraint(equalTo: self.timeLabel.centerYAnchor)
         ])
+    }
+
+    private func setCountdownConstraints() {
+        self.addSubview(countDownLabel)
+        NSLayoutConstraint.activate([
+            countDownLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            countDownLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
+
     }
 }
