@@ -46,7 +46,7 @@ class InformationScreenViewController: UIViewController {
     }
 
     @objc func startButtonTapped(_ : UIButton) {
-        let bodyPontuatiion = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8)
+        let bodyPontuatiion = BodyPontuationHelper(movementName: self.viewModel.exercise.labelML!, percetage: 0.8)
         let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion,
                                                   timer: TimeHelper(timeToFinish: self.viewModel.exercise.time), exercise: viewModel.exercise)
         let controller = WorkoutScreenViewController(workoutViewModel: wksViewModel)

@@ -15,4 +15,5 @@ struct Exercise {
     var videoSource: String?
     var leaderboard: String?
     var time: Int?
+    var labelML: String?
 }

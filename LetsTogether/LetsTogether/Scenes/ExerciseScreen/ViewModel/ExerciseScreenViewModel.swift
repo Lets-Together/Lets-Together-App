@@ -11,10 +11,11 @@ class ExerciseScreenViewModel {
 
     var exerciseCards: [Exercise] = []
 
-    var exercisesName = ["Jumping Jack", "Jumping Jack - Time", "Squat",  "Squat- Time"]
-    var exercisesImage = ["card1", "card1", "card1", "card1"]
-    var leaderboards = ["leaderboard.jumpingjack", "leaderboard.jumpingjack.time", "leaderboard.squat", "leaderboard.squat.time" ]
-    var times = [nil, 120, nil, 120]
+    let exercisesName = ["Jumping Jack", "Jumping Jack - Time", "Squat",  "Squat- Time"]
+    let exercisesImage = ["card1", "card1", "card1", "card1"]
+    let labelOnML = ["jumping-jack", "jumping-jack", "squats", "squats"]
+    let leaderboards = ["leaderboard.jumpingjack", "leaderboard.jumpingjack.time", "leaderboard.squat", "leaderboard.squat.time" ]
+    let times = [nil, 120, nil, 120]
     init() {
         self.populatesExercises()
     }
