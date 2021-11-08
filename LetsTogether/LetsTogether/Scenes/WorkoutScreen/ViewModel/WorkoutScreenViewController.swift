@@ -67,7 +67,7 @@ class WorkoutScreenViewController: UIViewController, WorkoutScreenViewModelDeleg
     @objc func buttonTapped(_ : UIButton) {
         let alert = UIAlertController(title: "End Training", message: "Are you sure you want to leave?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "End Training", style: UIAlertAction.Style.destructive, handler: { _ in
-            self.workoutViewModel.savePoints(points: Int16(self.workoutViewModel.score))
+            self.workoutViewModel.savePoints(points: Int16(self.workoutViewModel.score), leaderboard: self.workoutViewModel.exercise.leaderboard!)
             let controller = ScoreBoardScreenViewController(exercise: self.workoutViewModel.exercise)
             controller.modalPresentationStyle = .fullScreen
 
@@ -98,7 +98,7 @@ extension WorkoutScreenViewController {
     func didFinishedTimer() {
         let alert = UIAlertController(title: "Time Out", message: "The time has finished!", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.destructive, handler: { _ in
-            self.workoutViewModel.savePoints(points: Int16(self.workoutViewModel.score))
+            self.workoutViewModel.savePoints(points: Int16(self.workoutViewModel.score), leaderboard: self.workoutViewModel.exercise.leaderboard!)
             let controller = ScoreBoardScreenViewController(exercise: self.workoutViewModel.exercise)
             controller.modalPresentationStyle = .fullScreen
 

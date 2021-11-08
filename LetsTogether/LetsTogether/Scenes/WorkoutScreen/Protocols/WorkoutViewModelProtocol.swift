@@ -16,6 +16,6 @@ protocol WorkoutViewModelProtocol {
     func startTimer(action: @escaping (String) -> Void, didFinishedTimerAction: @escaping () -> Void)
     func pauseTimer()
     func addPoints(amount: Int)
-    func savePoints(points: Int16)
+    func savePoints(points: Int16, leaderboard: String)
     func handleSample(sampleBuffer: CMSampleBuffer)
 }
