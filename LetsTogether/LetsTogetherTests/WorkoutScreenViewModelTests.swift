@@ -10,6 +10,9 @@ import XCTest
 
 class WorkoutScreenViewModelTests: XCTestCase {
 
+    var viewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8),
+                                           timer: TimeHelper(timeToFinish: 5), exercise: Exercise())
+
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -20,7 +23,8 @@ class WorkoutScreenViewModelTests: XCTestCase {
 
     func test_if_count_points_correctly() {
         //Given
-        let workoutScreenViewModel = WorkoutScreenViewModel()
+        let workoutScreenViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8),
+                                                            timer: TimeHelper(timeToFinish: 5), exercise: Exercise())
         let addedPoints = 100
         //When
         workoutScreenViewModel.addPoints(amount: 100)
@@ -30,23 +34,30 @@ class WorkoutScreenViewModelTests: XCTestCase {
     
     func test_if_pause_timer_is_pausing_timer() {
         //Given
-        let workoutScreenViewModel = WorkoutScreenViewModel()
-        workoutScreenViewModel.startTimer { _ in }
-        XCTAssertTrue(workoutScreenViewModel.timerHandler.timer.isValid)
+        let workoutScreenViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8),
+                                                            timer: TimeHelper(timeToFinish: 5), exercise: Exercise())
+        workoutScreenViewModel.startTimer(
+            action: { _ in},
+            didFinishedTimerAction: { }
+        )
+        XCTAssertTrue(workoutScreenViewModel.timerCounting)
         //When
         workoutScreenViewModel.pauseTimer()
         //Then
-        XCTAssertFalse(workoutScreenViewModel.timerHandler.timer.isValid)
+//        XCTAssertFalse(workoutScreenViewModel.timerHandler.timer.isValid)
         XCTAssertFalse(workoutScreenViewModel.timerCounting)
     }
 
     func test_if_start_timer_is_starting_timer() {
         //Given
-        let workoutScreenViewModel = WorkoutScreenViewModel()
+        let workoutScreenViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8),
+                                                            timer: TimeHelper(timeToFinish: 5), exercise: Exercise())
         //When
-        workoutScreenViewModel.startTimer { _ in }
+        workoutScreenViewModel.startTimer(
+            action: { _ in},
+            didFinishedTimerAction: { }
+        )
         //Then
-        XCTAssertTrue(workoutScreenViewModel.timerHandler.timer.isValid)
         XCTAssertTrue(workoutScreenViewModel.timerCounting)
     }
     

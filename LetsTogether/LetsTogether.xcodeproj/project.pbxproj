@@ -27,6 +27,7 @@
 		27E1CA91273549870053DB56 /* SoundHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E1CA90273549870053DB56 /* SoundHelperProtocol.swift */; };
 		27E1CA9427354C880053DB56 /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27E1CA9327354C880053DB56 /* success.mp3 */; };
 		7C23984527049ED50091FE1C /* ScoreBoardScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C23984427049ED50091FE1C /* ScoreBoardScreenViewModel.swift */; };
+		7C2BDE83273C0A2500F4B429 /* ScoreboardScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BDE82273C0A2500F4B429 /* ScoreboardScreenTests.swift */; };
 		7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59026EF716F00A8F125 /* AppDelegate.swift */; };
 		7C38A59326EF716F00A8F125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59226EF716F00A8F125 /* SceneDelegate.swift */; };
 		7C38A59B26EF716F00A8F125 /* LetsTogether.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59926EF716F00A8F125 /* LetsTogether.xcdatamodeld */; };
@@ -95,6 +96,7 @@
 		27E1CA90273549870053DB56 /* SoundHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelperProtocol.swift; sourceTree = "<group>"; };
 		27E1CA9327354C880053DB56 /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
 		7C23984427049ED50091FE1C /* ScoreBoardScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreenViewModel.swift; sourceTree = "<group>"; };
+		7C2BDE82273C0A2500F4B429 /* ScoreboardScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardScreenTests.swift; sourceTree = "<group>"; };
 		7C38A58D26EF716F00A8F125 /* LetsTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C38A59026EF716F00A8F125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C38A59226EF716F00A8F125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				7C38A5AC26EF717100A8F125 /* Info.plist */,
 				27B352BC2704897B000CAE0E /* TimeHelperTests.swift */,
 				27B352BE2705F1D9000CAE0E /* WorkoutScreenViewModelTests.swift */,
+				7C2BDE82273C0A2500F4B429 /* ScoreboardScreenTests.swift */,
 			);
 			path = LetsTogetherTests;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27B352BD2704897B000CAE0E /* TimeHelperTests.swift in Sources */,
+				7C2BDE83273C0A2500F4B429 /* ScoreboardScreenTests.swift in Sources */,
 				7C38A5AB26EF717100A8F125 /* LetsTogetherTests.swift in Sources */,
 				27B352BF2705F1D9000CAE0E /* WorkoutScreenViewModelTests.swift in Sources */,
 			);
@@ -799,7 +803,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = Y8HUNAB446;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
@@ -821,7 +825,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = Y8HUNAB446;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
