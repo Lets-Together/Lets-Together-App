@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import LetsTogether
 
 class ScoreboardScreenTests: XCTestCase {
 
@@ -17,9 +18,20 @@ class ScoreboardScreenTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_scoreView_shows_correct_points() {
+        // Given
+        let workoutViewModal = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8),
+                                                      timer: TimeHelper(timeToFinish: nil), exercise: Exercise())
+        workoutViewModal.addPoints(amount: 500)
+        workoutViewModal.savePoints(points: Int16(workoutViewModal.score), leaderboard: "jumping-jack")
+        let savedScores = workoutViewModal.score
+
+        // When
+        let scoreViewModal = ScoreBoardScreenViewModel()
+        let currentScores = scoreViewModal.coreDataManager.getData()?.currentScores
+
+        // Then
+        XCTAssertEqual(Int16(savedScores), currentScores)
     }
 
     func testPerformanceExample() throws {
