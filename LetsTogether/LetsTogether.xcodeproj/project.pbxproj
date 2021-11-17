@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F6F59B82734F78100D45A2B /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F59B72734F78100D45A2B /* OnBoardingViewModel.swift */; };
+		0F6F59BA2734F79800D45A2B /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F59B92734F79800D45A2B /* OnBoardingView.swift */; };
+		0F6F59BC2734F7DF00D45A2B /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F59BB2734F7DF00D45A2B /* OnBoardingViewController.swift */; };
+		0F6F59C22735746C00D45A2B /* TutorialLetsTogether.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0F6F59C12735746C00D45A2B /* TutorialLetsTogether.mov */; };
 		0F9E8DA926FBB2EE00E833FD /* InformationScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E8DA826FBB2EE00E833FD /* InformationScreenView.swift */; };
 		0F9E8DAB26FBB3DC00E833FD /* InformationScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E8DAA26FBB3DC00E833FD /* InformationScreenViewController.swift */; };
 		27A50BDB26F230B200819383 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A50BDA26F230B200819383 /* TimeHelper.swift */; };
@@ -69,6 +73,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F6F59B72734F78100D45A2B /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
+		0F6F59B92734F79800D45A2B /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		0F6F59BB2734F7DF00D45A2B /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		0F6F59C12735746C00D45A2B /* TutorialLetsTogether.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = TutorialLetsTogether.mov; path = ../../../../../../../Downloads/TutorialLetsTogether.mov; sourceTree = "<group>"; };
+		0F6F59C3273574EE00D45A2B /* TutorialLetsTogether.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = TutorialLetsTogether.mov; sourceTree = "<group>"; };
 		0F9E8DA826FBB2EE00E833FD /* InformationScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationScreenView.swift; sourceTree = "<group>"; };
 		0F9E8DAA26FBB3DC00E833FD /* InformationScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationScreenViewController.swift; sourceTree = "<group>"; };
 		27A50BD526F21E3000819383 /* WorkoutScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutScreenViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +157,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F6F59B42734E1B200D45A2B /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				0F6F59B62734E1D400D45A2B /* View */,
+				0F6F59B52734E1CD00D45A2B /* ViewModel */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		0F6F59B52734E1CD00D45A2B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0F6F59B72734F78100D45A2B /* OnBoardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0F6F59B62734E1D400D45A2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F6F59B92734F79800D45A2B /* OnBoardingView.swift */,
+				0F6F59BB2734F7DF00D45A2B /* OnBoardingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0F9E8DA526FB760600E833FD /* InformationScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +310,7 @@
 		7C38A5C926EF7A5500A8F125 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0F6F59B42734E1B200D45A2B /* OnBoarding */,
 				7CACED3A270F170300976216 /* ExerciseScreen */,
 				0F9E8DA526FB760600E833FD /* InformationScreen */,
 				7CFC688526F4DE9B00C24E45 /* ScoreBoardScreen */,
@@ -313,6 +349,7 @@
 		7C38A5D026EF7AE000A8F125 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0F6F59C3273574EE00D45A2B /* TutorialLetsTogether.mov */,
 				7C88D70D271EFD2F0038B341 /* Fonts */,
 				7C81D4D926F0E39F00D8BF09 /* test.MOV */,
 				7C38A59C26EF717000A8F125 /* Assets.xcassets */,
@@ -342,6 +379,7 @@
 		7C88D70D271EFD2F0038B341 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				0F6F59C12735746C00D45A2B /* TutorialLetsTogether.mov */,
 				7C88D714271F029D0038B341 /* Comfortaa-Regular.ttf */,
 				7C88D711271EFDA10038B341 /* Lato-Bold.ttf */,
 				7C88D710271EFDA10038B341 /* Lato-BoldItalic.ttf */,
@@ -540,6 +578,7 @@
 				7C88D70F271EFD5C0038B341 /* Comfortaa-Bold.ttf in Resources */,
 				7CB1E5CA2721935500C9D8E6 /* LaunchScreen.storyboard in Resources */,
 				7C88D715271F029D0038B341 /* Comfortaa-Regular.ttf in Resources */,
+				0F6F59C22735746C00D45A2B /* TutorialLetsTogether.mov in Resources */,
 				7C88D712271EFDA10038B341 /* Lato-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +627,7 @@
 				7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */,
 				27A50BEC26FA973200819383 /* BodyPoseHelper.swift in Sources */,
 				7CACED3E270F179500976216 /* ExercisesView.swift in Sources */,
+				0F6F59B82734F78100D45A2B /* OnBoardingViewModel.swift in Sources */,
 				27A50BDB26F230B200819383 /* TimeHelper.swift in Sources */,
 				27B352C4270B3CE5000CAE0E /* BodyPoseHelperProtocol.swift in Sources */,
 				7CE5C99127107E8200B2A194 /* ExerciseCell.swift in Sources */,
@@ -611,11 +651,13 @@
 				0F9E8DAB26FBB3DC00E833FD /* InformationScreenViewController.swift in Sources */,
 				0F9E8DA926FBB2EE00E833FD /* InformationScreenView.swift in Sources */,
 				7C763BDE2728387200842BF3 /* InformationScreenViewModel.swift in Sources */,
+				0F6F59BA2734F79800D45A2B /* OnBoardingView.swift in Sources */,
 				27B352C8270B3D20000CAE0E /* WorkoutScreenViewModelDelegate.swift in Sources */,
 				7CCB7FDB2728271E00B21944 /* ExerciseScreenViewModel.swift in Sources */,
 				27B352C2270B3CCE000CAE0E /* TimeHelperProtocol.swift in Sources */,
 				7CFC688926F4DEFA00C24E45 /* ScoreBoardScreen.swift in Sources */,
 				27A50BEE26FAA1BF00819383 /* BodyPontuationHelper.swift in Sources */,
+				0F6F59BC2734F7DF00D45A2B /* OnBoardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

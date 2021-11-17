@@ -40,7 +40,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // Player was successfully authenticated.
             // Check if there are any player restrictions before starting the game.
             self.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            if UserDefaults.isFirstLaunch {
+                self.window?.rootViewController = OnBoardingViewController()
+                UserDefaults.isFirstLaunch = false
+            }else {
             self.window?.rootViewController = ExercisesViewController()
+            }
             if GKLocalPlayer.local.isUnderage {
                 // Hide explicit game content.
             }
