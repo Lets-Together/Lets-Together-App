@@ -50,6 +50,7 @@
 		7CCB7FDB2728271E00B21944 /* ExerciseScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB7FDA2728271E00B21944 /* ExerciseScreenViewModel.swift */; };
 		7CCB7FDE2728290B00B21944 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB7FDD2728290A00B21944 /* Exercise.swift */; };
 		7CE5C99127107E8200B2A194 /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5C99027107E8200B2A194 /* ExerciseCell.swift */; };
+		7CEB3F87273EB57A00A0D3DA /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CEB3F86273EB57A00A0D3DA /* GameKit.framework */; };
 		7CF2D3F52735562500322DF2 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF2D3F42735562500322DF2 /* SlideView.swift */; };
 		7CF41DBF2734246600E9186F /* Jumping-Jacks 5.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CF41DBE2734246600E9186F /* Jumping-Jacks 5.mlmodel */; };
 		7CFC688926F4DEFA00C24E45 /* ScoreBoardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC688826F4DEFA00C24E45 /* ScoreBoardScreen.swift */; };
@@ -127,6 +128,7 @@
 		7CCB7FDA2728271E00B21944 /* ExerciseScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseScreenViewModel.swift; sourceTree = "<group>"; };
 		7CCB7FDD2728290A00B21944 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		7CE5C99027107E8200B2A194 /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
+		7CEB3F86273EB57A00A0D3DA /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		7CF2D3F42735562500322DF2 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		7CF41DBE2734246600E9186F /* Jumping-Jacks 5.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Jumping-Jacks 5.mlmodel"; sourceTree = "<group>"; };
 		7CFC688826F4DEFA00C24E45 /* ScoreBoardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreen.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CEB3F87273EB57A00A0D3DA /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +246,7 @@
 				7C38A5B426EF717100A8F125 /* LetsTogetherUITests */,
 				7C38A58E26EF716F00A8F125 /* Products */,
 				27A50BE226FA1AFF00819383 /* Recovered References */,
+				7CEB3F85273EB57A00A0D3DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -433,6 +437,14 @@
 				7CCB7FDA2728271E00B21944 /* ExerciseScreenViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7CEB3F85273EB57A00A0D3DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CEB3F86273EB57A00A0D3DA /* GameKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7CFC688526F4DE9B00C24E45 /* ScoreBoardScreen */ = {
@@ -810,8 +822,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y8HUNAB446;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
@@ -819,9 +832,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Jose-Sousa.LetsTogether";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -833,7 +847,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y8HUNAB446;
 				INFOPLIST_FILE = LetsTogether/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
@@ -841,7 +855,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Jose-Sousa.LetsTogether";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -854,6 +868,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y8HUNAB446;
 				INFOPLIST_FILE = LetsTogetherTests/Info.plist;

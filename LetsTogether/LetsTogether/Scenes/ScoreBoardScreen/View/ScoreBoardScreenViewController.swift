@@ -53,7 +53,7 @@ class ScoreBoardScreenViewController: UIViewController {
     }
 
     @objc func repeatButtonTapped(_ : UIButton) {
-        let bodyPontuatiion = BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8)
+        let bodyPontuatiion = BodyPontuationHelper(movementName: self.scoreBoardViewModel.exercise.labelML!, percetage: 0.8)
         let wksViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: bodyPontuatiion,
                                                   timer: TimeHelper(timeToFinish: self.scoreBoardViewModel.exercise.time), exercise: scoreBoardViewModel.exercise)
         let controller = WorkoutScreenViewController(workoutViewModel: wksViewModel)
