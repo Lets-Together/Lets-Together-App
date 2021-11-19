@@ -62,12 +62,12 @@ class WorkoutScreenViewModel: WorkoutViewModelProtocol {
         }
     }
 
-    func savePoints(points: Int16) {
+    func savePoints(points: Int16, leaderboard: String) {
 
         GKLeaderboard.submitScore(Int(points),
         context: 0,
         player: GKLocalPlayer.local,
-        leaderboardIDs: ["leaderboard.highscore.year"],
+        leaderboardIDs: [leaderboard],
         completionHandler: {_ in})
 
         if coreDataManager.getData() == nil {
