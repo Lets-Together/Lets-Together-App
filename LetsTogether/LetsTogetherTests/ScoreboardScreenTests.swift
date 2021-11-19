@@ -18,6 +18,14 @@ class ScoreboardScreenTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func test_scoreboard_view() {
+        let sut = ScoreBoardScreenViewController(exercise: Exercise())
+
+        let view = sut.view as? ScoreBoardScreen
+
+        XCTAssertNotNil(view)
+    }
+
     func test_scoreView_shows_correct_points() {
         // Given
         let workoutViewModal = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8),

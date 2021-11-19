@@ -26,6 +26,7 @@
 		27E1CA8E273549650053DB56 /* SoundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E1CA8D273549650053DB56 /* SoundHelper.swift */; };
 		27E1CA91273549870053DB56 /* SoundHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E1CA90273549870053DB56 /* SoundHelperProtocol.swift */; };
 		27E1CA9427354C880053DB56 /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27E1CA9327354C880053DB56 /* success.mp3 */; };
+		7C22413527469E1500A4510E /* InformationScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22413427469E1500A4510E /* InformationScreenTests.swift */; };
 		7C23984527049ED50091FE1C /* ScoreBoardScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C23984427049ED50091FE1C /* ScoreBoardScreenViewModel.swift */; };
 		7C2BDE83273C0A2500F4B429 /* ScoreboardScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BDE82273C0A2500F4B429 /* ScoreboardScreenTests.swift */; };
 		7C38A59126EF716F00A8F125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C38A59026EF716F00A8F125 /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		7C88D715271F029D0038B341 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C88D714271F029D0038B341 /* Comfortaa-Regular.ttf */; };
 		7C935E7926F3727500713B10 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C935E7826F3727500713B10 /* CoreDataManager.swift */; };
 		7C935E7D26F3956100713B10 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C935E7C26F3956100713B10 /* UserData.swift */; };
+		7CA9B02A2747CB4B0003E4E8 /* ExercisesScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA9B0292747CB4B0003E4E8 /* ExercisesScreenTests.swift */; };
 		7CACED3E270F179500976216 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CACED3D270F179500976216 /* ExercisesView.swift */; };
 		7CACED40270F192200976216 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CACED3F270F192200976216 /* ExercisesViewController.swift */; };
 		7CB1E5CA2721935500C9D8E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB1E5C92721935500C9D8E6 /* LaunchScreen.storyboard */; };
@@ -95,6 +97,7 @@
 		27E1CA8D273549650053DB56 /* SoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.swift; sourceTree = "<group>"; };
 		27E1CA90273549870053DB56 /* SoundHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelperProtocol.swift; sourceTree = "<group>"; };
 		27E1CA9327354C880053DB56 /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
+		7C22413427469E1500A4510E /* InformationScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationScreenTests.swift; sourceTree = "<group>"; };
 		7C23984427049ED50091FE1C /* ScoreBoardScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardScreenViewModel.swift; sourceTree = "<group>"; };
 		7C2BDE82273C0A2500F4B429 /* ScoreboardScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardScreenTests.swift; sourceTree = "<group>"; };
 		7C38A58D26EF716F00A8F125 /* LetsTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +120,7 @@
 		7C88D714271F029D0038B341 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
 		7C935E7826F3727500713B10 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7C935E7C26F3956100713B10 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		7CA9B0292747CB4B0003E4E8 /* ExercisesScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesScreenTests.swift; sourceTree = "<group>"; };
 		7CACED3D270F179500976216 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		7CACED3F270F192200976216 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		7CB1E5C92721935500C9D8E6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 				27B352BC2704897B000CAE0E /* TimeHelperTests.swift */,
 				27B352BE2705F1D9000CAE0E /* WorkoutScreenViewModelTests.swift */,
 				7C2BDE82273C0A2500F4B429 /* ScoreboardScreenTests.swift */,
+				7C22413427469E1500A4510E /* InformationScreenTests.swift */,
+				7CA9B0292747CB4B0003E4E8 /* ExercisesScreenTests.swift */,
 			);
 			path = LetsTogetherTests;
 			sourceTree = "<group>";
@@ -651,9 +657,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				27B352BD2704897B000CAE0E /* TimeHelperTests.swift in Sources */,
+				7C22413527469E1500A4510E /* InformationScreenTests.swift in Sources */,
 				7C2BDE83273C0A2500F4B429 /* ScoreboardScreenTests.swift in Sources */,
 				7C38A5AB26EF717100A8F125 /* LetsTogetherTests.swift in Sources */,
 				27B352BF2705F1D9000CAE0E /* WorkoutScreenViewModelTests.swift in Sources */,
+				7CA9B02A2747CB4B0003E4E8 /* ExercisesScreenTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -105,8 +105,7 @@ class WorkoutVideoViewController: UIViewController {
     }
 }
 
-extension
-WorkoutVideoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension WorkoutVideoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     func captureOutput( _ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         handleSample?(sampleBuffer)

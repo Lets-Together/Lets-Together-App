@@ -8,7 +8,7 @@
 import XCTest
 @testable import LetsTogether
 
-class WorkoutScreenViewModelTests: XCTestCase {
+class WorkoutScreenTests: XCTestCase {
 
     var viewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8),
                                            timer: TimeHelper(timeToFinish: 5), exercise: Exercise())
@@ -59,6 +59,18 @@ class WorkoutScreenViewModelTests: XCTestCase {
         )
         //Then
         XCTAssertTrue(workoutScreenViewModel.timerCounting)
+    }
+
+    func test_workouScreenCamera_view() {
+        let workoutScreenViewModel = WorkoutScreenViewModel(bodyPose: BodyPoseHelper(), bodyPontuation: BodyPontuationHelper(movementName: "jumping-jack", percetage: 0.8),
+                                                            timer: TimeHelper(timeToFinish: 5), exercise: Exercise())
+        let sut = WorkoutScreenViewController(workoutViewModel: workoutScreenViewModel)
+
+        let view = sut.view as? WorkoutScreen
+
+        let controller = view?.cameraPreview
+
+        XCTAssertNotNil(controller)
     }
     
     func testPerformanceExample() throws {
