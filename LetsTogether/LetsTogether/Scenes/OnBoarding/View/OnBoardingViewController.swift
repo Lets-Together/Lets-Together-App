@@ -35,6 +35,7 @@ class OnBoardingViewController: UIViewController {
     func setupUI() {
         backgroundVideoConfig()
         contentView.startButton.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+        contentView.repeatButton.addTarget(self, action: #selector(self.repeatVideo), for: .touchUpInside)
     }
 
     @objc func buttonTapped(_ : UIButton) {
@@ -45,8 +46,8 @@ class OnBoardingViewController: UIViewController {
     }
 
     @objc func repeatVideo() {
-
-        
+        videoController.player?.seek(to: CMTime.zero)
+        videoController.player?.play()
     }
 
     func backgroundVideoConfig() {

@@ -42,10 +42,18 @@ class OnBoardingView: UIView {
     lazy var startButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(red: 1.0, green: 0.53, blue: 0.53, alpha: 1.0)
-        button.setTitle("Prosseguir", for: .normal)
+        button.setImage(UIImage(systemName: "arrowshape.turn.up.forward.fill"), for: .normal)
+        button.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
         button.layer.cornerRadius = 15
 
+        return button
+    }()
+
+    lazy var repeatButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .normal)
+        button.tintColor = UIColor.init(displayP3Red: 242/255, green: 97/255, blue: 1/255, alpha: 1)
         return button
     }()
 
@@ -62,11 +70,18 @@ class OnBoardingView: UIView {
                ])
         self.addSubview(startButton)
                 NSLayoutConstraint.activate([
-                    startButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                    startButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100),
-                    startButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.07),
-                    startButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
-                    startButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20)
+                    startButton.centerXAnchor.constraint(equalTo: self.centerXAnchor,constant: 130),
+                    startButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+                    startButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.15),
+                    startButton.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.15)
+
+                ])
+
+        self.addSubview(repeatButton)
+                NSLayoutConstraint.activate([
+                    repeatButton.centerXAnchor.constraint(equalTo: self.centerXAnchor,constant: -130),
+                    repeatButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+                    repeatButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.15),
 
                 ])
 
